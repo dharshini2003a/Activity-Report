@@ -107,7 +107,7 @@ const ACHIEVEMENTS_CARDS = [
 
 const ORATION_EVENT_2 = {
   id: "art-exhibition",
-  title: "Beyond Aravind — Joint Art Exhibition",
+  title: "Beyond Aravind — Joint  Exhibition",
   description: "In remembrance of artists Perumal Da and Manohar Devadoss, whose birthdays fall on 7th August and 10th September respectively, Aravind has been celebrating their legacies through exhibitions under the theme “Art that Inspires.” The exhibition organised at Aravind-Madurai on 12-16 August 2025 engaged schoolchildren, college students, and the public, encouraging them to appreciate artworks that honour Madurai's notable monuments and capture the beauty of nature.",
   photos: [
     { id: 1, image: "Edit_2025_8_Art Exhibition_Perumalda&Manohar (8) copy.webp", fallbackBg: "#0d2d3a", caption: "Ariaravelan inaugurating the art exhibition of Perumal Da and Manohar Devadoss" },
