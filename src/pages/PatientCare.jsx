@@ -1339,9 +1339,7 @@ export default function PatientCare() {
         <div className="pc-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
-          <div className="pc-hero-tag">
-           
-          </div>
+          <div className="pc-hero-tag"></div>
           <h1 className="pc-hero-title">Patient<span className="pc-hero-gold"> Care</span></h1>
           <p className="pc-hero-desc">
 Responding to the growing eye care needs of patients across all its centres has led to the steady expansion of hospitals and service areas year after year, carrying the noble burden of Dr. V., who once said, “I was not condescending to do something good for them (people), as though I were a superior being. Rather, I felt a part of me was suffering with them.” As partners in Dr. V’s mission, doctors, AOPs, and staff at every level contribute their best to delivering quality and effective services, ensuring that no one suffers from needless blindness. Aravind continues to bridge the gap between the availability of services and those who need them most.          </p>

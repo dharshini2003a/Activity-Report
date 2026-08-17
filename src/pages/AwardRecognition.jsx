@@ -226,9 +226,7 @@ export default function AwardRecognition() {
         <div className="aw-hero-content">
           <div className="aw-hero-tag">
           </div>
-          <h1 className="aw-hero-title">
-            Recognitions <span className="aw-hero-gold">and awards</span>
-          </h1>
+          <h1 className="pc-hero-title">Recognitions<span className="pc-hero-gold"> and awards</span></h1>
           <p className="aw-hero-desc">
         A wide range of awards and honours were bestowed upon Aravind members, recognising their dedication to their work and service to the community, in keeping with the footsteps of Dr. V. While these achievements were never pursued for awards or recognition, the honours serve as a reminder and motivation to reach more people and work towards a better world, one free from avoidable blindness.          </p>
         </div>
@@ -237,8 +235,8 @@ export default function AwardRecognition() {
       {/* ══ SECTION: RECOGNITIONS ══ */}
       <section className="aw-section" id="recognitions">
         <div className="aw-section-inner">
-          <h2 className="aw-section-title">
-            Honours and recognitions <span className="aw-gold"></span>
+          <h2 className="pc-section-title">
+           Honours  <span className="pc-gold">and recognitions</span>
           </h2>
           <div className="aw-grid">
             {RECOGNITION_CARDS.map((card, i) => (

@@ -134,10 +134,10 @@
 
 .aw-section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 2.8vw, 2.3rem) !important;
+  font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
   font-weight: 800;
   color: #000;
-  margin: 0 0 10px !important;
+  margin: 0 0 20px !important;
   line-height: 1.2;
 }
 
