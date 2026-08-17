@@ -1,0 +1,467 @@
+/* ============================================================
+   awardsrecognition.css — self-contained stylesheet for
+   AwardsRecognition.jsx. Matches the site's shared visual
+   language (navy #0d1f35 / gold #c8921a, Playfair Display +
+   PT Sans) but kept fully separate from employeeempowerment.css
+   and patientcare.css, as requested.
+   
+   UPDATED: Flexible image heights using aspect-ratio property
+   to prevent image cropping while maintaining visual consistency.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Sans:wght@400;700&display=swap');
+
+*, *::before, *::after {
+     box-sizing: border-box;
+   }
+
+/* ── Page ── */
+.aw-page {
+  background: #f4f6f9;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.aw-page,
+.aw-page * {
+  box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.aw-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  width: 100%;
+}
+
+.aw-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0d1f35;
+  transform: scale(1.02);
+}
+
+.aw-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(5, 15, 40, 0.92) 0%,
+    rgba(5, 15, 40, 0.78) 45%,
+    rgba(5, 15, 40, 0.35) 100%
+  );
+}
+
+.aw-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 100px 64px 56px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.aw-hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #c8921a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.aw-hero-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #c8921a;
+  flex-shrink: 0;
+}
+
+.aw-hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 22px;
+}
+
+.aw-hero-gold { color: #c8921a; }
+
+.aw-hero-desc {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 560px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+}
+
+/* ══════════════════════════════════════
+   SECTION SHELL
+══════════════════════════════════════ */
+.aw-section { padding: 24px 0 !important; }
+
+.aw-section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.aw-section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c8921a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.aw-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem) !important;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 10px !important;
+  line-height: 1.2;
+}
+
+.aw-gold { color: #c8921a; }
+
+/* ══════════════════════════════════════
+   RECOGNITIONS GRID — 3 cards per row
+   All cards are uniform size with fixed image height
+   All content sizes are equal and consistent
+══════════════════════════════════════ */
+.aw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.aw-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(13, 31, 53, 0.08);
+  border: 1px solid rgba(13, 31, 53, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+}
+
+.aw-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(13, 31, 53, 0.14);
+}
+
+/* 
+  IMAGE CONTAINER - FIXED SIZE
+  All image containers are exactly 220px height
+  Images crop to center using object-fit: cover
+  This ensures all cards look uniform and professional
+*/
+.aw-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: #eef1f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aw-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.aw-card:hover .aw-card-img { transform: scale(1.05); }
+
+.aw-card-num {
+  display: none;
+}
+
+.aw-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 31, 53, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.aw-card-img-wrap:hover .aw-card-overlay { opacity: 1; }
+
+.aw-card-zoom {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.7);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Card body — flex-grow so equal-height rows keep footers aligned */
+.aw-card-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.aw-card-title {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.45;
+  margin: 0 0 6px;
+}
+
+.aw-card-meta {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #c8921a;
+  letter-spacing: 0.3px;
+  margin: 0 0 12px;
+}
+
+.aw-card-desc-short,
+.aw-card-desc-full {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+
+.aw-card-desc-short { margin-bottom: 4px; }
+
+.aw-readmore-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0d1f35;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.aw-readmore-btn:hover { color: #c8921a; }
+
+/* ══════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════ */
+.aw-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 25, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 32px;
+}
+
+.aw-lightbox-box {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: #0d1f35;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.aw-lightbox-img-wrap {
+  width: 100%;
+  max-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #08111f;
+}
+
+.aw-lightbox-img { width: 100%; height: auto; max-height: 72vh; object-fit: contain; }
+
+.aw-lightbox-caption {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 14px 8px 4px;
+  margin: 0;
+}
+
+.aw-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.aw-lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .aw-grid { grid-template-columns: repeat(2, 1fr); }
+  .aw-hero-content { padding: 80px 36px 48px; max-width: 100%; }
+  .aw-section-inner { padding: 0 32px; }
+}
+
+@media (max-width: 560px) {
+  .aw-grid { grid-template-columns: 1fr; }
+  .aw-hero { min-height: 60vh; }
+  .aw-hero-content { padding: 70px 20px 36px; }
+  .aw-hero-overlay { background: rgba(5, 15, 40, 0.85); }
+  .aw-hero-title { font-size: 2.1rem; }
+  .aw-section-inner { padding: 0 18px; }
+  .aw-section { padding: 40px 0; }
+}
+
+@media (min-width: 1440px) {
+  .aw-hero-content { padding: 120px 80px 72px; max-width: 780px; }
+  .aw-section-inner { max-width: 1400px; padding: 0 64px; }
+}
+
+/* ══════════════════════════════════════
+   PAGE NAVIGATION + "MORE DETAILS" LINE
+   (same style as the rest of the site — PatientCare/Education/Highlights)
+══════════════════════════════════════ */
+.aw-more-details {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 52px 6px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  text-align: right;
+}
+
+.aw-more-details a {
+  color: #c8921a;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,146,26,0.5);
+}
+
+.aw-more-details a:hover { border-bottom-color: #c8921a; }
+
+.aw-page-nav {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border-top: 1px solid #e8e2d0;
+  background: #faf8f3;
+  padding: 16px 24px;
+  gap: 16px;
+}
+
+.aw-page-nav-link {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  text-decoration: none;
+  color: #0d1f35;
+  background: #ffffff;
+  border: 1.5px solid #0d1f35;
+  border-radius: 6px;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+.aw-page-nav-link:hover {
+  background: #0d1f35;
+  border-color: #0d1f35;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13,31,53,0.20);
+}
+
+.aw-page-nav-link:hover .aw-page-nav-title,
+.aw-page-nav-link:hover .aw-page-nav-label {
+  color: #c8921a;
+}
+
+.aw-page-nav-link-next {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.aw-page-nav-label {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #c8921a;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+
+.aw-page-nav-title {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0d1f35;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+
+@media (max-width: 640px) {
+  .aw-more-details { padding: 14px 20px 4px; font-size: 12.5px; }
+  .aw-page-nav { padding: 12px 16px; gap: 10px; }
+  .aw-page-nav-link { flex-direction: column; align-items: flex-start; padding: 10px 16px; }
+  .aw-page-nav-link-next { align-items: flex-end; }
+  .aw-page-nav-title { font-size: 13px; }
+}

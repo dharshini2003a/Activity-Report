@@ -1,0 +1,277 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fb;
+  padding-top: 54px;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  color: #333333;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ── HERO SECTION WRAPPER ── */
+.hero-section {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── WATERMARK — faint "IMPACT 25-26" in background ── */
+.bg-watermark {
+  position: absolute;
+  font-size: 12vw;
+  color: rgba(0, 91, 159, 0.03);
+  font-weight: 900;
+  z-index: 0;
+  top: 15%;
+  left: 0;
+  letter-spacing: 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── HERO INNER — two-column layout ── */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── LEFT COLUMN — card side ── */
+.hero-card-col {
+  flex: 0 0 42%;
+  max-width: 42%;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ── RIGHT COLUMN — image side ── */
+.hero-image-col {
+  flex: 0 0 58%;
+  max-width: 58%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+/* ── WHITE CARD ── */
+.neat-card {
+  background: white;
+  padding: 52px 54px;
+  border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.07);
+  position: relative;
+  margin-left: 48px;
+  margin-right: 0;
+  max-width: 520px;
+  width: 100%;
+}
+
+/* Year label — blue, small, uppercase */
+.hero-year-label {
+  color: #005b9f;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 12px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* Main headline */
+.hero-title {
+  color: #2c3e50;
+  font-family: 'PT Serif', Georgia, serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 12px 0 8px;
+}
+
+/* System name + list block */
+.hero-list-block {
+  margin: 4px 0 20px;
+}
+
+.hero-system-name {
+  color: #2c3e50;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Bullet list */
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.9;
+}
+
+.hero-list li {
+  color: #666;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.hero-bullet {
+  color: #005b9f;
+  font-weight: bold;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.hero-sub {
+  font-size: 0.95em;
+  color: #888;
+  margin-left: 4px;
+}
+
+/* ── CTA BUTTON ── */
+.btn-primary-custom {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #005b9f;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 2px solid #005b9f;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+  background-color: transparent;
+  color: #005b9f;
+}
+
+/* ── HERO IMAGE — rounded left side only ── */
+.hero-image {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+  display: block;
+  animation: heroFadeIn 0.5s ease forwards;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+
+/* Medium screens */
+@media (max-width: 991px) {
+  .hero-inner {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  .hero-card-col,
+  .hero-image-col {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  .neat-card {
+    margin: 20px 20px 0 20px;
+    max-width: 100%;
+    padding: 36px 28px;
+  }
+  .hero-image {
+    border-radius: 0;
+    height: 55vw;
+    min-height: 280px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .hero-section { min-height: auto; padding-bottom: 24px; }
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  body { padding-top: 54px; }
+  .hero-section {
+    padding-bottom: 24px;
+    min-height: auto;
+  }
+  .hero-inner { padding: 0 16px; }
+  .hero-image-col {
+    width: 100%;
+    padding: 0;
+  }
+  .neat-card {
+    margin: 16px 0 0;
+    padding: 26px 20px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  .hero-year-label { font-size: 14px; }
+  .hero-title { font-size: 1.6rem; margin: 10px 0 6px; }
+  .hero-system-name { font-size: 1rem; }
+  .hero-list li { font-size: 0.95rem; }
+  .hero-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 0;
+  }
+  .btn-primary-custom {
+    display: block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: 1.4rem; }
+  .neat-card { padding: 22px 16px; }
+  .hero-image { height: 190px; }
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+  .hero-title { font-size: 2.8rem !important; }
+  .neat-card { max-width: 540px; }
+}
+@media (min-width: 1440px) {
+  .neat-card { padding: 52px 56px !important; max-width: 560px !important; margin-left: 60px !important; }
+  .hero-title { font-size: 3rem !important; }
+  .hero-image { height: 84vh !important; }
+}
+@media (min-width: 1600px) {
+  .neat-card { padding: 60px 68px !important; max-width: 640px !important; margin-left: 80px !important; }
+  .hero-title { font-size: 3.5rem !important; }
+}
+@media (min-width: 1920px) {
+  .neat-card { padding: 72px 80px !important; max-width: 760px !important; margin-left: 100px !important; }
+  .hero-title { font-size: 4.2rem !important; }
+  .hero-image { height: 88vh !important; }
+  .hero-section { min-height: 92vh !important; }
+}
