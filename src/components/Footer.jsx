@@ -1,8 +1,8 @@
 // ============================================================
-  //  Footer.jsx  —  Site Footer (Dark Navy Theme)
-  //  Used on: ALL pages — just import <Footer /> anywhere
-  //  Two columns: Contact Info | Reach Us links
-  // ============================================================
+//  Footer.jsx  —  Site Footer (Dark Navy Theme)
+//  Used on: ALL pages — just import <Footer /> anywhere
+//  Two columns: Contact Info | Reach Us links
+// ============================================================
 
 import "../styles/footer.css";
 
@@ -21,31 +21,15 @@ export default function Footer() {
       <div className="site-footer-dark-inner">
 
         {/* ── LEFT: Contact Information ── */}
-        <div className="sfd-col">
-          <div className="sfd-col-title">Contact Information</div>
+        <div className="sfd-col sfd-col-contact">
+          <div className="sfd-col-title">Mail Id</div>
           <div className="sfd-divider" />
 
-          {/* Address */}
-          <div className="sfd-contact-item">
-            <i className="fa-solid fa-location-dot" aria-hidden="true" />
-            <div>
-              <strong>Aravind Eye Hospital</strong>
-              1, Anna Nagar, Madurai, Tamil Nadu – 625 020, India
-            </div>
-          </div>
-
-          {/* Email */}
           <div className="sfd-contact-item">
             <i className="fa-solid fa-envelope" aria-hidden="true" />
             <div>
               <a href="mailto:communications@aravind.org">communications@aravind.org</a>
             </div>
-          </div>
-
-          {/* Phone */}
-          <div className="sfd-contact-item">
-            <i className="fa-solid fa-phone" aria-hidden="true" />
-            <div>+91 452 435 6105</div>
           </div>
         </div>
 

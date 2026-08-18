@@ -44,8 +44,8 @@ const EXPANSION_CARDS = [
 ══════════════════════════════════════ */
 const JUBILEE_GALLERY = [
   { id: 1, image: "Edit Aravind - Madurai - Golden Jubilee Logo unveiling and tree plantation (9) copy.webp", fallbackBg: "#0d1f35", caption: "Dr. Usha Kim launching the Golden Jublee celebration logo at Aravind-Madurai" },
-  { id: 2, image: "50 th_Final_Logo_2025.PNG.webp", fallbackBg: "#1a2d0d", contain: true, caption: "Jubilee celebration logo designed by Dr. Gokul Vasanth" },
-  { id: 3, image: "MDU_7697.webp", fallbackBg: "#2d1a0d", caption: "Staff participation in a Jubilee celebration at Aravind Madurai" },
+  { id: 2, image: "50 th_Final_Logo_2025.PNG.webp", fallbackBg: "#1a2d0d", contain: true, caption: "Jubilee celebration logo designed by Dr. Gokul Vasanth, Aravind-Pondicherry"},
+  { id: 3, image: "MDU_7697.webp", fallbackBg: "#2d1a0d", caption: "Staff participation in a Jubilee celebration at LAICO" },
   { id: 4, image: "AMRF.webp", fallbackBg: "#0d2d3a", caption: "Golden Jubilee activity at AMRF" },
   { id: 5, image: "Aurolab 01.webp", fallbackBg: "#0d2d3a", caption: "Golden Jubilee activity at Aurolab" },
   { id: 6, image: "Chennai 003 (2).webp", fallbackBg: "#0d2d3a", caption: "Golden Jubilee activity at Aravind-Chennai" },

@@ -15,8 +15,8 @@ const SYSTEM_ITEMS = [
   { label: "Ophthalmic Supplies and Equipment",sub: "Aurolab" },
   { label: "Information Technology",           sub: "Auroitech" },
   { label: "Employee Empowerment",           sub: null },
-  { label: "Innovation",           sub: null },
-  { label: "Recognitions & awards",           sub: null },
+  { label: "Innovations",           sub: null },
+  { label: "Recognitions & Awards",           sub: null },
 
 
   
