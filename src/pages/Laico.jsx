@@ -133,8 +133,8 @@ const CONSULTATION_WORKSHOP_CARDS = [
     title: "Workshop on Influencing Change",
     description: "As part of the October events, an internal workshop on Influencing Change was organised at LAICO, led by Colin Williams (UK), held on 30th September 2025, an experienced leadership and management consultant. Participants shared experiences about managing change, engaged in mutual learning by discussing challenges and successes, and identified specific steps to implement back at work. A total of 33 participants, including Managers, Doctors, and AOPs from all Aravind centres, attended the programme.",
     photos: [
-      { id: 1, image: "2025_10_October summit_Influncing workshop (2).webp", fallbackBg: "#0d1f35", caption: "Workshop on Influencing Change, led by Colin Williams (UK) — 30th September 2025" },
-      { id: 2, image: "2025_10_October summit_Influncing workshop (3).webp", fallbackBg: "#0d1f35", caption: "Managers, Doctors, and AOPs from all Aravind centres participating in the workshop" },
+      { id: 1, image: "2025_10_October summit_Influncing workshop (3).webp", fallbackBg: "#0d1f35", caption: "Workshop on Influencing Change, led by Colin Williams (UK) — 30th September 2025" },
+      { id: 2, image: "Photos Image Working AR copy.webp", fallbackBg: "#0d1f35", caption: "Managers, Doctors, and AOPs from all Aravind centres participating in the workshop" },
     ],
   },
   {
