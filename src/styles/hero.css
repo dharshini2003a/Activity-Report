@@ -1,13 +1,11 @@
-
-
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #f8f9fb;
+  background-color: #f4f6f9;
   padding-top: 54px;
   font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
   font-size: 17px;
@@ -16,106 +14,150 @@ body {
   margin: 0;
 }
 
-/* ── HERO SECTION WRAPPER ── */
+/* ══════════════════════════════════════
+   HERO SECTION
+   ══════════════════════════════════════ */
 .hero-section {
   position: relative;
   min-height: 88vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-}
-
-/* ── WATERMARK — faint "IMPACT 25-26" in background ── */
-.bg-watermark {
-  position: absolute;
-  font-size: 12vw;
-  color: rgba(0, 91, 159, 0.03);
-  font-weight: 900;
-  z-index: 0;
-  top: 15%;
-  left: 0;
-  letter-spacing: 10px;
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* ── HERO INNER — two-column layout ── */
-.hero-inner {
-  display: flex;
-  align-items: center;
   width: 100%;
-  position: relative;
+}
+
+/* Background Image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  transform: scale(1.02);
+  z-index: 0;
+}
+
+/* Gradient Overlay - Dark left to lighter right */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(13, 31, 53, 0.95) 0%,
+    rgba(13, 31, 53, 0.88) 40%,
+    rgba(13, 31, 53, 0.65) 75%,
+    rgba(13, 31, 53, 0.35) 100%
+  );
   z-index: 1;
 }
 
-/* ── LEFT COLUMN — card side ── */
-.hero-card-col {
-  flex: 0 0 42%;
-  max-width: 42%;
-  padding-right: 0;
-  display: flex;
-  align-items: center;
-}
-
-/* ── RIGHT COLUMN — image side ── */
-.hero-image-col {
-  flex: 0 0 58%;
-  max-width: 58%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-}
-
-/* ── WHITE CARD ── */
-.neat-card {
-  background: white;
-  padding: 52px 54px;
-  border-radius: 14px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.07);
+/* Content Container - Simple left-aligned */
+.hero-content {
   position: relative;
-  margin-left: 48px;
-  margin-right: 0;
-  max-width: 520px;
+  z-index: 2;
+  padding: 100px 64px 56px;
+  max-width: 700px;
   width: 100%;
 }
 
-/* Year label — blue, small, uppercase */
-.hero-year-label {
-  color: #005b9f;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 17px;
-  margin-bottom: 12px;
+/* Year Tag */
+.hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: 'PT Sans', sans-serif;
-}
-
-/* Main headline */
-.hero-title {
-  color: #2c3e50;
-  font-family: 'PT Serif', Georgia, serif;
+  font-size: 11px;
   font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 1.15;
-  margin: 12px 0 8px;
+  color: #c8921a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
-/* System name + list block */
+.hero-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #c8921a;
+  flex-shrink: 0;
+}
+
+/* Main Title */
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin: 12px 0 22px;
+}
+
+.hero-gold {
+  color: #c8921a;
+}
+
+/* Description */
+.hero-desc {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.8;
+  margin: 0 0 36px;
+  max-width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Statistics Grid */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 32px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* System Name + List Block */
 .hero-list-block {
   margin: 4px 0 20px;
 }
 
 .hero-system-name {
-  color: #2c3e50;
+  color: #fff;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
-/* Bullet list */
+/* Bullet List */
 .hero-list {
   list-style: none;
   padding: 0;
@@ -124,154 +166,186 @@ body {
 }
 
 .hero-list li {
-  color: #666;
+  color: rgba(255, 255, 255, 0.78);
   font-family: 'PT Sans', sans-serif;
   font-size: 1.05rem;
   display: flex;
   align-items: baseline;
-  gap: 0;
+  gap: 8px;
 }
 
 .hero-bullet {
-  color: #005b9f;
+  color: #c8921a;
   font-weight: bold;
-  margin-right: 10px;
+  margin-right: 4px;
   flex-shrink: 0;
 }
 
 .hero-sub {
   font-size: 0.95em;
-  color: #888;
+  color: #c8921a;
   margin-left: 4px;
 }
 
-/* ── CTA BUTTON ── */
-.btn-primary-custom {
+/* CTA Button */
+.hero-btn-primary {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
-  background-color: #005b9f;
+  padding: 14px 40px;
+  background-color: #c8921a;
   color: white;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   font-size: 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   text-decoration: none;
-  border: 2px solid #005b9f;
+  border: 2px solid #c8921a;
   transition: all 0.3s ease;
   cursor: pointer;
+  margin-top: 20px;
 }
 
-.btn-primary-custom:hover {
+.hero-btn-primary:hover {
   background-color: transparent;
-  color: #005b9f;
-}
-
-/* ── HERO IMAGE — rounded left side only ── */
-.hero-image {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 0;
-  display: block;
-  animation: heroFadeIn 0.5s ease forwards;
-}
-
-@keyframes heroFadeIn {
-  from { opacity: 0.5; }
-  to   { opacity: 1; }
+  color: #c8921a;
 }
 
 /* ══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ══════════════════════════════════════ */
 
-/* Medium screens */
-@media (max-width: 991px) {
-  .hero-inner {
-    flex-direction: column;
-    padding: 20px 0;
+/* Tablets & Medium Screens */
+@media (max-width: 1200px) {
+  .hero-content {
+    padding: 80px 48px 50px;
+    max-width: 600px;
   }
-  .hero-card-col,
-  .hero-image-col {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
+
+  .hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
   }
-  .neat-card {
-    margin: 20px 20px 0 20px;
-    max-width: 100%;
-    padding: 36px 28px;
+
+  .hero-list li {
+    font-size: 1rem;
   }
-  .hero-image {
-    border-radius: 0;
-    height: 55vw;
-    min-height: 280px;
-    width: 100%;
-    object-fit: cover;
-  }
-  .hero-section { min-height: auto; padding-bottom: 24px; }
 }
 
-/* Small screens */
-@media (max-width: 600px) {
-  body { padding-top: 54px; }
+/* Tablets */
+@media (max-width: 991px) {
   .hero-section {
-    padding-bottom: 24px;
-    min-height: auto;
+    min-height: 75vh;
   }
-  .hero-inner { padding: 0 16px; }
-  .hero-image-col {
-    width: 100%;
-    padding: 0;
+
+  .hero-content {
+    padding: 60px 48px 40px;
+    max-width: 600px;
   }
-  .neat-card {
-    margin: 16px 0 0;
-    padding: 26px 20px;
+
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+  }
+
+  .hero-list li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 54px;
+  }
+
+  .hero-section {
+    min-height: 70vh;
+  }
+
+  .hero-content {
+    padding: 40px 24px 30px;
     max-width: 100%;
-    border-radius: 12px;
   }
-  .hero-year-label { font-size: 14px; }
-  .hero-title { font-size: 1.6rem; margin: 10px 0 6px; }
-  .hero-system-name { font-size: 1rem; }
-  .hero-list li { font-size: 0.95rem; }
-  .hero-image {
+
+  .hero-tag {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin: 8px 0 16px;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .hero-system-name {
+    font-size: 1rem;
+  }
+
+  .hero-list li {
+    font-size: 0.9rem;
+  }
+
+  .hero-btn-primary {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 32px 16px 24px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    margin: 8px 0 14px;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .hero-system-name {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-list li {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .hero-btn-primary {
+    padding: 11px 28px;
+    font-size: 13px;
     width: 100%;
-    height: 220px;
-    border-radius: 0;
-  }
-  .btn-primary-custom {
-    display: block;
     text-align: center;
-    width: 100%;
     box-sizing: border-box;
   }
 }
 
-@media (max-width: 380px) {
-  .hero-title { font-size: 1.4rem; }
-  .neat-card { padding: 22px 16px; }
-  .hero-image { height: 190px; }
-}
+/* Large Desktops */
+@media (min-width: 1400px) {
+  .hero-content {
+    padding: 120px 100px 60px;
+    max-width: 750px;
+  }
 
-/* Large desktops */
-@media (min-width: 1280px) {
-  .hero-title { font-size: 2.8rem !important; }
-  .neat-card { max-width: 540px; }
-}
-@media (min-width: 1440px) {
-  .neat-card { padding: 52px 56px !important; max-width: 560px !important; margin-left: 60px !important; }
-  .hero-title { font-size: 3rem !important; }
-  .hero-image { height: 84vh !important; }
-}
-@media (min-width: 1600px) {
-  .neat-card { padding: 60px 68px !important; max-width: 640px !important; margin-left: 80px !important; }
-  .hero-title { font-size: 3.5rem !important; }
-}
-@media (min-width: 1920px) {
-  .neat-card { padding: 72px 80px !important; max-width: 760px !important; margin-left: 100px !important; }
-  .hero-title { font-size: 4.2rem !important; }
-  .hero-image { height: 88vh !important; }
-  .hero-section { min-height: 92vh !important; }
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-system-name {
+    font-size: 1.15rem;
+  }
 }

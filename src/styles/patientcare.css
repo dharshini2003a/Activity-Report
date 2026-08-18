@@ -969,8 +969,7 @@
   font-family: 'PT Sans', sans-serif;
   font-size: 13.5px; color: #4a5568;
   line-height: 1.75;
-  border-top: 1px solid #f0f0f0;
-  padding-top: 12px; margin: 0;
+  margin: 0;
 }
 
 /* ── Dot indicators ── */
@@ -1041,8 +1040,6 @@
   font-size: 13.5px !important;
   line-height: 1.78 !important;
   text-align: left;
-  border-top: 1px solid #f0f0f0;
-  padding-top: 12px;
   margin: 0;
 }
 
@@ -1646,7 +1643,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.carousel-card-body { padding: 16px 20px 14px; gap: 8px; }
+.carousel-card-body { padding: 16px 20px 14px; gap: 4px; }
 .carousel-card-img-wrap { height: 150px; }
 .carousel-stats-grid { gap: 6px; }
 .proj-stat-box { padding: 10px 12px; gap: 1px; }
@@ -1674,16 +1671,17 @@
 /* ── Eye Bank Statistics table ── */
 .pc-stats-table-wrap {
   overflow-x: auto;
-  margin: 16px 0 8px;
+  margin: 16px auto 8px;
   border: 1px solid #e3d9c2;
   border-radius: 8px;
+  max-width: 720px;
 }
 .pc-stats-table {
   width: 100%;
   border-collapse: collapse;
   font-family: 'PT Sans', sans-serif;
   font-size: 14.5px;
-  min-width: 480px;
+  min-width: 420px;
 }
 .pc-stats-table caption {
   caption-side: top;
@@ -1715,6 +1713,12 @@
   color: #0d1f35;
   background: #f3ead4;
   border-top: 2px solid #c8921a;
+}
+
+/* Numbers (Eyes Collected / Utilised / Sent) centred; Centre name stays left */
+.pc-stats-table th:not(:first-child),
+.pc-stats-table td:not(:first-child) {
+  text-align: center;
 }
 
 /* ── Bottom page-to-page navigation (kept light/simple, distinct from main navbar) ── */

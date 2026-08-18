@@ -138,12 +138,12 @@ const OUTREACH_CARDS = [
     id: 3,
     image: "2025_10_MDU_Sponsors Day (33).webp",
     fallbackBg: "#2d1a0d",
-    title: "Sponsors' Day 2025–2026",
+    title: "Sponsors' Day at Aravind Eye Hospitals",
     short: "Five Sponsors' Day programmes held at Tirunelveli, Madurai, Chennai, Tirupati, and Coimbatore between August 2025 and January 2026.",
     full: "A total of five Sponsors' Day programmes were organised at Aravind Eye Hospitals in Tirunelveli, Madurai, Chennai, Tirupati, and Coimbatore on 31st August 2025, 9th October 2025, 11th October 2025, 6th December 2025, and 4th January 2026, respectively. These events served as a heartfelt expression of gratitude to the many generous donors and well-wishers who continue to support Aravind's mission. The programmes featured detailed presentations showcasing the hospital's achievements, patient care statistics, community outreach initiatives, and success stories from the past year. Representatives from several social organisations and volunteers were felicitated for their commendable service in the field of eye care.",
     photos: [
-      { id: 1, image: "2025_8_TVL_Sponsors Day (13).webp", fallbackBg: "#1a2d0d", caption: "Sponsors' Day — Tirunelveli, " },
-      { id: 2, image: "2025_8_TVL_Sponsors Day (15).webp", fallbackBg: "#2d1a0d", caption: "Sponsors' Day — Coimbatore, " },
+      { id: 1, image: "2025_8_TVL_Sponsors Day (13).webp", fallbackBg: "#1a2d0d", caption: "Sponsors' Day — Aravind-Tirunelveli, 31st August 2025" },
+      { id: 2, image: "2025_8_TVL_Sponsors Day (15).webp", fallbackBg: "#2d1a0d", caption: "Sponsors' Day —  Aravind-Coimbatore, 4th January 2026" },
       
     ],
   },
@@ -151,9 +151,9 @@ const OUTREACH_CARDS = [
 
 /* Vision Centers Inaugurated Photos — 2025-26 */
 const VC_INAUGURAL_PHOTOS = [
-  { id: 1, image: "2025_9_VC_ Pallathur_ Inauguration (2) copy.webp",        fallbackBg: "#0d2240", caption: "Inauguration of Vision Centre at Pallathur — Aravind-Madurai, 12th September 2025" },
-  { id: 2, image: "2025_6_MDU_Lakshmi Vision Centre_Inau (6).webp",  fallbackBg: "#1a2d0d", caption: "Inauguration of Vision Centre at Lakshmi Hospital (TVS Group), Madurai — 25th June 2025" },
-  { id: 3, image: "2026_1_TVL_Sengottai VC inauguration (7) copy.webp",       fallbackBg: "#2d1a0d", caption: "Inauguration of Vision Centre at Shengottai — Aravind-Tirunelveli, 23rd January 2026" },
+  { id: 1, image: "2025_9_VC_ Pallathur_ Inauguration (2) copy.webp",fallbackBg: "#0d2240", caption: "Inauguration of Vision Centre at Pallathur — Aravind-Madurai, 12th September 2025" },
+  { id: 2, image: "2025_6_MDU_Lakshmi Vision Centre_Inau (6).webp", fallbackBg: "#1a2d0d", caption: "Inauguration of Vision Centre at Lakshmi Hospital (TVS Group), Madurai — 25th June 2025" },
+  { id: 3, image: "2026_1_TVL_Sengottai VC inauguration (15).webp", fallbackBg: "#2d1a0d", caption: "Inauguration of Vision Centre at Shengottai — Aravind-Tirunelveli, 23rd January 2026" },
 ];
 
 /* Vision Center Events — 2025-26 */
@@ -198,10 +198,10 @@ const AIEBS_HIGHLIGHT_PHOTOS = [
 
 /* National Eye Donation Fortnight Photos — 2025-26 */
 const EYE_DONATION_FORTNIGHT_PHOTOS = [
-  { id: 1, image: "2025_9_Tutricorn_Eye Donation Awareness Rally (4).webp", fallbackBg: "#0d2240", caption: "National Eye Donation Fortnight observed across Aravind centres — Aravind-Tuticorin" },
-  { id: 2, image: "2025_9_TVL_40th Eye Donation Fortnight (3).webp",       fallbackBg: "#1a2d0d", caption: "National Eye Donation Fortnight observed across Aravind centres — Aravind-Tirunelveli" },
-  { id: 3, image: "2025_9_TPT_Eyedonationfortnight (3).webp",  fallbackBg: "#2d1a0d", caption: "National Eye Donation Fortnight observed across Aravind centres — Aravind-Tirupathi" },
-  { id: 4, image: "2025_8_MDU_Eye Donation Fortnight (11).webp",       fallbackBg: "#1a1a2d", caption: "National Eye Donation Fortnight observed across Aravind centres — Aravind-Madurai" },
+  { id: 1, image: "2025_9_Tutricorn_Eye Donation Awareness Rally (4).webp",fallbackBg: "#0d2240", caption: "National Eye Donation Fortnight — Aravind-Tuticorin" },
+  { id: 2, image: "2025_9_TVL_40th Eye Donation Fortnight (3).webp",fallbackBg: "#1a2d0d", caption: "National Eye Donation Fortnight — Aravind-Tirunelveli" },
+  { id: 3, image: "2025_9_TPT_Eyedonationfortnight (3).webp", fallbackBg: "#2d1a0d", caption: "National Eye Donation Fortnight — Aravind-Tirupathi" },
+  { id: 4, image: "2025_8_MDU_Eye Donation Fortnight (11).webp",fallbackBg: "#1a1a2d", caption: "National Eye Donation Fortnight — Aravind-Madurai" },
 ];
 
 const PROJECTS_DATA = [
@@ -1293,12 +1293,13 @@ function VisionCenterEventCard({ card, isActive, isOpen, onToggle, onCardClick }
       className={`carousel-card${isActive ? " carousel-card-active" : ""}`}
       onClick={!isActive ? onCardClick : undefined}
     >
-      <div className="carousel-card-img-wrap" style={{ background: card.fallbackBg, padding: "18px 22px 14px", display: "flex", alignItems: "center", gap: "12px" }}>
+      <div className="carousel-card-img-wrap" style={{ background: card.fallbackBg, padding: "18px 22px 14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
         <h3 style={{
           fontFamily: "'PT Sans', sans-serif",
           fontSize: 14, fontWeight: 700,
           color: "#ffffff", margin: 0,
           textTransform: "uppercase", letterSpacing: "0.4px",
+          textAlign: "center",
         }}>{card.title}</h3>
       </div>
 
