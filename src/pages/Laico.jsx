@@ -44,10 +44,14 @@ const KCP_TEXT = [
   "As part of building a strong network and perspective, 13 representatives from the above-listed partner institutions attended the 'Management Priorities in Eye Care Delivery (Head's Course)' training at LAICO in January 2026. Further, a mid-term partners' meeting was held at LAICO, Madurai, following the training, revisiting the goals and strategies of the individual partners.",
 ];
 
-/* Single photo shown below the KCP text, under a divider line.
-   Replace `image` with the actual filename once available. */
+/* Photos shown below the KCP text, under a divider line — rendered as an
+   arrow + dot carousel (same format as the Awareness/outreach photo
+   carousels). Replace `image` with the actual filenames once available. */
 const KCP_PHOTO = [
   { id: 1, image: "KCP Photos 1.webp", fallbackBg: "#0d2240", caption: "Launch of the Kenya Cataract Programme (KCP) — Nairobi, 6–7 July 2025" },
+  { id: 2, image: "KCP Photos 3.webp", fallbackBg: "#1a2d0d", caption: "Launch of the Kenya Cataract Programme (KCP) " },
+  { id: 3, image: "KCP Photos 2.webp", fallbackBg: "#2b3e1e", caption: "Launch of the Kenya Cataract Programme (KCP) " },
+
 ];
 
 /* ── Mentoring — Other Mentoring Events ──
@@ -289,6 +293,118 @@ function InitiativeCard({ card, isOpen, onToggle }) {
   );
 }
 
+/* ══════════════════════════════════════════════════════════════
+   OTHER MENTORING EVENTS — CAROUSEL (same format as PatientCare's
+   "Initiatives to Improve Eye Care Service Delivery" section:
+   colored-header cards in an arrow + dot carousel)
+══════════════════════════════════════════════════════════════ */
+function OtherMentoringCarouselSection() {
+  const [current,  setCurrent]  = useState(0);
+  const [openCard, setOpenCard] = useState(null);
+  const trackRef = useRef(null);
+  const total    = OTHER_MENTORING_EVENTS.length;
+
+  const scrollTo = (idx) => {
+    setCurrent(idx);
+    if (trackRef.current) {
+      const card = trackRef.current.children[idx];
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  };
+
+  const prev = () => scrollTo((current - 1 + total) % total);
+  const next = () => scrollTo((current + 1) % total);
+
+  const handleToggle = (id) => {
+    setOpenCard(prev => prev === id ? null : id);
+  };
+
+  return (
+    <div className="carousel-wrap">
+      <div className="carousel-track-wrap">
+        <button className="carousel-arrow carousel-arrow-left"
+          onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">&#8592;</button>
+
+        <div className="carousel-track" ref={trackRef}>
+          {OTHER_MENTORING_EVENTS.map((event, i) => (
+            <OtherMentoringCarouselCard
+              key={event.id}
+              card={event}
+              index={i}
+              isActive={current === i}
+              isOpen={openCard === event.id}
+              onToggle={() => handleToggle(event.id)}
+              onCardClick={() => scrollTo(i)}
+            />
+          ))}
+        </div>
+
+        <button className="carousel-arrow carousel-arrow-right"
+          onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">&#8594;</button>
+      </div>
+
+      <div className="carousel-dots">
+        {OTHER_MENTORING_EVENTS.map((_, i) => (
+          <button key={i}
+            className={`carousel-dot${current === i ? " carousel-dot-active" : ""}`}
+            onClick={() => scrollTo(i)} aria-label={`Event ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Other Mentoring Events card — colored header (no image), same
+     layout as PatientCare's Initiatives carousel card ── */
+function OtherMentoringCarouselCard({ card, index, isActive, isOpen, onToggle, onCardClick }) {
+  const fullRef = useRef(null);
+  const [fullH, setFullH] = useState(0);
+
+  useEffect(() => {
+    if (fullRef.current) setFullH(fullRef.current.scrollHeight);
+  }, []);
+
+  return (
+    <div
+      className={`carousel-card${isActive ? " carousel-card-active" : ""}`}
+      onClick={!isActive ? onCardClick : undefined}
+    >
+      {/* ── Colored Header (no image available for this section) ── */}
+      <div className="carousel-card-img-wrap" style={{ background: card.fallbackBg, padding: "18px 22px 14px", display: "flex", alignItems: "center" }}>
+        <h3 style={{
+          fontFamily: "'PT Sans', sans-serif",
+          fontSize: 14, fontWeight: 700,
+          color: "#ffffff", margin: 0,
+          textTransform: "uppercase", letterSpacing: "0.4px",
+        }}>{card.title}</h3>
+      </div>
+
+      {/* ── Body ── */}
+      <div className="carousel-card-body">
+        <p className="carousel-card-short">{card.short}</p>
+
+        <div ref={fullRef} style={{
+          maxHeight : isOpen ? `${fullH || 600}px` : "0px",
+          opacity   : isOpen ? 1 : 0,
+          overflow  : "hidden",
+          transition: "max-height 0.45s ease, opacity 0.3s ease",
+        }}>
+          <p className="carousel-card-full">{card.full}</p>
+        </div>
+
+        <button className="carousel-readmore-btn"
+          onClick={e => { e.stopPropagation(); onToggle(); }}>
+          {isOpen
+            ? <>Read less <span style={{ display:"inline-block", transform:"rotate(180deg)", fontSize:10 }}>▼</span></>
+            : <>Read more <span style={{ fontSize:10 }}>▼</span></>
+          }
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* Static photo block — for a single photo (e.g. KCP launch photo) with
    caption and click-to-zoom lightbox, no arrows/dots needed. */
 function PhotoGridStatic({ items }) {
@@ -514,21 +630,16 @@ export default function Laico() {
               <p key={i} className="pc-section-body" style={{ marginBottom: 16 }}>{para}</p>
             ))}
             <hr style={{ border: "none", borderTop: "1px solid #e2c88a", margin: "28px 0 8px" }} />
-            <PhotoGridStatic items={KCP_PHOTO} />
+            <PhotoCarousel items={KCP_PHOTO} />
           </div>
 
-          {/* Other Mentoring Events — heading + text cards only, no photos */}
+          {/* Other Mentoring Events — carousel, same format as PatientCare's
+              "Initiatives to Improve Eye Care Service Delivery" section */}
           <div className="edu-course-block" style={{ marginTop: 40 }}>
             <div className="edu-course-block-title">
               Other <span className="edu-course-block-title-accent">Mentoring Events</span>
             </div>
-            <div className="pc-cards-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)", alignItems: "start", marginTop: 24 }}>
-              {OTHER_MENTORING_EVENTS.map(card => (
-                <InitiativeCard key={card.id} card={card}
-                  isOpen={expandedMentoring === card.id}
-                  onToggle={() => setExpandedMentoring(prev => prev === card.id ? null : card.id)} />
-              ))}
-            </div>
+            <OtherMentoringCarouselSection />
           </div>
         </div>
       </section>

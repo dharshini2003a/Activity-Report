@@ -491,7 +491,7 @@ function CoursesTable() {
         <table className="perf-table">
           <thead>
             <tr>
-              <th className="perf-th perf-th-label" style={{ minWidth: 480, maxWidth: 480 }}>Course</th>
+              <th className="perf-th perf-th-label">Course</th>
               <th className="perf-th perf-th-total" style={{ minWidth: 130 }}>Candidates</th>
             </tr>
           </thead>
@@ -504,7 +504,7 @@ function CoursesTable() {
 
                 {sec.rows.map((row, i) => (
                   <tr key={i} className="perf-row">
-                    <td className="perf-td-label" style={{ minWidth: 480, maxWidth: 480 }}>{row.course}</td>
+                    <td className="perf-td-label">{row.course}</td>
                     <td className="perf-td perf-td-bold" style={{ textAlign: "center" }}>
                       {String(row.count).padStart(2, "0")}
                     </td>
@@ -514,8 +514,7 @@ function CoursesTable() {
             ))}
 
             <tr className="perf-row-total">
-              <td className="perf-td-label perf-td-label-total"
-                style={{ minWidth: 480, maxWidth: 480, position: "sticky", left: 0 }}>
+              <td className="perf-td-label perf-td-label-total">
                 Total Candidates Trained — Apr 2025 – Mar 2026
               </td>
               <td className="perf-td-total-val perf-td-grand" style={{ textAlign: "center" }}>{grandTotal}</td>
