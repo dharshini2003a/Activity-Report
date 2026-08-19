@@ -5,7 +5,7 @@
 
 import "../styles/hero.css";
 
-const HERO_IMAGE = "Covr_Page - 3 (1).webp";
+const HERO_IMAGE = "Covr_Page - 2 yelow.webp";
 const HERO_FALLBACK = "hero-fallback.webp";
 
 const SYSTEM_ITEMS = [
