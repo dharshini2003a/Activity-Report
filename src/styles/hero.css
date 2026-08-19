@@ -26,7 +26,7 @@ body {
   width: 100%;
 }
 
-/* Background Image */
+/* Background Image — shown exactly as-is, no colour overlay on top */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -38,26 +38,12 @@ body {
   z-index: 0;
 }
 
-/* Gradient Overlay - Dark left to lighter right */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(13, 31, 53, 0.95) 0%,
-    rgba(13, 31, 53, 0.88) 40%,
-    rgba(13, 31, 53, 0.65) 75%,
-    rgba(13, 31, 53, 0.35) 100%
-  );
-  z-index: 1;
-}
-
 /* Content Container - Simple left-aligned */
 .hero-content {
   position: relative;
   z-index: 2;
   padding: 100px 64px 56px;
-  max-width: 700px;
+  max-width: 720px;
   width: 100%;
 }
 
@@ -67,7 +53,7 @@ body {
   align-items: center;
   gap: 12px;
   font-family: 'PT Sans', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #c8921a;
   letter-spacing: 2px;
@@ -83,10 +69,10 @@ body {
   flex-shrink: 0;
 }
 
-/* Main Title */
+/* Main Title — sized up so it reads clearly on its own */
 .hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-size: clamp(3rem, 6vw, 4.4rem);
   font-weight: 900;
   color: #fff;
   line-height: 1.1;
@@ -100,13 +86,13 @@ body {
 /* Description */
 .hero-desc {
   font-family: 'PT Sans', sans-serif;
-  font-size: 15.5px;
-  color: rgba(255, 255, 255, 0.82);
+  font-size: 16.5px;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
   margin: 0 0 36px;
   max-width: 100%;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Statistics Grid */
@@ -115,7 +101,7 @@ body {
   gap: 40px;
   flex-wrap: wrap;
   padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin-bottom: 32px;
 }
 
@@ -127,7 +113,7 @@ body {
 
 .hero-stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #fff;
   line-height: 1;
@@ -135,9 +121,9 @@ body {
 
 .hero-stat-label {
   font-family: 'PT Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
@@ -151,24 +137,24 @@ body {
   color: #fff;
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   text-transform: uppercase;
 }
 
-/* Bullet List */
+/* Bullet List — sized up for visibility */
 .hero-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  line-height: 1.9;
+  line-height: 2;
 }
 
 .hero-list li {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.9);
   font-family: 'PT Sans', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -217,15 +203,15 @@ body {
 @media (max-width: 1200px) {
   .hero-content {
     padding: 80px 48px 50px;
-    max-width: 600px;
+    max-width: 620px;
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 4.5vw, 3rem);
+    font-size: clamp(2.6rem, 5.5vw, 3.6rem);
   }
 
   .hero-list li {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -237,19 +223,19 @@ body {
 
   .hero-content {
     padding: 60px 48px 40px;
-    max-width: 600px;
+    max-width: 620px;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(2.3rem, 5vw, 3.2rem);
   }
 
   .hero-desc {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .hero-list li {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -269,26 +255,26 @@ body {
   }
 
   .hero-tag {
-    font-size: 10px;
+    font-size: 11px;
     margin-bottom: 14px;
   }
 
   .hero-title {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
     margin: 8px 0 16px;
   }
 
   .hero-desc {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 24px;
   }
 
   .hero-system-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .hero-list li {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .hero-btn-primary {
@@ -304,24 +290,24 @@ body {
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin: 8px 0 14px;
     line-height: 1.2;
   }
 
   .hero-desc {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 20px;
     line-height: 1.7;
   }
 
   .hero-system-name {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
 
   .hero-list li {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     line-height: 1.7;
   }
 
@@ -338,14 +324,14 @@ body {
 @media (min-width: 1400px) {
   .hero-content {
     padding: 120px 100px 60px;
-    max-width: 750px;
+    max-width: 780px;
   }
 
   .hero-title {
-    font-size: 4rem;
+    font-size: 4.6rem;
   }
 
   .hero-system-name {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 }

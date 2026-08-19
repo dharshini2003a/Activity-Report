@@ -1,11 +1,12 @@
 // ============================================================
 //  HeroSection.jsx  —  Home Page Hero (Dark Theme)
 //  Matches Highlights format: Left text + Right image
+//  No overlay/shade — background image shows exactly as-is
 // ============================================================
 
 import "../styles/hero.css";
 
-const HERO_IMAGE = "Covr_Page - 2 yelow.webp";
+const HERO_IMAGE = "Covr_Page -  gray1.webp";
 const HERO_FALLBACK = "hero-fallback.webp";
 
 const SYSTEM_ITEMS = [
@@ -23,14 +24,11 @@ const SYSTEM_ITEMS = [
 export default function HeroSection() {
   return (
     <section className="hero-section">
-      {/* Background Image */}
+      {/* Background Image — plain, no gradient/color overlay on top */}
       <div 
         className="hero-bg" 
         style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} 
       />
-      
-      {/* Gradient Overlay */}
-      <div className="hero-overlay" />
 
       {/* Content */}
       <div className="hero-content">

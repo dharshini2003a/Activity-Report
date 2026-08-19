@@ -30,7 +30,7 @@ const INFRA_CARDS = [
   {
     id: 1, image: "DSC_4734.webp", fallbackBg: "#0d1f35",
     title: "INSTALLATION OF LEICA STELLARIS STED",
-    short: "AMRF installed a Leica STELLARIS Stimulated Emission Depletion (STED) confocal microscope at a cost of about ₹5 crores.",
+    short: "AMRF installed a Leica STELLARIS Stimulated Emission Depletion (STED) confocal microscope at a cost of about ₹ 5 crores.",
     full: "The high spatial resolution allows researchers to track exosomes at the single-vesicle level, providing a much clearer understanding of their localisation in tissue, uptake, and stability. In addition, the STELLARIS STED has an extended detection range of up to 850 nm, enabling the separation of a wider range of spectrally overlapping fluorophores and thereby facilitating the analysis of marker expression at the cellular and tissue levels.",
   },
   {
