@@ -600,7 +600,6 @@ export default function Aurolab() {
       {/* ══ SECTION 5: NATIONAL & INTERNATIONAL CONFERENCES ══ */}
       <section className="pc-section" id="conferences">
         <div className="pc-section-inner">
-          <div className="pc-section-tag">Conferences</div>
           <h2 className="pc-section-title">Aurolab at Various <span className="pc-gold">National & International Ophthalmic Conferences</span></h2>
           <PhotoCarousel items={CONFERENCE_GALLERY} />
         </div>

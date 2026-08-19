@@ -36,11 +36,12 @@ const WORKPLACE_CARDS = [
 
   { id: 9, image: "2025_10_Chennai_Tvisha Bloom With In (6).webp",             fallbackBg: "#0d2d3a", title: "Tvisha: Bloom Within",                       short: "Aravind-Chennai • 30 September 2025",      full: "A programme addressing work-life balance and personal well-being." },
 
-  { id: 10, image: "2026_2_Aram Seiya Virumbu_Drama (3).webp",   fallbackBg: "#3b2511", title: "Tamil Play Aram Seiya Virumbu",              short: "Aravind-Madurai • 7 February 2026",         full: "Based on stories from Silappathikaram, staged to promote cultural values and inspiration." },
 
-  { id: 11, image: "2025_10_PDY_Motivational Talk_Preeti Srinivasan (1).webp",           fallbackBg: "#241a3b", title: "Cultural & Inspirational Talk",                    short: "Aravind-Pondicherry • 23 October 2025",    full: "An insightful talk organised as part of cultural and inspirational initiatives." },
-  { id: 12, image: "2026_1_PDY_Parameter (1).webp", fallbackBg: "#0d1f35", title: "Annual Parameters Audit",                        short: "Aravind-Pondicherry • 9-11 January 2026",  full: "A three-day audit conducted to strengthen quality and performance standards." },
-  { id: 13, image: "2026_2_PDY_Honouring Farm Fest Winner.webp",       fallbackBg: "#1a2d0d", title: "36th Farm Fest 2026 Recognition",                 short: "Aravind-Pondicherry • 23 February 2026",   full: "The facility coordination and gardening team was recognised for securing third place among 261 institutions, reflecting their dedication to maintaining a green campus." },
+  { id: 10, image: "2025_10_PDY_Motivational Talk_Preeti Srinivasan (1).webp",           fallbackBg: "#241a3b", title: "Cultural & Inspirational Talk",                    short: "Aravind-Pondicherry • 23 October 2025",    full: "An insightful talk organised as part of cultural and inspirational initiatives." },
+  { id: 11, image: "2026_1_PDY_Parameter (1).webp", fallbackBg: "#0d1f35", title: "Annual Parameters Audit",                        short: "Aravind-Pondicherry • 9-11 January 2026",  full: "A three-day audit conducted to strengthen quality and performance standards." },
+  { id: 12, image: "2026_2_PDY_Honouring Farm Fest Winner.webp",       fallbackBg: "#1a2d0d", title: "36th Farm Fest 2026 Recognition",                 short: "Aravind-Pondicherry • 23 February 2026",   full: "The facility coordination and gardening team was recognised for securing third place among 261 institutions, reflecting their dedication to maintaining a green campus." },
+  
+  { id: 13, image: "2026_2_Aram Seiya Virumbu_Drama (3).webp",   fallbackBg: "#3b2511", title: "Tamil Play Aram Seiya Virumbu",              short: "Aravind-Madurai • 7 February 2026",         full: "Based on stories from Silappathikaram, staged to promote cultural values and inspiration." },
 
   { id: 14, image: "2025_6_Salem_Motivational Session_Mr. Janakiraman_Psychologist  (1).webp",         fallbackBg: "#2d1a0d", title: "Motivational Session",                             short: "Aravind-Salem • 29 May 2025",              full: "Conducted to inspire and engage staff." },
   { id: 15, image: "2025_11_TVL_Thirukkural Competition (5).webp",          fallbackBg: "#0d2d3a", title: "Thirukkural Programme on Hospitality & Empathy",  short: "Aravind-Salem • 3 June 2025",              full: "Conducted to reinforce values of compassionate care." },
@@ -157,13 +158,28 @@ const DEPARTMENT_CPE_CARDS = [
 ];
 
 /* ══════════════════════════════════════
+   DATA — MY LIFE MY PRIDE PHOTO GALLERY
+   Simple image + caption carousel (same visual format as the
+   Kenya Cataract Programme photo carousel — image, caption below,
+   arrows + dots, no title bar / no read-more).
+   Replace `image` with the actual filenames once available.
+══════════════════════════════════════ */
+const MY_LIFE_MY_PRIDE_PHOTOS = [
+  { id: 1, image: "2025_7_TPT_ Cert. Award Ceremony_Taekwondo, Dance, and Tailoring(5) (4).webp", fallbackBg: "#0d1f35", caption: "Karate and Takewonda Performance by AOPs at Aravind-Tirupati" },
+  { id: 2, image: "2025_7_TPT_ Cert. Award Ceremony_Taekwondo, Dance, and Tailoring(10).webp", fallbackBg: "#1a2d0d", caption: "An AOP showcasing her tailoring works at Aravind-Tirupati" },
+  { id: 3, image: "2025_10_CBE_Vallikummi Argandram (4).webp", fallbackBg: "#2d1a0d", caption: "Vallikummi Arangetram at Aravind-Coimbatore" },
+  { id: 4, image: "2026_2_CBE_Tailoring & Aari Closing Ceremony (3).webp", fallbackBg: "#0d2d3a", caption: "Aari work Class for AOPs at Aravind-Coimbatore" },
+];
+
+/* ══════════════════════════════════════
    CENTER ORDER (for "Building a Healthy Workplace" grouping)
+   Order: Coimbatore, Chennai, Pondicherry, Madurai, Salem, Tirunelveli
 ══════════════════════════════════════ */
 const CENTER_ORDER = [
   "Aravind-Coimbatore",
   "Aravind-Chennai",
-  "Aravind-Madurai",
   "Aravind-Pondicherry",
+  "Aravind-Madurai",
   "Aravind-Salem",
   "Aravind-Tirunelveli",
 ];
@@ -365,7 +381,7 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
   return (
     <div className={`carousel-card${isActive ? " carousel-card-active" : ""}`} onClick={!isActive ? onCardClick : undefined}>
       <div className="carousel-card-img-wrap" style={{ cursor: "pointer" }} onClick={openZoom}>
-        <img src={card.image} alt={card.title} className="carousel-card-img" onError={(e) => { e.target.style.opacity = "0"; }} style={{ background: card.fallbackBg }} />
+        <img src={card.image} alt={card.title} className="carousel-card-img" loading="lazy" decoding="async" onError={(e) => { e.target.style.opacity = "0"; }} style={{ background: card.fallbackBg }} />
         
         <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
       </div>
@@ -431,6 +447,110 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
         document.body
       )}
     </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SIMPLE PHOTO CAROUSEL — image + caption only (no title bar,
+   no read-more). Matches the Kenya Cataract Programme carousel
+   format exactly: arrow / photo cards / arrow, dots below,
+   caption centred under each photo.
+══════════════════════════════════════════════════════════════ */
+function SimplePhotoCarousel({ items }) {
+  const trackRef = useRef(null);
+  const [lightbox, setLightbox] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = items.length;
+
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") setLightbox(null); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
+  const getCardStep = () => {
+    const track = trackRef.current;
+    if (!track) return 300;
+    const card = track.querySelector(".photo-card");
+    if (!card) return 300;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || "24") || 24;
+    return card.offsetWidth + gap;
+  };
+
+  const scrollByCard = (dir) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: dir * getCardStep(), behavior: "smooth" });
+  };
+
+  const scrollToIndex = (i) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollTo({ left: i * getCardStep(), behavior: "smooth" });
+  };
+
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const step = getCardStep();
+    const idx = Math.round(track.scrollLeft / step);
+    setActiveIndex(Math.max(0, Math.min(idx, total - 1)));
+  };
+
+  return (
+    <>
+      <div className="carousel-wrap" style={{ marginTop: 20, padding: 0 }}>
+        <div className="carousel-track-wrap">
+          <button className="carousel-arrow" onClick={() => scrollByCard(-1)} aria-label="Previous photo">&#8592;</button>
+          <div className="carousel-track" ref={trackRef} onScroll={handleScroll}>
+            {items.map((item, i) => (
+              <div key={item.id} className="photo-card" onClick={() => setLightbox(i)}>
+                <div className="photo-card-img-wrap" style={{ background: item.fallbackBg }}>
+                  <img src={item.image} alt={item.caption} className="photo-card-img" loading="lazy" decoding="async"
+                    onError={e => { e.target.style.opacity = "0"; }} />
+                  <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
+                </div>
+                <p className="photo-card-caption">{item.caption}</p>
+              </div>
+            ))}
+          </div>
+          <button className="carousel-arrow" onClick={() => scrollByCard(1)} aria-label="Next photo">&#8594;</button>
+        </div>
+        <div className="carousel-dots">
+          {items.map((_, i) => (
+            <button key={i} className={`carousel-dot${activeIndex === i ? " carousel-dot-active" : ""}`}
+              onClick={() => scrollToIndex(i)} aria-label={`Go to photo ${i + 1}`} />
+          ))}
+        </div>
+      </div>
+
+      {lightbox !== null && (
+        <div className="photo-lightbox-overlay" onClick={() => setLightbox(null)}>
+          <div className="photo-lightbox-box" onClick={e => e.stopPropagation()}>
+            <button className="photo-lightbox-close" onClick={() => setLightbox(null)}>&#10005;</button>
+            {total > 1 && (
+              <button className="photo-lightbox-arrow photo-lightbox-prev"
+                onClick={() => setLightbox(((lightbox - 1) + total) % total)}>&#8592;</button>
+            )}
+            <div className="photo-lightbox-img-wrap">
+              <img
+                src={items[lightbox].image}
+                alt={items[lightbox].caption}
+                className="photo-lightbox-img"
+                style={{ background: items[lightbox].fallbackBg }}
+                onError={e => { e.target.style.opacity = "0"; }}
+              />
+            </div>
+            {total > 1 && (
+              <button className="photo-lightbox-arrow photo-lightbox-next"
+                onClick={() => setLightbox((lightbox + 1) % total)}>&#8594;</button>
+            )}
+            <p className="photo-lightbox-caption">{items[lightbox].caption}</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -534,7 +654,7 @@ export default function EmployeeEmpowerment() {
       {/* ══ SECTION 5: MY LIFE MY PRIDE ══ */}
       <section className="pc-section pc-section-tight-bottom pc-infra-section" id="mylife">
         <div className="pc-section-inner">
-          <h2 className="pc-section-title">My Life<span className="pc-gold">My Pride</span></h2>
+          <h2 className="pc-section-title">My Life<span className="pc-gold"> My Pride</span></h2>
           <p className="pc-section-body">
             My Life, My Pride is a staff development initiative of AECS designed for AOPs to help
             them become physically and emotionally stronger while supporting their overall
@@ -587,6 +707,12 @@ export default function EmployeeEmpowerment() {
               showcased their talents but also enhanced their confidence and motivation for
               personal and professional growth.
             </p>
+          </div>
+
+          {/* Photo gallery — 4 photos, same carousel format as the Kenya
+              Cataract Programme carousel (image + caption, arrows, dots) */}
+          <div className="edu-course-block" style={{ marginTop: 40 }}>
+            <SimplePhotoCarousel items={MY_LIFE_MY_PRIDE_PHOTOS} />
           </div>
         </div>
       </section>
