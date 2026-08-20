@@ -58,55 +58,56 @@ const INITIATIVE_CARDS = [
     image: "initiative-1-vr-simulator.webp",
     fallbackBg: "#0d2d3a",
     title: "RELOCATION OF STORES DEPARTMENT, ARAVIND-MADURAI",
-    short: "The stores department of Aravind-Madurai was relocated from the OPD building ",
-    full: "to the AMRF building on 12th May 2025, streamlining processes and facilitating the smoother store operations.",
+    short: "The stores department of Aravind-Madurai was relocated on 12th May 2025.",
+    full: "From the OP building, the stores department has moved to the AMRF building, in order to streamline processes and facilitate the smoother store operations.",
   },
   {
     id: 2,
     image: "initiative-2-mrd-facility.webp",
     fallbackBg: "#1a2d0d",
     title: "A NEW MRD FACILITY AT ARAVIND-THENI",
-    short: "A new MRD facility was inaugurated at Aravind-Theni ",
-    full: "by Srinivasulu Thayam, Chief Technology Officer, Auroitech on 30th July 2025. The facility will help ease patient congestion in the OPD and ensure more efficient use of the available space.",
+    short: "A new MRD facility was opened at Aravind-Theni, on 30th July 2025.",
+    full: "Inaugurated by Srinivasulu Thayam, Chief Technology Officer, Auroitech, the facility will help ease patient congestion in the OPD and ensure more efficient use of the available space.",
   },
   {
     id: 3,
     image: "initiative-3-eye-gym.webp",
     fallbackBg: "#2d1a2d",
     title: "EYE GYM, VISION-SKILLS TRAINING LAB & MYOPIA CONTROL CLINIC",
-    short: "Opened by Aravind-Tirunelveli on 15th September 2025",
-    full: "the specialised facility is dedicated to diagnosing and treating vision disorders such as amblyopia (lazy eye) and binocular vision anomalies",
+    short: "Aravind-Tirunelveli opened Eye Gym on 15th September 2025.",
+    full: "This specialised facility is dedicated to diagnosing and treating vision disorders such as amblyopia (lazy eye) and binocular vision anomalies.",
+
   },
   {
     id: 4,
     image: "2025_12_PDY_Clinical Trial Unit_Inauguration (7).webp",
     fallbackBg: "#1a1a2d",
     title: "CLINICAL TRIAL UNIT AT ARAVIND-PONDICHERRY",
-    short: "The first Clinical Trial Unit (CTU) at Aravind-Pondicherry ",
-    full: "was inaugurated by Dr. G. Natchiar on 31st December 2025. The unit has been established to provide all essential research investigations in a single dedicated location.",
+    short: "Opening of the first Clinical Trial Unit (CTU) at Aravind-Pondicherry,on 31st December 2025.",
+    full: "Inaugurated by Dr. G. Natchiar, Director Emeritus, AECS, the unit has been established to provide all essential research investigations in a single dedicated location.",
   },
   {
     id: 5,
     image: "2026_2_MDU_Lowvision Community Meet-up (20).webp",
     fallbackBg: "#2d2d1a",
     title: "LOW VISION COMMUNITY MEETUP & AWARENESS",
-    short: "Aravind-Madurai organised the programme on 14th February 2026, ",
-    full: "to create awareness about education, career opportunities, and rehabilitation services for persons with severe visual impairments.",
+    short: "Aravind-Madurai organised the Low vision community meetup & awareness on 14th February 2026.",
+    full: "The programme was organised to create awareness about education, career opportunities, and rehabilitation services for persons with severe visual impairments.",
   },
   {
     id: 6,
     image: "2026_2_CBE_Renovated Optical and Lens Grinding Labs (8).webp",
     fallbackBg: "#1a2d2d",
     title: "RENOVATED OPTICAL EDGING & ESSILOR LENS LAB",
-    short: "The renovated facility at Aravind-Coimbatore was inaugurated on 2 March 2026. ",
-    full: "Developed in accordance with Pollution Control Board norms, the facility provides an eco-friendly and pollution-free working environment for employees",
+    short: "The renovated facility at Aravind-Coimbatore was inaugurated on 2nd March 2026.",
+    full: "Developed in accordance with Pollution Control Board norms, the facility provides an eco-friendly and pollution-free working environment for employees.",
   },
   {
     id: 7,
     image: "2026_3_MDU_Aravind–Alcon Center for Surgical Advancement_Inau (2).webp",
     fallbackBg: "#2d1a1a",
     title: "INAUGURATION OF ARAVIND-ALCON CENTRE-FOR-SURGICAL-ADVANCEMENT (VR) ",
-    short: "The Aravind-Alcon Centre, along with the conference hall, was inaugurated at Aravind-Madurai on 25 March 2026.",
+    short: "The Aravind-Alcon Centre, along with the conference hall, was inaugurated at Aravind-Madurai on 25th March 2026.",
     full: "The centre aims to enhance surgeons’ skills through advanced simulation technologies, supporting excellence in patient care.",
   },
 ];
@@ -118,8 +119,8 @@ const OUTREACH_CARDS = [
     image: "",
     fallbackBg: "#0d2240",
     title: "Sight First Seminars 2025–2026",
-    short: "Held at Madurai, Thanjavur, and Pondicherry for Lions Districts 3242B and 3242F, with 378 Lions members participating",
-    full: "Sight First Seminars were organised at Aravind Eye Hospitals in Madurai, Thanjavur, and Pondicherry on 31st August 2025, 27th September 2025, and 12th October 2025, respectively. Conducted for the newly elected office bearers of Lions Districts 3242B and 3242F, the seminars aimed to raise awareness about eye health issues and strengthen Lions members' participation in community eye care programmes. The Pondicherry seminar focused on strengthening the Sight First initiative and reinforcing the collective commitment to eliminating preventable blindness. A total of 378 Lions members participated in the seminars",
+    short: "The programme was held at Madurai, Thanjavur, and Pondicherry for Lions Districts 3242B and 3242F, with participation from 378 Lions members.",
+    full: "Sight First Seminars were organised at Aravind Eye Hospitals in Madurai, Thanjavur, and Pondicherry on 31st August 2025, 27th September 2025, and 12th October 2025, respectively. Conducted for the newly elected office bearers of Lions Districts 3242B and 3242F, the seminars aimed to raise awareness about eye health issues and strengthen Lions members' participation in community eye care programmes. The Pondicherry seminar focused on strengthening the Sight First initiative and reinforcing the collective commitment to eliminating preventable blindness.",
     photos: [
       { id: 1, image: "", fallbackBg: "#0d2240", caption: "Sight First Seminar — Madurai, 31st August 2025" },
       { id: 2, image: "", fallbackBg: "#1a2d0d", caption: "Sight First Seminar — Thanjavur, 27th September 2025" },
@@ -131,7 +132,7 @@ const OUTREACH_CARDS = [
     image: "2026_1_MDU_Camp_Retreat (3).webp",
     fallbackBg: "#0d2d1f",
     title: "Annual Outreach Planning Meeting 2026",
-    short: "Held at Aravind-Madurai on 7–8 January 2026, bringing together 73 camp staff from all Aravind tertiary hospitals to review performance and plan outreach strategies.",
+    short: "Held at Aravind-Madurai on 7–8 January 2026, the programme brought together 73 camp staff from all Aravind tertiary hospitals to review performance and plan outreach strategies.",
     full: "Conducted for over three decades during the first week of January, the Annual Outreach Planning Meeting brings together outreach teams from all Aravind tertiary hospitals to review the previous year's performance and plan strategies for the year ahead. This year's meeting, held at Aravind-Madurai on 7–8 January 2026, focused not only on performance review but also on in-depth discussions about challenges faced in 2025. The meeting featured individual organiser presentations, panel discussions, group activities, and sessions on various outreach-related topics and was attended by 73 camp staff from all Aravind tertiary centres.",
   },
   {
@@ -139,7 +140,7 @@ const OUTREACH_CARDS = [
     image: "2025_10_MDU_Sponsors Day (33).webp",
     fallbackBg: "#2d1a0d",
     title: "Sponsors' Day at Aravind Eye Hospitals",
-    short: "Five Sponsors' Day programmes held at Tirunelveli, Madurai, Chennai, Tirupati, and Coimbatore between August 2025 and January 2026.",
+    short: "Five Sponsors' Day programmes were held at Tirunelveli, Madurai, Chennai, Tirupati, and Coimbatore between August 2025 and January 2026.",
     full: "A total of five Sponsors' Day programmes were organised at Aravind Eye Hospitals in Tirunelveli, Madurai, Chennai, Tirupati, and Coimbatore on 31st August 2025, 9th October 2025, 11th October 2025, 6th December 2025, and 4th January 2026, respectively. These events served as a heartfelt expression of gratitude to the many generous donors and well-wishers who continue to support Aravind's mission. The programmes featured detailed presentations showcasing the hospital's achievements, patient care statistics, community outreach initiatives, and success stories from the past year. Representatives from several social organisations and volunteers were felicitated for their commendable service in the field of eye care.",
     photos: [
       { id: 1, image: "2025_8_TVL_Sponsors Day (13).webp", fallbackBg: "#1a2d0d", caption: "Sponsors' Day — Aravind-Tirunelveli, 31st August 2025" },
@@ -161,20 +162,20 @@ const VC_EVENT_CARDS = [
   {
     id: 1, fallbackBg: "#0d2240",
     title:"SKILL UPGRADATION PROGRAMME",
-    short: "A skill upgradation programme for Madurai VC staff was conducted by Aravind Madurai on 28th April 2025",
+    short: "A skill upgradation programme for Madurai VC staff was conducted by Aravind Madurai on 28th April 2025.",
     full: "The programme focused on Importance and key aspects of taking quality fundus images and techniques. Further, a hands-on training was conducted to ensure the staff are technically competent to take quality fundus images which helps in reducing ungradable images.",
   },
   {
     id: 2, fallbackBg: "#1a2d0d",
     title: "Seva Audit of Vision Centres",
-    short: "As part of its ongoing commitment to excellence in eye care delivery, Aravind-Salem conducted a Seva Audit of Vision Centres at Omalur and Mecheri on 12th May 2025",
-    full: ", and at Thalaivasal and Harur on 13th May 2025. The purpose of these visits was to ensure that all Vision Centres continue to uphold the highest standards of community eye care",
+    short: "As part of its ongoing commitment to excellence in eye care delivery, Aravind-Salem conducted a Seva Audit of Vision Centres at Omalur and Mecheri on 12th May 2025.",
+    full: "And at Thalaivasal and Harur on 13th May 2025. The purpose of these visits was to ensure that all Vision Centres continue to uphold the highest standards of community eye care.",
   },
   {
     id: 3, fallbackBg: "#2d0d1a",
     title: "Vision Centre CMEs",
-    short: "Vision Centre CMEs were organised by Aravind Eye Hospitals in Tirunelveli and Madurai on 28th September 2025 and 7-8 November 2025, .",
-    full: "respectively. These sessions aimed to enhance knowledge and skills, update participants on recent developments in clinical practice, and reinforce the importance of delivering quality eye care in the community",
+    short: "Vision Centre CMEs were organised by Aravind Eye Hospitals in Tirunelveli and Madurai on 28th September 2025 and 7-8 November 2025 respectively.",
+    full: "These sessions aimed to enhance knowledge and skills, update participants on recent developments in clinical practice, and reinforce the importance of delivering quality eye care in the community.",
   },
   {
     id: 4, fallbackBg: "#0d2d2d",
@@ -246,7 +247,7 @@ const PROJECTS_DATA = [
     imageRight: true,
     funder: "Supported by AEF, implemented by Aravind-Madurai",
     title: "Spectacles for Schoolchildren",
-    short: "Supported by the AEF, the programme was implemented through Aravind Eye Hospitals in Madurai, Theni, Tirunelveli, Tuticorin, Kovilpatti, Coimbatore, Pondicherry, Salem, Tirupati, and Chennai",
+    short: "Supported by the AEF, the programme was implemented through Aravind Eye Hospitals in Madurai, Theni, Tirunelveli, Tuticorin, Kovilpatti, Coimbatore, Pondicherry, Salem, Tirupati, and Chennai.",
     full: "to improve visual health and educational performance among schoolchildren through school-based eye screening initiatives. During the reporting year, the initiative was carried out across six tertiary and four secondary hospitals, in terms of supporting the glass for the children A total of 3,08,979 students were screened, and 13,437 children diagnosed with refractive errors were provided with spectacles."
   },
   {
@@ -258,7 +259,7 @@ const PROJECTS_DATA = [
     funder: "Aravind Eye Care System",
     title: "STRENGTHENING RETINOPATHY OF PREMATURITY (ROP) TELE-SCREENING SERVICES — THENI",
     short: "The project focused on early identification, timely treatment, and continuous follow-up of Retinopathy of Prematurity (ROP) through tele-screening and outreach services.",
-    full: "During the reporting year, 788 premature babies were screened, with 14 diagnosed with ROP, all received timely treatment, including intravitreal injections where required, along with counselling and follow-up care. ROP tele-screening services were expanded to seven additional NICUs in Salem, with the procurement of vehicles and equipment completed to support the initiative",
+    full: "During the reporting year, 788 premature babies were screened, with 14 diagnosed with ROP, all received timely treatment, including intravitreal injections where required, along with counselling and follow-up care. ROP tele-screening services were expanded to seven additional NICUs in Salem, with the procurement of vehicles and equipment completed to support the initiative.",
   },
   {
     id: 6,
@@ -268,7 +269,7 @@ const PROJECTS_DATA = [
     imageRight: true,
     funder: "Aravind Eye Care System",
     title: "Management of Recalcitrant Non-Infectious Uveitic Patients with Newer Biologics and Immunosuppressive Therapy",
-    short: "Supported by the AEF and implemented by Aravind Madurai, the Ring of Hope Fund provides free treatment and genetic testing for underprivileged children and adults with eye cancers across all Aravind centres",
+    short: "Supported by the AEF and implemented by Aravind Madurai, the Ring of Hope Fund provides free treatment and genetic testing for underprivileged children and adults with eye cancers across all Aravind centres.",
     full: "Past year, 40 new Retinoblastoma patients were registered, 1,436 review visits were conducted, and 139 adult patients received care. Advanced treatment services included one intra-arterial procedure and 82 genetic tests.",
   },
   {
@@ -1165,10 +1166,10 @@ function EyeBankSection() {
       <div className="vc-sub-block">
         <h3 className="vc-sub-heading">Aravind Integrated Eye Bank Services</h3>
         <p className="pc-section-body">
-  Aravind-Tirupati inaugurates its Eye Donation Centre at Sri Venkateswara Institute of Medical Sciences — 28th August 2025
+        AIEBS works towards providing solutions for corneal blindness through awareness creation, volunteer training, community-based death notification systems, and efficient response to eye donation calls. AIEBS collaborates with community volunteers, educational institutions, and organisations such as Lions Clubs International and Rotary International to promote eye donation and support cornea retrieval. During the reporting year, around 55% of corneas were retrieved through community-based programmes, while 45% were retrieved through Hospital Cornea Retrieval Programme (HCRP).
         </p>
         <p className="pc-section-body">
-         AIEBS organised awareness programmes in collaboration with volunteers, educational institutions, clubs, and hospitals, including observance of the 40th National Eye Donation Fortnight (25th August 2025 – 8th September 2025) to encourage public participation in eye donation.
+        AIEBS currently partners with 18 Government Medical College Hospitals under HCRP, while also strengthening collaborations with private hospitals. During the reporting year, Aravind Eye Banks distributed corneas, sclera, and amniotic membrane grafts (AMG) to 43 institutions.
         </p>
         <PhotoGridStatic items={AIEBS_HIGHLIGHT_PHOTOS} />
       </div>

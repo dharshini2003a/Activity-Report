@@ -1,8 +1,3 @@
-// ============================================================
-//  Laico.jsx  —  LAICO Page (Real content from PDF 2024-25)
-//  Same structure as Education.jsx / PatientCare.jsx
-// ============================================================
-
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/laico.css";
@@ -48,9 +43,9 @@ const KCP_TEXT = [
    arrow + dot carousel (same format as the Awareness/outreach photo
    carousels). Replace `image` with the actual filenames once available. */
 const KCP_PHOTO = [
-  { id: 1, image: "KCP Photos 1.webp", fallbackBg: "#0d2240", caption: "Launch of the Kenya Cataract Programme (KCP) — Nairobi, 6–7 July 2025" },
-  { id: 2, image: "KCP Photos 3.webp", fallbackBg: "#1a2d0d", caption: "Launch of the Kenya Cataract Programme (KCP) " },
-  { id: 3, image: "KCP Photos 2.webp", fallbackBg: "#2b3e1e", caption: "Launch of the Kenya Cataract Programme (KCP) " },
+  { id: 1, image: "KCP Photos 1.webp", fallbackBg: "#0d2240", caption: "Launch of the Kenya Cataract Programme (KCP) — Nairobi" },
+  { id: 2, image: "KCP Photos 3.webp", fallbackBg: "#1a2d0d", caption: "Aravind team with members from the Ministry of Health, Kenya" },
+  { id: 3, image: "KCP Photos 2.webp", fallbackBg: "#2b3e1e", caption: "Aravind team in discussion with members from the Minsitry of health, Kenya" },
 
 ];
 
@@ -133,7 +128,7 @@ const CONSULTATION_WORKSHOP_CARDS = [
     title: "Workshop on Influencing Change",
     description: "As part of the October events, an internal workshop on Influencing Change was organised at LAICO, led by Colin Williams (UK), held on 30th September 2025, an experienced leadership and management consultant. Participants shared experiences about managing change, engaged in mutual learning by discussing challenges and successes, and identified specific steps to implement back at work. A total of 33 participants, including Managers, Doctors, and AOPs from all Aravind centres, attended the programme.",
     photos: [
-      { id: 1, image: "2025_10_October summit_Influncing workshop (3).webp", fallbackBg: "#0d1f35", caption: "Workshop on Influencing Change, led by Colin Williams (UK) — 30th September 2025" },
+      { id: 1, image: "2025_10_October summit_Influncing workshop (3).webp", fallbackBg: "#0d1f35", caption: "Workshop on Influencing Change, led by Colin Williams (UK),30th September 2025" },
       { id: 2, image: "Photos Image Working AR copy.webp", fallbackBg: "#0d1f35", caption: "Managers, Doctors, and AOPs from all Aravind centres participating in the workshop" },
     ],
   },
@@ -142,7 +137,7 @@ const CONSULTATION_WORKSHOP_CARDS = [
     title: "Workshop on Consulting Skills",
     description: "As part of the October Summit, a Workshop on \"Consulting Skills\" was organised for LAICO Faculty on 2-3 October 2025 and was facilitated by Colin Williams. The peer group workshop aimed to enhance Aravind's consulting capabilities through peer learning and reflection, providing a platform to share experiences, explore practical models, and practice strategies to strengthen the impact of mentoring efforts.",
     photos: [
-      { id: 1, image: "Consulting Skills (1).webp", fallbackBg: "#1a2d0d", caption: "Workshop on Consulting Skills, facilitated by Colin Williams — 2–3 October 2025" },
+      { id: 1, image: "Consulting Skills (1).webp", fallbackBg: "#1a2d0d", caption: "Workshop on Consulting Skills, facilitated by Colin Williams, 2–3 October 2025" },
     ],
   },
   {
@@ -150,7 +145,7 @@ const CONSULTATION_WORKSHOP_CARDS = [
     title: "National-Level Workshop on Integrated Primary Eye Care through Telemedicine-Enabled Vision Centres",
     description: "The workshop held on 3-4 November 2025, brought together State Programme Officers of National Programme for Control of Blindness from 12 Indian States to exchange ideas and best practices for strengthening primary eye care delivery through technology. Dr R. Joshi, ADGHS - NPCB & VI, delivered a talk on \"The Scope for Primary Eye Care in India – Future.\" Dr Chandrakumar, State Project Director from Government of Tamil Nadu was present to share the work being done in the state. State programme directors shared the design of their respective integrated primary eye care models. Discussions focused on enhancing accessibility and quality of primary eye care through telemedicine, strengthening collaboration between stakeholders for integrated service delivery, and exploring innovative approaches to expand vision centre networks across regions.",
     photos: [
-      { id: 1, image: "2025_11_VC_Managment Course.webp", fallbackBg: "#2d0d1a", caption: "State Programme Officers of NPCB & VI from 12 Indian States at the workshop — 3–4 November 2025" },
+      { id: 1, image: "2025_11_VC_Managment Course.webp", fallbackBg: "#2d0d1a", caption: "State Programme Officers of NPCB & VI from 12 Indian States at the workshop, 3–4 November 2025" },
     ],
   },
   {

@@ -1316,7 +1316,13 @@
    black text — updated per request)
 ══════════════════════════════════════════════════════════════ */
 
-.perf-wrap { margin-top: 32px; }
+.perf-wrap { 
+  margin-top: 32px;
+  margin-left: -64px;             /* ⬅ counteract parent padding */
+  margin-right: -64px;            /* ⬅ counteract parent padding */
+  padding-left: 64px;             /* ⬅ add back padding inside */
+  padding-right: 64px;            /* ⬅ add back padding inside */
+}
 
 /* ── Tab Buttons ── */
 .perf-tabs {
@@ -1353,40 +1359,36 @@
   font-weight: 700;
 }
 
-/* ── Table Wrapper — horizontal + vertical scroll (keeps the table
-     from stretching the whole page; header stays pinned while the
-     body scrolls inside its own box) ── */
+/* ── Table Wrapper — flat/straight layout (no vertical scroll box,
+     matches the Eye Bank Statistics table style). Only horizontal
+     scroll kicks in on very narrow screens if needed. ── */
 .perf-table-wrap {
   width: 100%;
-  max-height: 560px;
   overflow-x: auto;
-  overflow-y: auto;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0,0,0,0.08);
   border: 1.5px solid #e0e6ef;
   -webkit-overflow-scrolling: touch;
+  display: flex;                  /* ⬅ ensure full width */
 }
 
 .perf-table {
   border-collapse: collapse;
-  width: max-content;
-  min-width: 100%;
+  width: 540px;                   /* ⬅ locked to colgroup total (320 + 220) — real fix this time */
+  table-layout: fixed;            /* ⬅ forces columns to obey the <colgroup> widths, ignores content */
   font-family: 'PT Sans', sans-serif;
-  font-size: 16px;               /* ⬆ increased (was 12.5px) */
+  font-size: 22px;               /* ⬆⬆⬆ increased (was 18px) */
 }
 
-/* ── Sticky Header Row ── */
+/* ── Header Row (no longer sticky — table flows straight down the page) ── */
 .perf-table thead tr {
-  position: sticky;
-  top: 0;
-  z-index: 3;
 }
 
 .perf-th {
   background: #0d1f35;
   color: #c8921a;
   font-weight: 800;
-  font-size: 16px;               /* ⬆⬆ bigger heading text (was 13.5px) */
+  font-size: 28px;               /* ⬆⬆⬆ INCREASED to 28px (was 23px) */
   text-align: center;
   padding: 15px 10px;
   white-space: nowrap;
@@ -1394,22 +1396,20 @@
   letter-spacing: 0.4px;
 }
 
-/* ── Frozen First Column Header ── */
+/* ── First Column Header (no longer frozen/sticky) ── */
 .perf-th-label {
   background: #0d1f35;
   min-width: 320px;              /* ⬇ narrower (was 250px, data col was 480px) */
   max-width: 320px;
   text-align: left;
-  position: sticky;
-  left: 0;
-  z-index: 4;
   border-right: 2px solid #c8921a;
 }
 
 .perf-th-total {
   background: #162d4a;
-  font-size: 16px;                /* ⬆ increased (was 14px) */
+  font-size: 28px;                /* ⬆⬆⬆ INCREASED to 28px (was 23px) */
   font-weight: 800;
+  width: 220px;                   /* ⬅ capped so it doesn't stretch to fill leftover space */
 }
 
 /* ── Section Header Row ── */
@@ -1417,7 +1417,7 @@
   background: #dce8f5;
   color: #000000;                 /* ⬅ BLACK (was navy) */
   font-weight: 800;
-  font-size: 13px;                /* ⬆ increased (was 10.5px) */
+  font-size: 19px;                /* ⬆⬆⬆ increased (was 15px) */
   letter-spacing: 1.2px;
   text-transform: uppercase;
   padding: 12px 16px;             /* ⬆ more vertical breathing room */
@@ -1426,8 +1426,6 @@
 }
 
 .perf-section-label {
-  position: sticky;
-  left: 0;
 }
 
 /* ── Normal Rows ── */
@@ -1435,19 +1433,17 @@
 .perf-row:hover { background: #f4f8fd; }
 .perf-row:hover .perf-td-label { background: #edf3fb; }
 
-/* ── Frozen First Column (row label) — course name now includes duration ── */
+/* ── First Column (row label, no longer frozen/sticky) — course name
+   now includes duration ── */
 .perf-td-label,
 .perf-td-label * {
   font-family: 'PT Sans', sans-serif;
-  font-size: 16px;                /* ⬆ increased (was 12.5px) */
+  font-size: 22px;                /* ⬆⬆⬆ increased (was 18px) */
   color: #000000 !important;      /* ⬅ FORCE BLACK (overrides any link/anchor color) */
   padding: 14px 16px 14px 18px;   /* ⬆ more row height / gap */
   min-width: 320px;               /* ⬇ narrower (was 480px) */
   max-width: 320px;
   background: #fff;
-  position: sticky;
-  left: 0;
-  z-index: 1;
   border-right: 2px solid #e0e6ef;
   border-bottom: 1px solid #edf2f7;
   line-height: 1.5;
@@ -1463,7 +1459,8 @@
   border-bottom: 1px solid #edf2f7;
   border-right: 1px solid #edf2f7;
   white-space: nowrap;
-  font-size: 16px;                /* ⬆ increased (was 12.5px) */
+  font-size: 22px;                /* ⬆⬆⬆ increased (was 18px) */
+  width: 220px;                   /* ⬅ capped so it doesn't stretch to fill leftover space */
 }
 
 .perf-td-bold {
@@ -1503,9 +1500,9 @@
 /* ── Total Row — Navy + Gold (kept as accent row, not black) ── */
 .perf-row-total .perf-td-label-total {
   background: #0d1f35 !important;
-  color: #c8921a;
+  color: #ffffff !important;      /* ⬅ solid white — max contrast on navy */
   font-weight: 800;
-  font-size: 15px;                /* ⬆ increased (was 12px) */
+  font-size: 22px;                /* ⬆⬆⬆ increased (was 18px) */
   letter-spacing: 0.5px;
   text-transform: uppercase;
   border-right: 2px solid #c8921a;
@@ -1521,12 +1518,13 @@
   white-space: nowrap;
   border-right: 1px solid rgba(255,255,255,0.1);
   border-bottom: none;
-  font-size: 15px;
+  font-size: 22px;
+  width: 220px;                   /* ⬅ capped so it doesn't stretch to fill leftover space */
 }
 
 .perf-td-grand {
-  color: #c8921a !important;
-  font-size: 16px;
+  color: #ffb400 !important;      /* ⬅ brighter gold for max contrast on navy */
+  font-size: 22px;
   font-weight: 800 !important;
 }
 
@@ -1543,12 +1541,11 @@
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .perf-tab { font-size: 12px; padding: 8px 14px; }
+  .perf-tab { font-size: 18x; padding: 8px 14px; }
   .perf-td-label,
-  .perf-th-label { min-width: 220px; max-width: 220px; font-size: 14px; }
-  .perf-table { font-size: 14px; }
+  .perf-th-label { min-width: 220px; max-width: 220px; font-size: 19px; }
+  .perf-table { font-size: 19px; }
   .perf-td, .perf-td-total-val { padding: 10px 12px; }
-  .perf-table-wrap { max-height: 440px; }
 }
 /* ══════════════════════════════════════════════════════════════
    OUTREACH PERFORMANCE — TABBED SECTION
@@ -1622,7 +1619,7 @@
 }
 
 @media (max-width: 640px) {
-  .outperf-tab-btn { font-size: 11.5px; padding: 6px 13px; }
+  .outperf-tab-btn { font-size: 18px; padding: 6px 13px; }
 }
 
 .pc-page,
@@ -1670,6 +1667,15 @@
    left-aligned (not justified), and gaps between sections are tightened ── */
 .pc-section-title { font-size: clamp(1.6rem, 2.8vw, 2.3rem) !important; }
 .pc-section-body   { font-size: 16px; text-align: left !important; }
+
+/* ── "Candidates Trained 2025 – 2026" heading only — bigger than the
+   standard section title above, without touching other section headings ── */
+.pc-section-title.edu-candidates-title {
+  font-size: clamp(2.1rem, 3.6vw, 3rem) !important;
+}
+@media (max-width: 640px) {
+  .pc-section-title.edu-candidates-title { font-size: 2rem !important; }
+}
 .pc-card-full-text, .carousel-card-full, .pc-card-short, .carousel-card-short,
 .oration-event-description { text-align: left !important; }
 

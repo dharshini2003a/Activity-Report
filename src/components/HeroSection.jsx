@@ -6,19 +6,19 @@
 
 import "../styles/hero.css";
 
-const HERO_IMAGE = "Covr_Page -  gray1.webp";
+const HERO_IMAGE = "Covr_Page - 5.webp";
 const HERO_FALLBACK = "hero-fallback.webp";
 
 const SYSTEM_ITEMS = [
-  { label: "Patient Care", sub: "Aravind Eye Hospitals" },
-  { label: "Education and Training", sub: null },
-  { label: "Consultancy and Capacity Building", sub: "LAICO" },
-  { label: "Research", sub: "AMRF" },
-  { label: "Ophthalmic Supplies and Equipment", sub: "Aurolab" },
-  { label: "Information Technology", sub: "Auroitech" },
-  { label: "Employee Empowerment", sub: null },
-  { label: "Innovations", sub: null },
-  { label: "Recognitions & Awards", sub: null },
+  { label: "Patient Care" },
+  { label: "Education and Training" },
+  { label: "Consultancy and Capacity Building" },
+  { label: "Research" },
+  { label: "Ophthalmic Supplies and Equipment" },
+  { label: "Information Technology" },
+  { label: "Employee Empowerment" },
+  { label: "Innovations" },
+  { label: "Recognitions & Awards" },
 ];
 
 export default function HeroSection() {
@@ -34,10 +34,7 @@ export default function HeroSection() {
       <div className="hero-content">
         
         {/* Year Tag */}
-        <div className="hero-tag">
-          <span className="hero-line"></span>
-          <span>2025 - 2026</span>
-        </div>
+      
 
         {/* Main Title */}
         <h1 className="hero-title">

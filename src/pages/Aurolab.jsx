@@ -34,19 +34,19 @@ const INFRA_CARDS = [
   {
     id: 1, image: "Flexikid Launch (1).webp", fallbackBg: "#0d1f35",
     title: "INAUGURATION OF A NEW SPECTACLE FRAME DIVISION",
-    short: "7th April 2025 – A spectacle frame division to produce affordable, high-quality, flexible frames for children",
+    short: "7th April 2025 – A spectacle frame division to produce affordable, high-quality, flexible frames for children.",
     full: "Aurolab inaugurated its new Spectacle Frame Division, marking its expansion into children’s eyewear alongside its established range of ophthalmic products. The division was inaugurated by P. Ramachandran, Business Advisor (Eyewear) and Fellow of the Institute of Directors.",
   },
   {
     id: 2, image: "2025_10_Aurolab_Eye Drop Facility_Inaugur_Building.webp", fallbackBg: "#1a2d0d",
     title: "OPENING OF ADVANCED EYE DROPS MANUFACTURING FACILITY",
-    short: "The Advanced US FDA-compliant Eye Drops Manufacturing Facility was inaugurated on 5th October 2025",
+    short: "The Advanced US FDA-compliant Eye Drops Manufacturing Facility was inaugurated on 5th October 2025.",
     full: "Formally inaugurated by Dr. V. Anantha Nageswaran, Chief Economic Advisor to the Government of India, this state-of-the-art unit spans 75,000 sq. ft., enhancing production capacity to 36 million bottles annually — reinforcing Aurolab's commitment to international quality standards, sustainability, and the “Make in India” initiative. The daily production has now reached 120,000 eye-drop bottles. The inauguration marked a significant step in strengthening global eye care and supporting India's Atmanirbhar Bharat vision.",
   },
   {
     id: 3, image: "2025_12_Aurolab_Optical_Inau (5).webp", fallbackBg: "#3b2511",
     title: "New Optics Division & Domestic Business Office",
-    short: "The new Optics Division and Domestic Business Office were also inaugurated, laying a strong foundation for future growth and continued excellence",
+    short: "The new Optics Division and Domestic Business Office were also inaugurated, laying a strong foundation for future growth and continued excellence.",
     full: "All these developments reflect the organisation’s mission to “See New Possibilities."
   },
   {

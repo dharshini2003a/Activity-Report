@@ -1,9 +1,3 @@
-// ============================================================
-//  Research.jsx  —  AMRF Research Page (Real content from
-//  Annual Activity Report 2025-26)
-//  Simple single-flow page (no sub-navbar) — same pattern as Highlights.jsx
-// ============================================================
-
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/research.css";
@@ -272,7 +266,7 @@ export default function Research() {
       {/* ══ SECTION: PhD AWARDED ══ */}
       <section className="pc-section pc-infra-section" id="phd">
         <div className="pc-section-inner">
-          <h2 className="pc-section-title">Doctoral <span className="pc-gold">Research Achievements</span></h2>
+          <h2 className="pc-section-title">PhD <span className="pc-gold">Awarded</span></h2>
           <div className="phd-grid" style={{ marginTop: 32 }}>
             {PHD_CARDS.map((person) => <PhdCard key={person.id} person={person} />)}
           </div>

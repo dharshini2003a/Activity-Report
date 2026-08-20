@@ -530,30 +530,27 @@
   line-height: 1.45;
 }
 
-/* ✅ Short description text — Black */
 .pc-card-short {
   font-family: 'PT Sans', sans-serif;
   font-size: 14px;
-  color: #000000;           /* ✅ BLACK */
+  color: #000000;
   line-height: 1.7;
-  margin: 0 0 2px;
+  margin: 0;
   text-align: left;
 }
-
 .pc-card-full {
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.35s ease;
 }
 
-/* ✅ Expanded full text — Black */
 .pc-card-full-text {
   font-family: 'PT Sans', sans-serif;
   font-size: 14px;
-  color: #000000;           /* ✅ BLACK */
+  color: #000000;
   line-height: 1.78;
-  padding-top: 10px;
-  border-top: 1px solid #f0f0f0;
-  margin-top: 8px;
+  padding-top: 0;
+  border-top: none;
+  margin-top: 2px;
   text-align: left;
 }
 

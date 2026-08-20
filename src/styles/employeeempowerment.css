@@ -862,6 +862,13 @@
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
+/* Center the track's content when there are fewer cards than the
+   row can hold (so 1-2 cards don't sit stranded on the left with a
+   huge empty gap next to them). */
+.carousel-track-center {
+  justify-content: center;
+}
+
 /* ── Individual card ── */
 .carousel-card {
   flex: 0 0 calc(33.333% - 16px);
@@ -2287,4 +2294,23 @@
 @media (max-width: 640px) {
   .research-highlight-box { flex-direction: column; }
   .research-highlight-img { width: 100%; height: 200px; }
-} 
+}
+
+/* ══════════════════════════════════════
+   BUILDING CONNECTIONS — tighter spacing
+   between the Arangam / Nadi Utsav / Auro
+   Connect sub-blocks and their carousels.
+══════════════════════════════════════ */
+#building-connections .edu-course-block {
+  margin-bottom: 8px;
+}
+#building-connections .edu-course-block + .edu-course-block {
+  margin-top: 28px !important;
+}
+#building-connections .carousel-wrap {
+  margin-top: 18px;
+  padding-bottom: 28px;
+}
+#building-connections .carousel-track {
+  gap: 18px;
+}

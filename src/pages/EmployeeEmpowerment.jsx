@@ -15,7 +15,8 @@ const KNOWLEDGE_BASE = [
   { tag: "Workplace", title: "Safety & Professional Development", keywords: ["safety session", "fire safety", "esi benefits", "annual parameters audit", "farm fest", "occupational safety"], text: "Safety initiatives included sessions for Maintenance Teams, Security and Escalator Staff, Occupational Safety Orientation for AOPs, Fire Safety Awareness at Salem, and an ESI benefits session at Tirunelveli. Aravind-Pondicherry's facility and gardening team won third place among 261 institutions at the 36th Farm Fest 2026." },
   { tag: "Retreats", title: "Departmental Retreats 2025-26", keywords: ["cataract retreat", "david chang", "cornea retreat", "glaucoma retreat", "paediatric retreat", "hr retreat"], text: "The Cataract Retreat at Chennai (7 April 2025) featured Dr. David Chang. The Cornea and Refractive Surgery Retreat at Thanjavur (6-7 September 2025) focused on five-year strategic planning. The Glaucoma Retreat at Tirunelveli, the Paediatric Retreat at Coimbatore, and the HR Retreat at Madurai each brought together specialists for planning and collaboration." },
   { tag: "Beyond Eye Care", title: "Resident Social Responsibility Programme", keywords: ["rsr", "suvadugal", "kakaipandiniyar", "vellivethiyar", "vaanavil", "trichy"], text: "The RSR programme conducted community outreach at Kakaipandiniyar and Vellivethiyar Girls Higher Secondary Schools, Madurai, distributing school kits to 15 students and support kits to 20 students who had lost a parent. The Vaanavil initiative at the Rehabilitation Centre for Blind Women, Trichy, raised over Rs. 4.11 lakh through a handicrafts exhibition-cum-sale." },
-  { tag: "Beyond Eye Care", title: "Nadi Utsav & Auro Connect", keywords: ["nadi utsav", "auro connect", "ganga", "yamuna", "narmada", "brahmaputra"], text: "Nadi Utsav at Chennai (5-6 February 2026) was a talent-based cultural event for first-year AOP trainees, with teams named after Indian rivers competing in rangoli, riddles, singing, dance, and drawing. Auro Connect, launched at Coimbatore from February 2026, is a monthly recreational initiative run by twelve employee teams." },
+  { tag: "Building Connections", title: "Arangam — 3rd Aravind Intramural Conference", keywords: ["arangam", "intramural conference", "october summit", "care focus heal train"], text: "The 3rd Aravind Intramural Conference, Arangam, held at Aravind-Madurai on 9-10 October 2025 as part of the October Summit 2025, promoted learning, innovation, and continuous improvement among staff across all Aravind centres, with over 484 submissions and 239 presentations across CARE, FOCUS, HEAL, and TRAIN tracks." },
+  { tag: "Building Connections", title: "Nadi Utsav & Auro Connect", keywords: ["nadi utsav", "auro connect", "ganga", "yamuna", "narmada", "brahmaputra"], text: "Nadi Utsav at Chennai (5-6 February 2026) was a talent-based cultural event for first-year AOP trainees, with teams named after Indian rivers competing in rangoli, riddles, singing, dance, and drawing. Auro Connect, launched at Coimbatore from February 2026, is a monthly recreational initiative run by twelve employee teams." },
   { tag: "Training", title: "CMEs, CPEs & Workshops for AOPs and Admins", keywords: ["cme", "retina investigations", "design thinking", "anterior vitrectomy", "operation theatre cme", "drivers training"], text: "A comprehensive calendar of CMEs, CPEs, and workshops upgraded skills across clinical, technical, and administrative departments — including Retina Investigations Decoded, a Design Thinking workshop, Anterior Vitrectomy (V-Drill) with Alcon, Operation Theatre CME, and department-specific CMEs for Facility Coordinators, Medical Records, Personnel, and Transport." },
   { tag: "My Life My Pride", title: "My Life My Pride Programme", keywords: ["my life my pride", "life skills", "counselling", "mithram", "thalir thiran thittam"], text: "My Life, My Pride is a staff development initiative for AOPs built around three pillars — Life Skills, Counselling, and Extra-Curricular Activities. The Peer Counselling Programme 'Mithram' at Madurai trains employees to support peers, while the 'Thalir Thiran Thittam' Life Skills Programme reached 1,155 trainees across all centres." },
 ];
@@ -92,7 +93,9 @@ const RETREAT_CARDS = [
 ];
 
 /* ══════════════════════════════════════
-   DATA — BEYOND EYE CARE (numbered gallery cards)
+   DATA — BEYOND EYE CARE
+   (rendered with the same pc-card style used on the
+   Auroitech page's "Conferences & Workshops Conducted" section)
 ══════════════════════════════════════ */
 const BEYOND_CARDS = [
   {
@@ -102,24 +105,86 @@ const BEYOND_CARDS = [
     full: "Residents along with members of Suvadugal conducted community outreach activities at Kakaipandiniyar Girls Higher Secondary School and Vellivethiyar Girls Higher Secondary School, Madurai, on 7th & 8th August 2025. The sessions focused on eye health and hygiene, women's health, self-belief, empowerment, and the importance of financial independence. School kits containing notebooks, stationery, tiffin boxes, water bottles, and uniforms were distributed to 15 students from Classes 10 and 11, while an additional 20 students who had lost one or both parents also received support kits. ",
   },
   {
-    id: 1, image: "2026_1_MDU_Vanavil (26).webp", fallbackBg: "#0d1f35",
+    id: 2, image: "2026_1_MDU_Vanavil (26).webp", fallbackBg: "#0d1f35",
     title: "VAANAVIL INITIATIVE",
     short: "As part of Resident Social Responsibility Programme, sales event was conducted for blind women in Trichy..",
     full: "Residents extended their service through the Vaanavil initiative to the Rehabilitation Centre for Blind Women in Trichy. On 1st January 2026, an exhibition-cum-sale of handicrafts was organised, providing visually challenged women with an opportunity to showcase their talents and support sustainable livelihoods. The event raised over Rs. 4.11 lakh.",
   },
+];
+
+/* ══════════════════════════════════════
+   DATA — BUILDING CONNECTIONS
+   Each sub-block: a heading + description (rendered directly in
+   the page markup) followed by a simple 3-photo carousel
+   (image + caption, left/right arrows) — same visual format as
+   the My Life My Pride photo gallery.
+   NOTE: Placeholder image filenames — swap in the real files
+   once available.
+══════════════════════════════════════ */
+const ARANGAM_PHOTOS = [
+ {
+    id: 1,
+    image: "2025_10_MDU_Arangam (7).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Arangam -Aravind Madurai",
+  },
+  {
+    id: 2,
+    image: "2025_10_MDU_Arangam (17).webp",
+    fallbackBg: "#1a2d0d",
+    caption: "Arangam -Aravind Madurai",
+  },
+  {
+   id: 3,
+    image: "2025_10_MDU_Arangam (40).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Arangam -Aravind Madurai ",
+  },
+
+];
+
+const NADI_UTSAV_PHOTOS = [
+  {
+    id: 1,
+    image: "2026_2_Chennai_ NADI UTSAV (2).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Nadi Utsav - Aravind Chennai",
+  },
+  {
+    id: 2,
+    image: "2026_2_Chennai_ NADI UTSAV (4).webp",
+    fallbackBg: "#1a2d0d",
+    caption: "Nadi Utsav - Aravind Chennai",
+  },
+  {
+   id: 3,
+    image: "2026_2_Chennai_ NADI UTSAV (3).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Nadi Utsav - Aravind Chennai",
+  },
+ 
+];
+
+const AURO_CONNECT_PHOTOS = [
+ {
+    id: 1,
+    image: "2026_2_CBE_Auro Connect – Rejuvenate. Relate (6).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Auro connect - Aravind Coimbatore",
+  },
+  {
+    id: 2,
+    image: "2026_2_CBE_Auro Connect – Rejuvenate. Relate (10).webp",
+    fallbackBg: "#1a2d0d",
+    caption: "Auro connect - Aravind Coimbatore",
+  },
+  {
+   id: 3,
+    image: "2026_3_CBE_Vetri Team (19).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Auro connect - Aravind Coimbatore",
+  },
   
-  {
-    id: 2, image: "2026_2_Chennai_ NADI UTSAV (4).webp", fallbackBg: "#1a2d0d",
-    title: "NADI UTSAV — CHENNAI",
-    short: "A talent-based cultural event for first-year AOP trainees, held on 5-6 February 2026.",
-    full: "Nadi Utsav, a talent-based cultural event was conducted for first-year AOP trainees. Participants were divided into four teams named after Indian rivers — the Ganga, the Yamuna, the Narmada, and the Brahmaputra — and competed in activities such as rangoli, riddles, singing, dance, drawing, and theme-based events, showcasing their creativity and teamwork.",
-  },
-  {
-    id: 3, image: "2026_3_CBE_Vetri Team (17).webp", fallbackBg: "#2d1a0d",
-    title: "AURO CONNECT",
-    short: "A monthly recreational initiative run by twelve employee teams, from February 2026 onwards at Aravind-Coimbatore.",
-    full: "A monthly recreational initiative aimed at strengthening teamwork, encouraged creativity, and providing staff with a refreshing break from routine work schedules. Employees were divided into twelve teams, with each team taking turns to organise monthly activities. The events include singing, dance, yoga, and interactive games",
-  },
 ];
 
 /* ══════════════════════════════════════
@@ -142,19 +207,12 @@ const TRAINING_CARDS = [
   { id: 14, image: "2026_1_PDY_CPE for Co-ordinators (4).webp", fallbackBg: "#1a2d0d", title: "CPE for Coordinators, Technicians, Supervisors and Tutors", short: "Aravind-Pondicherry, 3–4 January 2026", full: "Strengthened teamwork, quality standards, and patient-centred care practices." },
   { id: 15, image: "2026_1_MDU_Transport CME (5).webp", fallbackBg: "#2d1a0d", title: "Transport Department Drivers' Training Camp", short: "Aravind-Madurai, 11 January 2026", full: "A one-day programme strengthening knowledge and skills in safe driving, traffic regulations, vehicle maintenance, fuel efficiency, passenger safety, professional conduct, and responsible service." },
   { id: 16, image: "2026_2_MDU_Physician_CME (29).webp", fallbackBg: "#0d2d3a", title: "CME for the Physician Team", short: " Aravind-Madurai, 28 February 2026", full: "Organised by the General Medicine services of AECS, focussing on history taking, systemic examination, emergency management, and reducing errors in blood pressure measurement, temperature checking, and ECG recording." },
-];
-
-/* ══════════════════════════════════════
-   DATA — DEPARTMENT-SPECIFIC CPEs & SPECIALIZED TRAINING (items 17-22)
-   NEW SECTION: Separated from above
-══════════════════════════════════════ */
-const DEPARTMENT_CPE_CARDS = [
-  { id: 1, image: "2026_3_MDU_Maintenance CPE_Batch 2 (25).webp", fallbackBg: "#3b2511", title: "CPE on Standardising and Strategies for Improving Efficiency (Insurance)", short: "Aravind-Madurai • 13–14 February 2026", full: "The programme focused on accountability, ethical practices, timelines, and patient-centred service." },
-  { id: 2, image: "2026_2_MDU_Stores CPE (21).webp", fallbackBg: "#241a3b", title: "CPE on Supply Chain Accuracy and Its Impact on Patient Safety (Stores)", short: "Aravind-Madurai • 13–14 February 2026", full: "The CPE emphasised process excellence, accountability, and user-focused service within the Stores Department." },
-  { id: 3, image: "2026_3_MDU_Maintenance CPE_Batch 2 (4).webp", fallbackBg: "#0d1f35", title: "Maintenance Department CPE 2026", short: "Aravind-Madurai • 7 & 14 March 2026", full: "The meet focused on safety, maintenance performance, new technologies, and sharing operational experiences." },
-  { id: 4, image: "2026_3_TVL_OPTO Tech CME (25).webp", fallbackBg: "#1a2d0d", title: "Enhancing Clinical Excellence through Optometry & Ophthalmic Technology (OPTO Tech)", short: "Aravind-Tirunelveli • 29 March 2026", full: "The CME strengthened clinical and technical skills through theory sessions and hands-on training in diagnostics, refraction, and patient care. It was attended by 92 participants, including faculty members, optometrists from other hospitals, and trainees." },
-  { id: 5, image: "2025_9_MDU_Photography Class_Dana Berger (14).webp", fallbackBg: "#2d1a0d", title: "Workshop on Digital Storytelling", short: "Aravind-Madurai • 26 September 2025", full: "As part of the Mike Myers Memorial Event, Digital Storytelling in Health Communication was organised by Aravind Communications, featuring a session by Dana Berger, Creative Director and Documentarian from the USA. The workshop provided videographers, video editors, photographers, graphic designers, instructional designers, doctors, and counsellors with valuable insights into the role of digital storytelling in healthcare communication." },
-  { id: 6, image: "2025_10_MDU_Photography Exhibition (7).webp", fallbackBg: "#0d2d3a", title: "Photography Exhibition", short: "Aravind-Madurai • 4–7 October 2025", full: "The Mike Myers Memorial Photography Exhibition was organised to honour Mike Myers, an Aravind volunteer and photography consultant who passed away on 4th October 2024. The exhibition featured portraits of Mike, photographs taken by him, selected works of Aravind photographers whose ophthalmic images featured on journal covers, and memorable moments capturing Aravind's journey." },
+  { id: 17, image: "2026_3_MDU_Maintenance CPE_Batch 2 (25).webp", fallbackBg: "#3b2511", title: "CPE on Standardising and Strategies for Improving Efficiency (Insurance)", short: "Aravind-Madurai • 13–14 February 2026", full: "The programme focused on accountability, ethical practices, timelines, and patient-centred service." },
+  { id: 18, image: "2026_2_MDU_Stores CPE (21).webp", fallbackBg: "#241a3b", title: "CPE on Supply Chain Accuracy and Its Impact on Patient Safety (Stores)", short: "Aravind-Madurai • 13–14 February 2026", full: "The CPE emphasised process excellence, accountability, and user-focused service within the Stores Department." },
+  { id: 19, image: "2026_3_MDU_Maintenance CPE_Batch 2 (4).webp", fallbackBg: "#0d1f35", title: "Maintenance Department CPE 2026", short: "Aravind-Madurai • 7 & 14 March 2026", full: "The meet focused on safety, maintenance performance, new technologies, and sharing operational experiences." },
+  { id: 20, image: "2026_3_TVL_OPTO Tech CME (25).webp", fallbackBg: "#1a2d0d", title: "Enhancing Clinical Excellence through Optometry & Ophthalmic Technology (OPTO Tech)", short: "Aravind-Tirunelveli • 29 March 2026", full: "The CME strengthened clinical and technical skills through theory sessions and hands-on training in diagnostics, refraction, and patient care. It was attended by 92 participants, including faculty members, optometrists from other hospitals, and trainees." },
+  { id: 21, image: "2025_9_MDU_Photography Class_Dana Berger (14).webp", fallbackBg: "#2d1a0d", title: "Workshop on Digital Storytelling", short: "Aravind-Madurai • 26 September 2025", full: "As part of the Mike Myers Memorial Event, Digital Storytelling in Health Communication was organised by Aravind Communications, featuring a session by Dana Berger, Creative Director and Documentarian from the USA. The workshop provided videographers, video editors, photographers, graphic designers, instructional designers, doctors, and counsellors with valuable insights into the role of digital storytelling in healthcare communication." },
+  { id: 22, image: "2025_10_MDU_Photography Exhibition (7).webp", fallbackBg: "#0d2d3a", title: "Photography Exhibition", short: "Aravind-Madurai • 4–7 October 2025", full: "The Mike Myers Memorial Photography Exhibition was organised to honour Mike Myers, an Aravind volunteer and photography consultant who passed away on 4th October 2024. The exhibition featured portraits of Mike, photographs taken by him, selected works of Aravind photographers whose ophthalmic images featured on journal covers, and memorable moments capturing Aravind's journey." },
 ];
 
 /* ══════════════════════════════════════
@@ -231,9 +289,9 @@ function AISearch() {
           placeholder="Ask about Employee Empowerment — e.g. retreats, workplace, My Life My Pride, RSR"
         />
         {searched && (
-          <button className="ai-close-btn" style={{ borderRadius: 0, borderTop: "none", borderBottom: "none", minHeight: 50 }} onClick={handleClear}>&#10005;</button>
+          <button type="button" className="ai-close-btn" style={{ borderRadius: 0, borderTop: "none", borderBottom: "none", minHeight: 50 }} onClick={handleClear}>&#10005;</button>
         )}
-        <button className="ai-search-btn" onClick={handleSearch} disabled={!query.trim()}>Search</button>
+        <button type="button" className="ai-search-btn" onClick={handleSearch} disabled={!query.trim()}>Search</button>
       </div>
 
       {searched && results.length === 0 && (
@@ -295,7 +353,7 @@ const WORKPLACE_CENTER_CARDS = buildWorkplaceCenterCards(WORKPLACE_CARDS);
    Renders either a "list" card (bulleted items) or a "text" card
    (single paragraph), based on card.items vs card.full.
 ══════════════════════════════════════════════════════════════ */
-function PhotoCarouselSection({ cards, ariaLabel, numbered, hideReadMore }) {
+function PhotoCarouselSection({ cards, ariaLabel, numbered, hideReadMore, center }) {
   const [current, setCurrent] = useState(0);
   const [openCard, setOpenCard] = useState(null);
   const trackRef = useRef(null);
@@ -316,9 +374,9 @@ function PhotoCarouselSection({ cards, ariaLabel, numbered, hideReadMore }) {
   return (
     <div className="carousel-wrap">
       <div className="carousel-track-wrap">
-        <button className="carousel-arrow carousel-arrow-left" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">&#8592;</button>
+        <button type="button" className="carousel-arrow carousel-arrow-left" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">&#8592;</button>
 
-        <div className="carousel-track" ref={trackRef}>
+        <div className={`carousel-track${center ? " carousel-track-center" : ""}`} ref={trackRef}>
           {cards.map((card, i) => (
             <PhotoCarouselCard
               key={card.id}
@@ -333,12 +391,12 @@ function PhotoCarouselSection({ cards, ariaLabel, numbered, hideReadMore }) {
           ))}
         </div>
 
-        <button className="carousel-arrow carousel-arrow-right" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">&#8594;</button>
+        <button type="button" className="carousel-arrow carousel-arrow-right" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">&#8594;</button>
       </div>
 
       <div className="carousel-dots">
         {cards.map((_, i) => (
-          <button key={i} className={`carousel-dot${current === i ? " carousel-dot-active" : ""}`} onClick={() => scrollTo(i)} aria-label={`${ariaLabel} ${i + 1}`} />
+          <button type="button" key={i} className={`carousel-dot${current === i ? " carousel-dot-active" : ""}`} onClick={() => scrollTo(i)} aria-label={`${ariaLabel} ${i + 1}`} />
         ))}
       </div>
     </div>
@@ -380,9 +438,17 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
 
   return (
     <div className={`carousel-card${isActive ? " carousel-card-active" : ""}`} onClick={!isActive ? onCardClick : undefined}>
-      <div className="carousel-card-img-wrap" style={{ cursor: "pointer" }} onClick={openZoom}>
-        <img src={card.image} alt={card.title} className="carousel-card-img" loading="lazy" decoding="async" onError={(e) => { e.target.style.opacity = "0"; }} style={{ background: card.fallbackBg }} />
-        
+      <div className="carousel-card-img-wrap" style={{ cursor: "pointer", background: card.fallbackBg }} onClick={openZoom}>
+        <img
+          src={card.image}
+          alt={card.title}
+          className="carousel-card-img"
+          loading="lazy"
+          decoding="async"
+          style={{ opacity: 0, transition: "opacity 0.35s ease, transform 0.4s ease" }}
+          onLoad={(e) => { e.target.style.opacity = "1"; }}
+          onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
+        />
         <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
       </div>
 
@@ -402,7 +468,7 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
               )}
             </div>
 
-            <button className="carousel-readmore-btn" onClick={(e) => { e.stopPropagation(); onToggle(); }}>
+            <button type="button" className="carousel-readmore-btn" onClick={(e) => { e.stopPropagation(); onToggle(); }}>
               {isOpen
                 ? <>Read less <span style={{ display: "inline-block", transform: "rotate(180deg)", fontSize: 10 }}>&#9660;</span></>
                 : <>Read more <span style={{ fontSize: 10 }}>&#9660;</span></>}
@@ -414,25 +480,24 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
       {zoomOpen && createPortal(
         <div className="photo-lightbox-overlay" onClick={() => setZoomOpen(false)}>
           <div className="photo-lightbox-box" onClick={(e) => e.stopPropagation()}>
-            <button className="photo-lightbox-close" onClick={() => setZoomOpen(false)}>&#10005;</button>
+            <button type="button" className="photo-lightbox-close" onClick={() => setZoomOpen(false)}>&#10005;</button>
 
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
               {total > 1 && (
-                <button className="carousel-arrow" onClick={prevPhoto} aria-label="Previous" style={{ position: "absolute", left: -60, zIndex: 2 }}>&#8592;</button>
+                <button type="button" className="carousel-arrow" onClick={prevPhoto} aria-label="Previous" style={{ position: "absolute", left: -60, zIndex: 2 }}>&#8592;</button>
               )}
 
-              <div className="photo-lightbox-img-wrap">
+              <div className="photo-lightbox-img-wrap" style={{ background: current.fallbackBg }}>
                 <img
                   src={current.image}
                   alt={current.caption || card.title}
                   className="photo-lightbox-img"
-                  onError={(e) => { e.target.style.opacity = "0"; }}
-                  style={{ background: current.fallbackBg }}
+                  onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
                 />
               </div>
 
               {total > 1 && (
-                <button className="carousel-arrow" onClick={nextPhoto} aria-label="Next" style={{ position: "absolute", right: -60, zIndex: 2 }}>&#8594;</button>
+                <button type="button" className="carousel-arrow" onClick={nextPhoto} aria-label="Next" style={{ position: "absolute", right: -60, zIndex: 2 }}>&#8594;</button>
               )}
             </div>
 
@@ -457,10 +522,27 @@ function PhotoCarouselCard({ card, num, isActive, isOpen, onToggle, onCardClick,
    caption centred under each photo.
 ══════════════════════════════════════════════════════════════ */
 function SimplePhotoCarousel({ items }) {
+  const [current,  setCurrent]  = useState(0);
+  const [lightbox, setLightbox] = useState(null); // index of open lightbox
   const trackRef = useRef(null);
-  const [lightbox, setLightbox] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const total = items.length;
+  const total    = items.length;
+
+  const scrollTo = (idx) => {
+    const newIdx = ((idx % total) + total) % total;
+    setCurrent(newIdx);
+    if (trackRef.current) {
+      const card = trackRef.current.children[newIdx];
+      if (card) {
+        const trackLeft = trackRef.current.getBoundingClientRect().left;
+        const cardLeft  = card.getBoundingClientRect().left;
+        const offset    = cardLeft - trackLeft + trackRef.current.scrollLeft;
+        trackRef.current.scrollTo({ left: offset, behavior: "smooth" });
+      }
+    }
+  };
+
+  const prev = (e) => { e.stopPropagation(); scrollTo(current - 1); };
+  const next = (e) => { e.stopPropagation(); scrollTo(current + 1); };
 
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") setLightbox(null); };
@@ -468,59 +550,49 @@ function SimplePhotoCarousel({ items }) {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const getCardStep = () => {
-    const track = trackRef.current;
-    if (!track) return 300;
-    const card = track.querySelector(".photo-card");
-    if (!card) return 300;
-    const style = window.getComputedStyle(track);
-    const gap = parseFloat(style.columnGap || style.gap || "24") || 24;
-    return card.offsetWidth + gap;
-  };
-
-  const scrollByCard = (dir) => {
-    const track = trackRef.current;
-    if (!track) return;
-    track.scrollBy({ left: dir * getCardStep(), behavior: "smooth" });
-  };
-
-  const scrollToIndex = (i) => {
-    const track = trackRef.current;
-    if (!track) return;
-    track.scrollTo({ left: i * getCardStep(), behavior: "smooth" });
-  };
-
-  const handleScroll = () => {
-    const track = trackRef.current;
-    if (!track) return;
-    const step = getCardStep();
-    const idx = Math.round(track.scrollLeft / step);
-    setActiveIndex(Math.max(0, Math.min(idx, total - 1)));
-  };
-
   return (
     <>
       <div className="carousel-wrap" style={{ marginTop: 20, padding: 0 }}>
         <div className="carousel-track-wrap">
-          <button className="carousel-arrow" onClick={() => scrollByCard(-1)} aria-label="Previous photo">&#8592;</button>
-          <div className="carousel-track" ref={trackRef} onScroll={handleScroll}>
+          <button type="button" className="carousel-arrow" onClick={prev} aria-label="Previous photo">&#8592;</button>
+
+          <div className="carousel-track photo-carousel-track" ref={trackRef}>
             {items.map((item, i) => (
-              <div key={item.id} className="photo-card" onClick={() => setLightbox(i)}>
+              <div
+                key={item.id}
+                className={`photo-card${current === i ? " photo-card-active" : ""}`}
+                onClick={() => { setCurrent(i); setLightbox(i); }}
+              >
                 <div className="photo-card-img-wrap" style={{ background: item.fallbackBg }}>
-                  <img src={item.image} alt={item.caption} className="photo-card-img" loading="lazy" decoding="async"
-                    onError={e => { e.target.style.opacity = "0"; }} />
+                  <img
+                    src={item.image}
+                    alt={item.caption}
+                    className="photo-card-img"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ opacity: 0, transition: "opacity 0.35s ease, transform 0.4s ease" }}
+                    onLoad={(e) => { e.target.style.opacity = "1"; }}
+                    onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
+                  />
                   <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
                 </div>
                 <p className="photo-card-caption">{item.caption}</p>
               </div>
             ))}
           </div>
-          <button className="carousel-arrow" onClick={() => scrollByCard(1)} aria-label="Next photo">&#8594;</button>
+
+          <button type="button" className="carousel-arrow" onClick={next} aria-label="Next photo">&#8594;</button>
         </div>
+
         <div className="carousel-dots">
           {items.map((_, i) => (
-            <button key={i} className={`carousel-dot${activeIndex === i ? " carousel-dot-active" : ""}`}
-              onClick={() => scrollToIndex(i)} aria-label={`Go to photo ${i + 1}`} />
+            <button
+              type="button"
+              key={i}
+              className={`carousel-dot${current === i ? " carousel-dot-active" : ""}`}
+              onClick={() => scrollTo(i)}
+              aria-label={`Photo ${i + 1}`}
+            />
           ))}
         </div>
       </div>
@@ -528,25 +600,92 @@ function SimplePhotoCarousel({ items }) {
       {lightbox !== null && (
         <div className="photo-lightbox-overlay" onClick={() => setLightbox(null)}>
           <div className="photo-lightbox-box" onClick={e => e.stopPropagation()}>
-            <button className="photo-lightbox-close" onClick={() => setLightbox(null)}>&#10005;</button>
+            <button type="button" className="photo-lightbox-close" onClick={() => setLightbox(null)}>&#10005;</button>
             {total > 1 && (
-              <button className="photo-lightbox-arrow photo-lightbox-prev"
+              <button type="button" className="photo-lightbox-arrow photo-lightbox-prev"
                 onClick={() => setLightbox(((lightbox - 1) + total) % total)}>&#8592;</button>
             )}
-            <div className="photo-lightbox-img-wrap">
+            <div className="photo-lightbox-img-wrap" style={{ background: items[lightbox].fallbackBg }}>
               <img
                 src={items[lightbox].image}
                 alt={items[lightbox].caption}
                 className="photo-lightbox-img"
-                style={{ background: items[lightbox].fallbackBg }}
-                onError={e => { e.target.style.opacity = "0"; }}
+                onError={e => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
               />
             </div>
             {total > 1 && (
-              <button className="photo-lightbox-arrow photo-lightbox-next"
+              <button type="button" className="photo-lightbox-arrow photo-lightbox-next"
                 onClick={() => setLightbox((lightbox + 1) % total)}>&#8594;</button>
             )}
             <p className="photo-lightbox-caption">{items[lightbox].caption}</p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INITIATIVE CARD — same card used on the Auroitech page for
+   "Conferences & Workshops Conducted". Reused here for
+   "Beyond Eye Care" so both sections look identical.
+══════════════════════════════════════════════════════════════ */
+function InitiativeCard({ card, isOpen, onToggle }) {
+  const contentRef = useRef(null);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [showLightbox, setShowLightbox] = useState(false);
+  useEffect(() => { if (contentRef.current) setContentHeight(contentRef.current.scrollHeight); }, []);
+
+  useEffect(() => {
+    if (!showLightbox) return;
+    const handler = (e) => { if (e.key === "Escape") setShowLightbox(false); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [showLightbox]);
+
+  return (
+    <>
+      <div className={`pc-card${isOpen ? " pc-card-open" : ""}`} style={{ alignSelf: "start" }}>
+        <div className="pc-card-img-wrap" style={{ background: card.fallbackBg, cursor: "pointer" }} onClick={() => setShowLightbox(true)}>
+          <img
+            src={card.image}
+            alt={card.title}
+            className="pc-card-img"
+            loading="lazy"
+            decoding="async"
+            style={{ opacity: 0, transition: "opacity 0.35s ease, transform 0.4s ease" }}
+            onLoad={(e) => { e.target.style.opacity = "1"; }}
+            onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
+          />
+          <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
+        </div>
+        <div className="pc-card-body" style={{ display: "flex", flexDirection: "column" }}>
+          <h3 className="pc-card-title">{card.title}</h3>
+          <p className="pc-card-short">{card.short}</p>
+          <div ref={contentRef} style={{ maxHeight: isOpen ? `${contentHeight || 800}px` : "0px", opacity: isOpen ? 1 : 0, overflow: "hidden", transition: "max-height 0.42s ease, opacity 0.3s ease" }}>
+            <p className="pc-card-full-text">{card.full}</p>
+          </div>
+          <button type="button" className="pc-card-readmore" onClick={onToggle}>
+            {isOpen ? <>Read less <span style={{ display: "inline-block", transform: "rotate(180deg)", fontSize: 10 }}>&#9660;</span></> : <>Read more <span style={{ fontSize: 10 }}>&#9660;</span></>}
+          </button>
+        </div>
+      </div>
+
+      {showLightbox && (
+        <div className="photo-lightbox-overlay" onClick={() => setShowLightbox(false)}>
+          <div className="photo-lightbox-box" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="photo-lightbox-close" onClick={() => setShowLightbox(false)}>&#10005;</button>
+            <div className="photo-lightbox-img-wrap" style={{ background: card.fallbackBg }}>
+              <img
+                src={card.image}
+                alt={card.title}
+                className="photo-lightbox-img"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
+              />
+            </div>
+            <p className="photo-lightbox-caption">{card.title}</p>
           </div>
         </div>
       )}
@@ -558,6 +697,8 @@ function SimplePhotoCarousel({ items }) {
    MAIN COMPONENT
 ══════════════════════════════════════ */
 export default function EmployeeEmpowerment() {
+  const [expandedBeyond, setExpandedBeyond] = useState(null);
+
   return (
     <div className="pc-page">
 
@@ -614,12 +755,80 @@ export default function EmployeeEmpowerment() {
         </div>
       </section>
 
-      {/* ══ SECTION 3: BEYOND EYE CARE ══ */}
+      {/* ══ SECTION 3: BEYOND EYE CARE ══
+          Uses the same pc-card grid as Auroitech's "Conferences &
+          Workshops Conducted" section for a consistent, neat layout. */}
       <section className="pc-section pc-infra-section" id="beyond">
         <div className="pc-section-inner">
           <h2 className="pc-section-title">Beyond <span className="pc-gold">Eye Care</span></h2>
-          <div style={{ marginTop: 32 }}>
-            <PhotoCarouselSection cards={BEYOND_CARDS} ariaLabel="Highlight" numbered />
+          <div
+            className="pc-cards-grid"
+            style={{
+              marginTop: 32,
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 32,
+            }}
+          >
+            {BEYOND_CARDS.map((card) => (
+              <div key={card.id} style={{ width: 420, maxWidth: "100%" }}>
+                <InitiativeCard
+                  card={card}
+                  isOpen={expandedBeyond === card.id}
+                  onToggle={() => setExpandedBeyond((prev) => (prev === card.id ? null : card.id))}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ SECTION 3b: BUILDING CONNECTIONS ══ */}
+      <section className="pc-section" id="building-connections">
+        <div className="pc-section-inner">
+          <h2 className="pc-section-title">Building <span className="pc-gold">Connections</span></h2>
+
+          <div className="edu-course-block" style={{ marginTop: 32 }}>
+            <div className="edu-course-block-title">Arangam</div>
+            <p className="pc-section-body">
+              The 3rd Aravind Intramural Conference, Arangam, held at Aravind-Madurai on 9-10
+              October 2025 as part of the October Summit 2025, promoted learning, innovation, and
+              continuous improvement among staff across all Aravind centres. The conference
+              received over 484 submissions organised under four tracks — CARE, FOCUS, HEAL, and
+              TRAIN — covering areas such as patient care, clinical practices, refraction, low
+              vision care, teaching, and skill transfer. A total of 239 presentations, including
+              oral, poster, video, and quiz events, were showcased, with 63 participants receiving
+              prizes. Learning stalls and poster exhibits encouraged interdisciplinary interaction
+              and knowledge sharing.
+            </p>
+            <SimplePhotoCarousel items={ARANGAM_PHOTOS} />
+          </div>
+
+          <div className="edu-course-block" style={{ marginTop: 40 }}>
+            <div className="edu-course-block-title">Nadi Utsav <span className="edu-course-block-title-accent">— Chennai</span></div>
+            <p className="pc-section-body">
+              A talent-based cultural event for first-year AOP trainees, held on 5-6 February
+              2026. Nadi Utsav, a talent-based cultural event was conducted for first-year AOP
+              trainees. Participants were divided into four teams named after Indian rivers — the
+              Ganga, the Yamuna, the Narmada, and the Brahmaputra — and competed in activities such
+              as rangoli, riddles, singing, dance, drawing, and theme-based events, showcasing
+              their creativity and teamwork.
+            </p>
+            <SimplePhotoCarousel items={NADI_UTSAV_PHOTOS} />
+          </div>
+
+          <div className="edu-course-block" style={{ marginTop: 40 }}>
+            <div className="edu-course-block-title">Auro <span className="edu-course-block-title-accent">Connect</span></div>
+            <p className="pc-section-body">
+              A monthly recreational initiative run by twelve employee teams, from February 2026
+              onwards at Aravind-Coimbatore. A monthly recreational initiative aimed at
+              strengthening teamwork, encouraged creativity, and providing staff with a refreshing
+              break from routine work schedules. Employees were divided into twelve teams, with
+              each team taking turns to organise monthly activities. The events include singing,
+              dance, yoga, and interactive games.
+            </p>
+            <SimplePhotoCarousel items={AURO_CONNECT_PHOTOS} />
           </div>
         </div>
       </section>
@@ -630,23 +839,13 @@ export default function EmployeeEmpowerment() {
           <h2 className="pc-section-title">CME's CPE's <span className="pc-gold">&Workshops for AOPs and Admins</span></h2>
           <p className="pc-section-body">
             A comprehensive calendar of CMEs, CPEs, and workshops upgraded skills across clinical,
-            technical, and administrative departments throughout the year.
+            technical, and administrative departments throughout the year — including targeted
+            CPE programmes and specialised workshops for key departments that strengthened
+            operational excellence, interdepartmental collaboration, and professional expertise
+            across Aravind's services.
           </p>
           <div style={{ marginTop: 32 }}>
             <PhotoCarouselSection cards={TRAINING_CARDS} ariaLabel="Programme" numbered />
-          </div>
-        </div>
-      </section>
-
-      {/* ══ SECTION 4b: DEPARTMENT-SPECIFIC CPEs & SPECIALIZED TRAINING (NEW SECTION — items 17-22) ══ */}
-      <section className="pc-section" id="department-cpe">
-        <div className="pc-section-inner">
-          <h2 className="pc-section-title"> Department-Specific CPEs<span className="pc-gold"> & Specialised Training</span></h2>
-          <p className="pc-section-body">
-            Targeted CPE programmes and specialised workshops for key departments strengthened operational excellence, interdepartmental collaboration, and professional expertise across Aravind's services.
-          </p>
-          <div style={{ marginTop: 32 }}>
-            <PhotoCarouselSection cards={DEPARTMENT_CPE_CARDS} ariaLabel="Department Programme" numbered />
           </div>
         </div>
       </section>

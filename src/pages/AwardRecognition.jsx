@@ -18,12 +18,7 @@ const RECOGNITION_CARDS = [
     meta: "New Delhi • 17th September 2025",
     full: "The Aravind Eye Care System (AECS) has been recognised as the first complete group of eye hospitals to achieve the NABH Digital Health Standards at the NABH Patient Safety Conference.",
   },
-  {
-    id: 2, image: "2025_12_TVL_Award_Lions club of Mannar (1).webp", fallbackBg: "#1a2d0d",
-    title: "Yeoman Service Award",
-    meta: "Alleppey • 17th December 2025",
-    full: "For its yeoman service to the public in eliminating needless blindness and restoring vision to millions, Aravind Eye Hospital, Tirunelveli was recognised with an award by the Lions Club of Mannar.",
-  },
+  
 
   {
     id: 4, image: "2026_2_PDY_Honouring Farm Fest Winners copy.webp", fallbackBg: "#0d2d3a",
@@ -139,20 +134,11 @@ const RECOGNITION_CARDS = [
     meta: "New Delhi • 25th February 2026",
     full: "Dr. Parag K. Shah and Dr. Shivkumar Chandrashekharan, Chief, IOL & Cataract Services, Aravind-Tirunelveli, were part of the Guinness World Record attempt by the National Board of Examinations in Medical Sciences (NBEMS), New Delhi, for the 'Most viewers of an Artificial Intelligence in Healthcare lesson live stream on YouTube,' which recorded 17,999 doctors as simultaneous viewers during the live session.",
   },
+  
+  
+  
   {
-    id: 24, image: "2026_2_ARISE_Meritorious_Award.webp", fallbackBg: "#2d1a0d",
-    title: "Meritorious Award",
-    meta: "Karnataka • 11–22 February 2026",
-    full: "Dr. R. Kim was honoured with the Meritorious Award at the Advances in Retinal Imaging Surgery & Electrophysiology (ARISE) 2026, organised by the Retina Institute of Karnataka. This award was conferred in recognition of a lifetime of excellence in retinal care and unwavering dedication to teaching and mentorship.",
-  },
-  {
-    id: 25, image: "mangammalaward.webp", fallbackBg: "#0d2d3a",
-    title: "Rani Mangammal Award",
-    meta: "Theni • 8th March 2026",
-    full: "Sr. Seeniammal, AOP HR Manager, Aravind-Theni, was honoured with the Rani Mangammal Award by the Naidu Chamber of Commerce and Industries (NCCI), Theni, during the NCCI Family Meet held in observance of International Women's Day - NCCI Family Meet 2026.",
-  },
-  {
-    id: 26, image: "2026_3_Award_Dr Rathinam_AIOS_Conf_Jaipur(2).webp", fallbackBg: "#3b2511",
+    id: 26, image: "Rathinam madam AIOS.webp", fallbackBg: "#3b2511",
     title: "Awards at the 84th Annual Conference of the All-India Ophthalmological Society (AIOS) 2026",
     meta: "Jaipur • 12–15 March 2026",
     full: "Dr. R. Venkatesh was honoured with the AIOS - Lalit Verma (LV) Pearl Award 2026, in recognition of his outstanding contributions to education, research, and leadership in Ophthalmology. Dr. S.R. Rathinam, Chief / Principal, Uveitis Services, Aravind-Madurai, received the Endowment Award for delivering the AIOS P. Namperumalsamy Endowment Lecture, titled: 'How Did We Find Out the Cause of an Epidemic Fever and Uveitis? Leptospirosis in India.'",

@@ -54,9 +54,9 @@
      Leave empty "" if you don't have a photo yet — it'll fall back to the
      navy/green colour block automatically. ── */
   const OTHER_INITIATIVES = [
-    { title: "10th Edition of CANN", image: "01.webp", desc: "The 10th Edition of Coimbatore Aravind's Neuro-Ophthalmic Newsletter (CANN), has been published by the Neuro-Ophthalmology Department of Aravind-Coimbatore, coinciding with the Golden Jubilee celebrations of the AECS. This special edition honoured Dr. G. Natchiar, Director Emeritus, AECS, a true visionary whose pioneering spirit laid the foundation for neuro-ophthalmology in India. As a resident-focused issue, it includes two original studies by trainees along with insightful case reports contributed by postgraduates." },
-    { title: "Writathon", image: "2025_10_PDY_Writathon (1).webp", desc: "The annual Writathon event promotes research activities across Aravind in terms of writing, learning, and knowledge-sharing. It brings researchers together to achieve specific writing goals within a set timeframe. This year, the event, held at Aravind-Pondicherry on 17th October 2025, received over 30 submissions, including articles, videos, case reports, case series, image essays, letters to the editor, and clinical images. The best works have been submitted for acceptance and publication in prestigious journals." },
-    { title: "Library Week", image: " 2025_11_MDU_Library Week (4).webp", desc: "To enhance awareness and use of library resources, the Aravind Library and Information Centre, Madurai, organised Library Week at Aravind-Madurai. Conducted in two phases for Residents and AOPs during October–November 2025, the programme featured interactive events such as photo quizzes, skill tests, treasure hunts, and oral quizzes covering ophthalmology and general topics." },
+    { id: "cann", title: "10th Edition of CANN", image: "01.webp", desc: "The 10th Edition of Coimbatore Aravind's Neuro-Ophthalmic Newsletter (CANN), has been published by the Neuro-Ophthalmology Department of Aravind-Coimbatore, coinciding with the Golden Jubilee celebrations of the AECS. This special edition honoured Dr. G. Natchiar, Director Emeritus, AECS, a true visionary whose pioneering spirit laid the foundation for neuro-ophthalmology in India. As a resident-focused issue, it includes two original studies by trainees along with insightful case reports contributed by postgraduates." },
+    { id: "writathon", title: "Writathon", image: "2025_10_PDY_Writathon (1).webp", desc: "The annual Writathon event promotes research activities across Aravind in terms of writing, learning, and knowledge-sharing. It brings researchers together to achieve specific writing goals within a set timeframe. This year, the event, held at Aravind-Pondicherry on 17th October 2025, received over 30 submissions, including articles, videos, case reports, case series, image essays, letters to the editor, and clinical images. The best works have been submitted for acceptance and publication in prestigious journals." },
+    { id: "library-week", title: "Library Week", image: " 2025_11_MDU_Library Week (4).webp", desc: "To enhance awareness and use of library resources, the Aravind Library and Information Centre, Madurai, organised Library Week at Aravind-Madurai. Conducted in two phases for Residents and AOPs during October–November 2025, the programme featured interactive events such as photo quizzes, skill tests, treasure hunts, and oral quizzes covering ophthalmology and general topics." },
   ];
 
 
@@ -255,7 +255,7 @@
   function CmeCarousel({ programmes }) {
     const trackRef = useRef(null);
     const [active, setActive] = useState(0);
-    const [expanded, setExpanded] = useState({});
+    const [openCard, setOpenCard] = useState(null); // ← ONE id at a time (same pattern as PatientCare)
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
     const scrollToCard = (idx) => {
@@ -271,7 +271,8 @@
     const prev = () => { const n = (active - 1 + programmes.length) % programmes.length; setActive(n); scrollToCard(n); };
     const next = () => { const n = (active + 1) % programmes.length; setActive(n); scrollToCard(n); };
     const goTo = (i) => { setActive(i); scrollToCard(i); };
-    const toggleExpand = (i) => setExpanded(e => ({ ...e, [i]: !e[i] }));
+    // ✅ Toggle: open clicked card, close if already open — never touches other cards
+    const handleToggle = (id) => setOpenCard(prev => (prev === id ? null : id));
 
     const openLightbox  = (i) => setLightboxIndex(i);
     const closeLightbox = () => setLightboxIndex(null);
@@ -284,38 +285,45 @@
           <button className="carousel-arrow" onClick={prev} aria-label="Previous">&#8592;</button>
 
           <div className="carousel-track" ref={trackRef}>
-            {programmes.map((p, i) => (
-              <div key={i} className={`photo-card cme-card${active === i ? " photo-card-active" : ""}`}>
-                <div
-                  className="photo-card-img-wrap"
-                  style={{
-                    background: CME_CARD_COLORS[i % CME_CARD_COLORS.length],
-                    cursor: p.image ? "pointer" : "default",
-                  }}
-                  onClick={() => p.image && openLightbox(i)}
-                >
-                  {p.image && (
-                    <>
-                      <img
-                        className="photo-card-img"
-                        src={p.image}
-                        alt={p.title}
-                        onError={(e) => { e.currentTarget.style.display = "none"; }}
-                      />
-                      <div className="photo-card-overlay">
-                        <span className="photo-card-zoom">&#9654; View</span>
-                      </div>
-                    </>
-                  )}
+            {programmes.map((p, i) => {
+              const cardId = p.id ?? i;
+              const isOpen = openCard === cardId;
+              return (
+                <div key={cardId} className={`photo-card cme-card${active === i ? " photo-card-active" : ""}`}>
+                  <div
+                    className="photo-card-img-wrap"
+                    style={{
+                      background: CME_CARD_COLORS[i % CME_CARD_COLORS.length],
+                      cursor: p.image ? "pointer" : "default",
+                    }}
+                    onClick={() => p.image && openLightbox(i)}
+                  >
+                    {p.image && (
+                      <>
+                        <img
+                          className="photo-card-img"
+                          src={p.image}
+                          alt={p.title}
+                          onError={(e) => { e.currentTarget.style.display = "none"; }}
+                        />
+                        <div className="photo-card-overlay">
+                          <span className="photo-card-zoom">&#9654; View</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <h4 className="cme-card-title">{p.title}</h4>
+                  <p className="cme-card-meta">{p.tag} &bull; {p.date}</p>
+                  <p className={`cme-card-desc${isOpen ? " cme-card-desc-expanded" : ""}`}>{p.desc}</p>
+                  <button
+                    className="edu-readmore-btn"
+                    onClick={(e) => { e.stopPropagation(); handleToggle(cardId); }}
+                  >
+                    {isOpen ? "Show Less" : "Read More"}
+                  </button>
                 </div>
-                <h4 className="cme-card-title">{p.title}</h4>
-                <p className="cme-card-meta">{p.tag} &bull; {p.date}</p>
-                <p className={`cme-card-desc${expanded[i] ? " cme-card-desc-expanded" : ""}`}>{p.desc}</p>
-                <button className="edu-readmore-btn" onClick={() => toggleExpand(i)}>
-                  {expanded[i] ? "Show Less" : "Read More"}
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <button className="carousel-arrow" onClick={next} aria-label="Next">&#8594;</button>
@@ -402,48 +410,57 @@
   ══════════════════════════════════════ */
   function InitiativesGallery({ items }) {
     const [lightboxIndex, setLightboxIndex] = useState(null);
-    const [expanded, setExpanded] = useState({});
+    const [openCard, setOpenCard] = useState(null); // ← ONE id at a time (same pattern as PatientCare)
 
     const openLightbox  = (i) => setLightboxIndex(i);
     const closeLightbox = () => setLightboxIndex(null);
     const prevLightbox  = () => setLightboxIndex(i => (i - 1 + items.length) % items.length);
     const nextLightbox  = () => setLightboxIndex(i => (i + 1) % items.length);
-    const toggleExpand  = (i) => setExpanded(e => ({ ...e, [i]: !e[i] }));
+
+    // ✅ Toggle: open clicked card, close if already open — never touches other cards
+    const handleToggle = (id) => setOpenCard(prev => (prev === id ? null : id));
 
     return (
       <>
         <div className="edu-initiatives-grid">
-          {items.map((item, i) => (
-            <div key={i} className="photo-card edu-initiative-card">
-              <div
-                className="photo-card-img-wrap"
-                style={{
-                  background: CME_CARD_COLORS[i % CME_CARD_COLORS.length],
-                  cursor: item.image ? "pointer" : "default",
-                }}
-                onClick={() => item.image && openLightbox(i)}
-              >
-                {item.image && (
-                  <>
-                    <img
-                      className="photo-card-img"
-                      src={item.image}
-                      alt={item.title}
-                      onError={(e) => { e.currentTarget.style.display = "none"; }}
-                    />
-                    <div className="photo-card-overlay">
-                      <span className="photo-card-zoom">&#9654; View</span>
-                    </div>
-                  </>
-                )}
+          {items.map((item, i) => {
+            const cardId = item.id ?? i;
+            const isOpen = openCard === cardId;
+            return (
+              <div key={cardId} className="photo-card edu-initiative-card">
+                <div
+                  className="photo-card-img-wrap"
+                  style={{
+                    background: CME_CARD_COLORS[i % CME_CARD_COLORS.length],
+                    cursor: item.image ? "pointer" : "default",
+                  }}
+                  onClick={() => item.image && openLightbox(i)}
+                >
+                  {item.image && (
+                    <>
+                      <img
+                        className="photo-card-img"
+                        src={item.image}
+                        alt={item.title}
+                        onError={(e) => { e.currentTarget.style.display = "none"; }}
+                      />
+                      <div className="photo-card-overlay">
+                        <span className="photo-card-zoom">&#9654; View</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <h4 className="cme-card-title">{item.title}</h4>
+                <p className={`cme-card-desc${isOpen ? " cme-card-desc-expanded" : ""}`}>{item.desc}</p>
+                <button
+                  className="edu-readmore-btn"
+                  onClick={(e) => { e.stopPropagation(); handleToggle(cardId); }}
+                >
+                  {isOpen ? "Show Less" : "Read More"}
+                </button>
               </div>
-              <h4 className="cme-card-title">{item.title}</h4>
-              <p className={`cme-card-desc${expanded[i] ? " cme-card-desc-expanded" : ""}`}>{item.desc}</p>
-              <button className="edu-readmore-btn" onClick={() => toggleExpand(i)}>
-                {expanded[i] ? "Show Less" : "Read More"}
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {lightboxIndex !== null && (
@@ -489,10 +506,14 @@ function CoursesTable() {
     <div className="perf-wrap">
       <div className="perf-table-wrap">
         <table className="perf-table">
+          <colgroup>
+            <col style={{ width: 320 }} />
+            <col style={{ width: 220 }} />
+          </colgroup>
           <thead>
             <tr>
               <th className="perf-th perf-th-label">Course</th>
-              <th className="perf-th perf-th-total" style={{ minWidth: 130 }}>Candidates</th>
+              <th className="perf-th perf-th-total">Candidates</th>
             </tr>
           </thead>
           <tbody>
@@ -561,7 +582,7 @@ function CoursesTable() {
         {/* ══ SECTION 1: EDUCATION & TRAINING — course details table ══ */}
         <section className="pc-section" id="education-training">
           <div className="pc-section-inner">
-            <h2 className="pc-section-title">
+            <h2 className="pc-section-title edu-candidates-title">
               Candidates Trained <span className="pc-gold">2025 – 2026</span>
             </h2>
             <p className="pc-section-body">
@@ -579,9 +600,8 @@ function CoursesTable() {
               Aravind and LAICO offer customised training programmes tailored to individual and organisational needs, combining hands-on training and observation in clinical and administrative areas.
             </p>
             <p className="pc-section-body">
-             April 2025 – March 2026: 45 participants / 5 countries 
-             Antigua & Barbuda • Ghana • India • South Sudan • Vietnam Training was conducted at Aravind centres in Madurai, Coimbatore, Pondicherry and Tirunelveli, and at LAICO, based on participants’ learning needs.
-            </p>
+          During April 2025 to March 2026, 45 participants from 5 countries, including Antigua and Barbud, Ghana, India, South Sudan, and Vietnam attended these customised training programmes. The courses were conducted across various Aravind centres in Madurai, Coimbatore, Pondicherry, Tirunelveli, and at LAICO, based on their individual requirements.         
+             </p>
           </div>
         </section>
 
@@ -589,11 +609,10 @@ function CoursesTable() {
         <section className="pc-section pc-infra-section" id="cme-cpe">
           <div className="pc-section-inner">
             <h2 className="pc-section-title">
-              Continuing Medical / Professional Education <span className="pc-gold"></span>
+              Continuing Medical Education <span className="pc-gold"></span>
             </h2>
             <p className="pc-section-body">
-              Several Continuing Medical Education (CME) and Continuing Professional Education (CPE)
-              programmes, workshops, and retreat sessions were conducted across Aravind hospitals
+              Several Continuing Medical Education (CME) programmes, workshops, and retreat sessions were conducted across Aravind hospitals
               during 2025–26, serving as common forums to discuss the latest trends, innovations, and
               best practices in ophthalmology.
             </p>
