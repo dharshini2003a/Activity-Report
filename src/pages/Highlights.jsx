@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "../styles/highlights.css";
 
-const HERO_IMAGE    = "/PN Sir.webp";
-const HERO_FALLBACK = "Highlights_Hero.webp";
+/* Hero image now lives entirely in highlights.css (.pc-hero-bg), with a
+   separate, smaller image swapped in for mobile via @media — see CSS.
+   Keeping it out of inline style so the CSS media query actually wins. */
 
 const STATS = [
   { number: "50th",  label: "Golden Jubilee Year" },
@@ -112,9 +113,9 @@ const ORATION_EVENT_2 = {
   photos: [
     { id: 1, image: "Edit_2025_8_Art Exhibition_Perumalda&Manohar (8) copy.webp", fallbackBg: "#0d2d3a", caption: "Ariaravelan inaugurating the art exhibition of Perumal Da and Manohar Devadoss" },
     { id: 2, image: "2025_8_Art Exhibition_Perumalda&Manohar (11).webp", fallbackBg: "#0d2d3a", caption: "Ceremonial lamp lighting by Dr. R. Prabhakar Vedamanickam" },
-    { id: 3, image: "2025_8_Art Exhibition_Perumalda&Manohar (23).webp", fallbackBg: "#0d2d3a", caption: "Artist Ramanan interacting with school children about the world of comics" },
+    { id: 3, image: "2025_8_Art Exhibition_Perumalda&Manohar (49).webp", fallbackBg: "#0d2d3a", caption: "Artist Ramanan interacting with school children about the world of comics" },
     { id: 4, image: "2025_8_Art Exhibition_Perumalda&Manohar (28).webp", fallbackBg: "#0d2d3a", caption: "Aravind AOPs viewing the artworks on display" },
-    { id: 5, image: "2025_8_Art Exhibition_Perumalda&Manohar (49).webp", fallbackBg: "#0d2d3a", caption: "School children viewing artworks at the art exhibition" },
+    { id: 5, image: "2025_8_Art Exhibition_Perumalda&Manohar (23).webp", fallbackBg: "#0d2d3a", caption: "School children viewing artworks at the art exhibition" },
   ]
 };
 
@@ -123,7 +124,22 @@ function InitiativeCard({ card, isOpen, onToggle }) {
   const contentRef = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
-  useEffect(() => { if (contentRef.current) setContentHeight(contentRef.current.scrollHeight); }, []);
+  useEffect(() => {
+    const wrapper = contentRef.current;
+    if (!wrapper) return;
+    const target = wrapper.firstElementChild || wrapper;
+    const update = () => setContentHeight(wrapper.scrollHeight);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(target);
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, []);
 
   useEffect(() => {
     if (!showLightbox) return;
@@ -335,7 +351,7 @@ export default function Highlights() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg" />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">
@@ -374,8 +390,8 @@ export default function Highlights() {
         <div className="pc-section-inner">
           <h2 className="pc-section-title">Reaching a <span className="pc-gold">Half-Century Milestone</span></h2>
           <p className="pc-section-body">
-            Inspired by the timeless words of Dr. V, "Intelligence and capability are not enough. There must also be the joy of doing something beautiful," Aravind, as it reaches its 50th year, looks back with deep satisfaction on its journey of creating a brighter society through compassionate eye care. At the same time, this milestone is an opportunity to look ahead, with renewed spirit, stronger commitment, and a clear determination to accomplish all that still remains to be done in its mission of eliminating needless blindness.
-          </p>
+            Inspired by the timeless words of Dr. V, who admired Gandhiji’s concept of ‘soul-force,’ and observed, “His great strength was his capacity to love people,” Dr. V embodied this ideal through his own life and work, making the gift of sight freely available to countless people. As Aravind marks its 50th year, it looks ahead with renewed spirit and a clear determination to accomplish all that still remains to be done in its mission of eliminating needless blindness.  The jubilee celebrations kicked off on 4th April 2025 with the launch of the jubilee logo, followed by various events at every Aravind centre. It was a time for all Aravind members to rejoice in the impressive work carried out to help fellow human beings see the world clearly. Throughout the year, staff participated in designing the jubilee logo, composing a special anthem, taking part in a jubilee photo competition, planting tree saplings, and conducting department-wise CMEs and CPEs, all with the aim of rededicating themselves to the noble mission of eliminating needless blindness.
+            </p>
           <PhotoCarousel items={JUBILEE_GALLERY} />
         </div>
       </section>

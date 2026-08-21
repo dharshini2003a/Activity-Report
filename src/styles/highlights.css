@@ -22,11 +22,22 @@
   .pc-hero-bg {
     position: absolute;
     inset: 0;
+    background-image: url('PN Sir.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #0d1f35;
     transform: scale(1.02);
+  }
+
+  /* Dedicated, smaller, portrait-cropped image for mobile — loads
+     faster on mobile data and frames the subject better on a narrow
+     screen. Swap the filename below once you've exported the crop. */
+  @media (max-width: 640px) {
+    .pc-hero-bg {
+      background-image: url('PN-Sir-Mobile.webp');
+      background-position: center top;
+    }
   }
 
   .pc-hero-overlay {
@@ -2500,4 +2511,30 @@
   .pc-page-nav-link   { flex-direction: column; align-items: flex-start; padding: 10px 16px; }
   .pc-page-nav-link-next { align-items: flex-end; }
   .pc-page-nav-title  { font-size: 13px; }
+}
+/* ============================================================
+   MOBILE TOUCH FIX (added)
+   1) :hover-only overlays never show on touchscreens and cause
+      a "tap twice to open" bug on iOS Safari. This makes the
+      zoom hint appear immediately on tap on touch devices.
+   2) Fixed-height image boxes crop too aggressively on narrow
+      screens. Switched to a responsive aspect-ratio on mobile
+      so images are not cut off.
+============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  .photo-card-overlay,
+  .aw-card-overlay {
+    opacity: 1 !important;
+    background: rgba(13, 31, 53, 0.28) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pc-card-img-wrap,
+  .aw-card-img-wrap,
+  .photo-card-img-wrap,
+  .carousel-card-img-wrap {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
 }

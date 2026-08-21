@@ -101,13 +101,13 @@ const BEYOND_CARDS = [
   {
     id: 1, image: "2025_8_RSR_Vellivethiyar School (1).webp", fallbackBg: "#0d1f35",
     title: "SCHOOL KIT DISTRIBUTION",
-    short: "As part of Resident Social Responsibility Programme, residents conducted Community outreach at Madurai schools",
+    short: "As part of Resident Social Responsibility Programme, residents conducted Community outreach at Madurai schools.",
     full: "Residents along with members of Suvadugal conducted community outreach activities at Kakaipandiniyar Girls Higher Secondary School and Vellivethiyar Girls Higher Secondary School, Madurai, on 7th & 8th August 2025. The sessions focused on eye health and hygiene, women's health, self-belief, empowerment, and the importance of financial independence. School kits containing notebooks, stationery, tiffin boxes, water bottles, and uniforms were distributed to 15 students from Classes 10 and 11, while an additional 20 students who had lost one or both parents also received support kits. ",
   },
   {
     id: 2, image: "2026_1_MDU_Vanavil (26).webp", fallbackBg: "#0d1f35",
     title: "VAANAVIL INITIATIVE",
-    short: "As part of Resident Social Responsibility Programme, sales event was conducted for blind women in Trichy..",
+    short: "As part of Resident Social Responsibility Programme, sales event was conducted for blind women in Trichy.",
     full: "Residents extended their service through the Vaanavil initiative to the Rehabilitation Centre for Blind Women in Trichy. On 1st January 2026, an exhibition-cum-sale of handicrafts was organised, providing visually challenged women with an opportunity to showcase their talents and support sustainable livelihoods. The event raised over Rs. 4.11 lakh.",
   },
 ];
@@ -136,10 +136,17 @@ const ARANGAM_PHOTOS = [
   },
   {
    id: 3,
-    image: "2025_10_MDU_Arangam (40).webp",
+    image: "2025_10_MDU_Arangam (15).webp",
     fallbackBg: "#0d1f35",
     caption: "Arangam -Aravind Madurai ",
   },
+  {
+    id: 4,
+    image: "2025_10_MDU_Arangam (40).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Arangam -Aravind Madurai ",
+
+  }
 
 ];
 
@@ -158,6 +165,12 @@ const NADI_UTSAV_PHOTOS = [
   },
   {
    id: 3,
+    image: "2026_2_Chennai_ NADI UTSAV (6).webp",
+    fallbackBg: "#0d1f35",
+    caption: "Nadi Utsav - Aravind Chennai",
+  },
+  {
+   id:4,
     image: "2026_2_Chennai_ NADI UTSAV (3).webp",
     fallbackBg: "#0d1f35",
     caption: "Nadi Utsav - Aravind Chennai",
@@ -185,6 +198,45 @@ const AURO_CONNECT_PHOTOS = [
     caption: "Auro connect - Aravind Coimbatore",
   },
   
+];
+
+/* ══════════════════════════════════════
+   DATA — BUILDING CONNECTIONS (card + gallery format)
+   Same "pc-card" layout as Beyond Eye Care: a card with a cover
+   photo, title, short teaser, Read more/less, and — since each of
+   these has multiple photos — clicking the cover photo opens a
+   lightbox gallery with prev/next arrows + a counter to cycle
+   through every photo, same as the Sponsors' Day gallery on the
+   Patient Care page.
+══════════════════════════════════════ */
+const BUILDING_CONNECTIONS_CARDS = [
+  {
+    id: 1,
+    image: ARANGAM_PHOTOS[0].image,
+    fallbackBg: "#0d1f35",
+    title: "ARANGAM — ARAVIND-MADURAI",
+    short: "Held at Aravind-Madurai on 9–10 October 2025 as part of the October Summit 2025, the programme promotes learning, innovation, and continuous improvement among staff across all Aravind centres.",
+    full: "The 3rd Aravind Intramural Conference received over 484 submissions organised under four tracks — CARE, FOCUS, HEAL, and TRAIN — covering areas such as patient care, clinical practices, refraction, low vision care, teaching, and skill transfer. A total of 239 presentations, including oral, poster, video, and quiz events, were showcased, with 63 participants receiving prizes. Learning stalls and poster exhibits encouraged interdisciplinary interaction and knowledge sharing.",
+    photos: ARANGAM_PHOTOS,
+  },
+  {
+    id: 2,
+    image: NADI_UTSAV_PHOTOS[0].image,
+    fallbackBg: "#0d1f35",
+    title: "NADI UTSAV — ARAVIND-CHENNAI",
+    short: "A talent-based cultural event for first-year AOP trainees was held on 5–6 February 2026, with teams competing under the names of Indian rivers.",
+    full: "Participants were divided into four teams named after Indian rivers — the Ganga, the Yamuna, the Narmada, and the Brahmaputra — and competed in activities such as rangoli, riddles, singing, dance, drawing, and theme-based events, showcasing their creativity and teamwork.",
+    photos: NADI_UTSAV_PHOTOS,
+  },
+  {
+    id: 3,
+    image: AURO_CONNECT_PHOTOS[0].image,
+    fallbackBg: "#0d1f35",
+    title: "AURO CONNECT — ARAVIND-COIMBATORE",
+    short: "A monthly recreational initiative run by twelve employee teams at Aravind-Coimbatore, from February 2026 onwards at Aravind-Coimbatore.",
+    full: "This initiative aimed at strengthening teamwork, encouraged creativity, and providing staff with a refreshing break from routine work schedules. Employees were divided into twelve teams, with each team taking turns to organise monthly activities. The events include singing, dance, yoga, and interactive games.",
+    photos: AURO_CONNECT_PHOTOS,
+  },
 ];
 
 /* ══════════════════════════════════════
@@ -634,7 +686,21 @@ function InitiativeCard({ card, isOpen, onToggle }) {
   const contentRef = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   useEffect(() => { if (contentRef.current) setContentHeight(contentRef.current.scrollHeight); }, []);
+
+  /* ✅ Optional multi-photo gallery: if `card.photos` is provided, clicking
+     the card image opens a lightbox with prev/next arrows + a counter that
+     cycles through every photo — same pattern as the Sponsors' Day gallery
+     on the Patient Care page. Cards without `photos` keep the old
+     single-image lightbox behaviour unchanged. */
+  const hasGallery = card.photos && card.photos.length > 0;
+  const galleryItems = hasGallery ? card.photos : [{ image: card.image, caption: card.title, fallbackBg: card.fallbackBg }];
+  const galleryTotal = galleryItems.length;
+
+  const openLightbox = () => { setLightboxIndex(0); setShowLightbox(true); };
+  const goPrev = (e) => { e.stopPropagation(); setLightboxIndex(i => (i - 1 + galleryTotal) % galleryTotal); };
+  const goNext = (e) => { e.stopPropagation(); setLightboxIndex(i => (i + 1) % galleryTotal); };
 
   useEffect(() => {
     if (!showLightbox) return;
@@ -646,7 +712,7 @@ function InitiativeCard({ card, isOpen, onToggle }) {
   return (
     <>
       <div className={`pc-card${isOpen ? " pc-card-open" : ""}`} style={{ alignSelf: "start" }}>
-        <div className="pc-card-img-wrap" style={{ background: card.fallbackBg, cursor: "pointer" }} onClick={() => setShowLightbox(true)}>
+        <div className="pc-card-img-wrap" style={{ background: card.fallbackBg, cursor: "pointer" }} onClick={openLightbox}>
           <img
             src={card.image}
             alt={card.title}
@@ -675,17 +741,29 @@ function InitiativeCard({ card, isOpen, onToggle }) {
         <div className="photo-lightbox-overlay" onClick={() => setShowLightbox(false)}>
           <div className="photo-lightbox-box" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="photo-lightbox-close" onClick={() => setShowLightbox(false)}>&#10005;</button>
-            <div className="photo-lightbox-img-wrap" style={{ background: card.fallbackBg }}>
+
+            {hasGallery && galleryTotal > 1 && (
+              <button type="button" className="photo-lightbox-arrow photo-lightbox-prev" onClick={goPrev}>&#8592;</button>
+            )}
+
+            <div className="photo-lightbox-img-wrap" style={{ background: galleryItems[lightboxIndex].fallbackBg || card.fallbackBg }}>
               <img
-                src={card.image}
-                alt={card.title}
+                src={galleryItems[lightboxIndex].image}
+                alt={galleryItems[lightboxIndex].caption || card.title}
                 className="photo-lightbox-img"
                 loading="lazy"
                 decoding="async"
                 onError={(e) => { e.target.style.opacity = "0"; e.target.style.display = "none"; }}
               />
             </div>
-            <p className="photo-lightbox-caption">{card.title}</p>
+            <p className="photo-lightbox-caption">{galleryItems[lightboxIndex].caption || card.title}</p>
+
+            {hasGallery && galleryTotal > 1 && (
+              <>
+                <div className="photo-lightbox-counter">{lightboxIndex + 1} / {galleryTotal}</div>
+                <button type="button" className="photo-lightbox-arrow photo-lightbox-next" onClick={goNext}>&#8594;</button>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -784,51 +862,18 @@ export default function EmployeeEmpowerment() {
         </div>
       </section>
 
-      {/* ══ SECTION 3b: BUILDING CONNECTIONS ══ */}
+      {/* ══ SECTION 3b: BUILDING CONNECTIONS ══
+          Same carousel format as Retreats / Building a Healthy Workplace
+          — Arangam, Nadi Utsav, and Auro Connect scroll left/right as a
+          carousel (arrows + dots) instead of wrapping into a grid.
+          Clicking a card's cover photo still opens its own lightbox
+          gallery with prev/next arrows + a counter, exactly like the
+          Sponsors' Day gallery on the Patient Care page. */}
       <section className="pc-section" id="building-connections">
         <div className="pc-section-inner">
           <h2 className="pc-section-title">Building <span className="pc-gold">Connections</span></h2>
-
-          <div className="edu-course-block" style={{ marginTop: 32 }}>
-            <div className="edu-course-block-title">Arangam</div>
-            <p className="pc-section-body">
-              The 3rd Aravind Intramural Conference, Arangam, held at Aravind-Madurai on 9-10
-              October 2025 as part of the October Summit 2025, promoted learning, innovation, and
-              continuous improvement among staff across all Aravind centres. The conference
-              received over 484 submissions organised under four tracks — CARE, FOCUS, HEAL, and
-              TRAIN — covering areas such as patient care, clinical practices, refraction, low
-              vision care, teaching, and skill transfer. A total of 239 presentations, including
-              oral, poster, video, and quiz events, were showcased, with 63 participants receiving
-              prizes. Learning stalls and poster exhibits encouraged interdisciplinary interaction
-              and knowledge sharing.
-            </p>
-            <SimplePhotoCarousel items={ARANGAM_PHOTOS} />
-          </div>
-
-          <div className="edu-course-block" style={{ marginTop: 40 }}>
-            <div className="edu-course-block-title">Nadi Utsav <span className="edu-course-block-title-accent">— Chennai</span></div>
-            <p className="pc-section-body">
-              A talent-based cultural event for first-year AOP trainees, held on 5-6 February
-              2026. Nadi Utsav, a talent-based cultural event was conducted for first-year AOP
-              trainees. Participants were divided into four teams named after Indian rivers — the
-              Ganga, the Yamuna, the Narmada, and the Brahmaputra — and competed in activities such
-              as rangoli, riddles, singing, dance, drawing, and theme-based events, showcasing
-              their creativity and teamwork.
-            </p>
-            <SimplePhotoCarousel items={NADI_UTSAV_PHOTOS} />
-          </div>
-
-          <div className="edu-course-block" style={{ marginTop: 40 }}>
-            <div className="edu-course-block-title">Auro <span className="edu-course-block-title-accent">Connect</span></div>
-            <p className="pc-section-body">
-              A monthly recreational initiative run by twelve employee teams, from February 2026
-              onwards at Aravind-Coimbatore. A monthly recreational initiative aimed at
-              strengthening teamwork, encouraged creativity, and providing staff with a refreshing
-              break from routine work schedules. Employees were divided into twelve teams, with
-              each team taking turns to organise monthly activities. The events include singing,
-              dance, yoga, and interactive games.
-            </p>
-            <SimplePhotoCarousel items={AURO_CONNECT_PHOTOS} />
+          <div style={{ marginTop: 32 }}>
+            <PhotoCarouselSection cards={BUILDING_CONNECTIONS_CARDS} ariaLabel="Programme" />
           </div>
         </div>
       </section>

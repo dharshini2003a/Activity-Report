@@ -11,10 +11,75 @@ const HERO_FALLBACK = "/Covr_Page%20-%20Copy";
 // ── Patient Care Stats (row 1 only) ──
 const PC_STATS_ROW1 = [
   { number: "8",    label: "Tertiary Eye Hospitals" },
-  { number: "8",    label: "Secondary Eye Care Centers" },
+  { number: "8",    label: "Secondary Eye Care Centres" },
   { number: "8",    label: "Community Eye Clinics" },
-  { number: "120",  label: "Vision Centers" },
+  { number: "120",  label: "Vision Centres" },
+  { number: "120",  label: "Vision Centres" },
+  
+
 ];
+
+/* ══════════════════════════════════════════════════════════════
+   PERFORMANCE STATISTICS — Aravind Eye Hospitals
+   Icon-card design (no table/columns) — each stat is its own card
+   with an icon, big number, and label; the "Total" card in each
+   group stands out with a filled navy background.
+   ⚠️ PLACEHOLDER VALUES: replace every "—" below with this year's
+   actual figures (April 2025 – March 2026) once available — the
+   layout and card styling are ready to go.
+══════════════════════════════════════════════════════════════ */
+const STATS_PERIOD = "April 2025 – March 2026";
+
+const OUTPATIENT_STATS = [
+  { value: "—", label: "Paying Sections" },
+  { value: "—", label: "Free Sections" },
+  { value: "—", label: "Screening camps" },
+  { value: "—", label: "Vision Centres" },
+  { value: "—", label: "Community Eye Clinics & City Centres" },
+  { value: "—", label: "Total Outpatient Visits", highlight: true },
+];
+
+const SURGERY_STATS = [
+  { value: "—", label: "Paying sections" },
+  { value: "—", label: "Subsidised (Walk-Ins to the free hospital)" },
+  { value: "—", label: "Free (Through screening camps)" },
+  { value: "—", label: "Total Surgeries, Laser procedures and Injections", highlight: true },
+];
+
+const OUTREACH_PERFORMANCE_STATS = [
+  { value: "—", label: "No. of Comprehensive Eye Camps" },
+  { value: "—", label: "No. of Diabetic Retinopathy Screening Camps" },
+  { value: "—", label: "No. of Refraction Camps" },
+  { value: "—", label: "Eye Screening of School Children – Base Hospital (Schools served)" },
+  { value: "—", label: "No. of Paediatric Eye Screening Camps" },
+  { value: "—", label: "RoP Screening (Screening Visits)" },
+];
+
+function StatGroup({ title, stats }) {
+  return (
+    <div className="pc-stats-group">
+      <h3 className="pc-stats-group-title">{title}</h3>
+      <div className="pc-stats-icon-grid">
+        {stats.map((s, i) => (
+          <div key={i} className={`pc-stat-card${s.highlight ? " pc-stat-card-highlight" : ""}`}>
+            <div className="pc-stat-value">{s.value}</div>
+            <div className="pc-stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PerformanceStatistics() {
+  return (
+    <div className="pc-stats-wrap">
+      <StatGroup title="Outpatient Visits" stats={OUTPATIENT_STATS} />
+      <StatGroup title="Surgeries, Laser procedures and Injections" stats={SURGERY_STATS} />
+      <StatGroup title="Outreach Performance" stats={OUTREACH_PERFORMANCE_STATS} />
+    </div>
+  );
+}
 
 const INFRA_CARDS = [
   {
@@ -116,16 +181,12 @@ const INITIATIVE_CARDS = [
 const OUTREACH_CARDS = [
   {
     id: 1,
-    image: "",
+    image: "Sight First Seminar.webp",
     fallbackBg: "#0d2240",
     title: "Sight First Seminars 2025–2026",
-    short: "The programme was held at Madurai, Thanjavur, and Pondicherry for Lions Districts 3242B and 3242F, with participation from 378 Lions members.",
-    full: "Sight First Seminars were organised at Aravind Eye Hospitals in Madurai, Thanjavur, and Pondicherry on 31st August 2025, 27th September 2025, and 12th October 2025, respectively. Conducted for the newly elected office bearers of Lions Districts 3242B and 3242F, the seminars aimed to raise awareness about eye health issues and strengthen Lions members' participation in community eye care programmes. The Pondicherry seminar focused on strengthening the Sight First initiative and reinforcing the collective commitment to eliminating preventable blindness.",
-    photos: [
-      { id: 1, image: "", fallbackBg: "#0d2240", caption: "Sight First Seminar — Madurai, 31st August 2025" },
-      { id: 2, image: "", fallbackBg: "#1a2d0d", caption: "Sight First Seminar — Thanjavur, 27th September 2025" },
-      { id: 3, image: "", fallbackBg: "#2d1a0d", caption: "Sight First Seminar — Pondicherry, 12th October 2025" },
-    ],
+    short: "The programmes were held on different dates in Madurai, Thanjavur, and Pondicherry for members of the Lions Districts, focusing on strengthening the SightFirst initiative and reinforcing their collective commitment to eliminating needless blindness.",
+    full: "Sight First Seminars were organised at Aravind Eye Hospitals in Madurai, Thanjavur, and Pondicherry on 31st August 2025, 27th September 2025, and 12th October 2025, respectively. Conducted for the newly elected office bearers of Lions Districts 3242B and 3242F, the seminars aimed to raise awareness about eye health issues and strengthen Lions members' participation in community eye care programmes.",
+    
   },
   {
     id: 2,
@@ -1203,7 +1264,7 @@ function VisionCentersSection() {
     <div>
       {/* Intro */}
       <p className="pc-section-body">
-        The number of vision centres increased to 120 last year, with the addition of three new centres in different locations, while a few existing centres were relocated
+        The number of vision centres increased to 120 last year, with the addition of three new centres in different locations, while a few existing centres were relocated.
       </p>
 
       {/* New Vision Centres */}
@@ -1394,6 +1455,15 @@ Responding to the growing eye care needs of patients across all its centres has 
            Across its locations, Aravind Eye Hospitals actively promoted eye health awareness through exhibitions, rallies, student competitions, webinars, media programmes, and public talks. These initiatives highlighted the importance of eye care, common eye conditions, and available treatment options. 
           </p>
           <PhotoCarousel items={AWARENESS_PHOTOS} />
+        </div>
+      </section>
+
+      {/* PERFORMANCE STATISTICS */}
+      <section className="pc-section pc-stats-section" id="statistics">
+        <div className="pc-section-inner">
+          <h2 className="pc-section-title">Performance: <span className="pc-gold">Aravind Eye Hospitals</span></h2>
+          <p className="pc-stats-period">({STATS_PERIOD})</p>
+          <PerformanceStatistics />
         </div>
       </section>
 

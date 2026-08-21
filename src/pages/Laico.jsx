@@ -5,6 +5,7 @@ import "../styles/laico.css";
 
 const HERO_IMAGE    = "LAICO 1080x1920.webp";
 const HERO_FALLBACK = "/2024_4_Hospital Administration course (11).jpg";
+
 const STATS = [
   { number: "11",     label: "ECSO Hospitals" },
   { number: "42,230", label: "Cataract Surgeries (ECSO)" },

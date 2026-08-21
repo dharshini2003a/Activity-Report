@@ -1718,6 +1718,103 @@
   text-align: center;
 }
 
+/* ── PERFORMANCE STATISTICS (icon-card design, no table/columns) ── */
+.pc-stats-section {
+  background: #f7f8fa;
+}
+.pc-stats-period {
+  text-align: center;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #8a8578;
+  margin: -6px 0 30px;
+}
+.pc-stats-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pc-stats-group + .pc-stats-group {
+  margin-top: 44px;
+}
+.pc-stats-group-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0d1f35;
+  margin: 0 0 24px;
+}
+.pc-stats-group-title::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 3px;
+  background: #c8921a;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+.pc-stats-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+.pc-stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border-top: 3px solid #c8921a;
+  box-shadow: 0 6px 18px rgba(13, 31, 53, 0.08);
+  padding: 28px 16px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 108px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pc-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(13, 31, 53, 0.14);
+}
+.pc-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d1f35;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.pc-stat-label {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #6b6b6b;
+  line-height: 1.45;
+}
+.pc-stat-card-highlight {
+  background: #0d1f35;
+  border-top-color: #c8921a;
+}
+.pc-stat-card-highlight .pc-stat-value {
+  color: #c8921a;
+  font-size: 30px;
+}
+.pc-stat-card-highlight .pc-stat-label {
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .pc-stats-icon-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .pc-stat-value { font-size: 22px; }
+  .pc-stat-card { padding: 20px 12px 18px; }
+}
+
 /* ── Bottom page-to-page navigation (kept light/simple, distinct from main navbar) ── */
 .pc-page-nav {
   display: flex;
