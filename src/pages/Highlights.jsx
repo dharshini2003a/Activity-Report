@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import "../styles/highlights.css";
 
-/* Hero image now lives entirely in highlights.css (.pc-hero-bg), with a
-   separate, smaller image swapped in for mobile via @media — see CSS.
-   Keeping it out of inline style so the CSS media query actually wins. */
+const HERO_IMAGE    = "/PN Sir.webp";
+const HERO_FALLBACK = "Highlights_Hero.webp";
 
 const STATS = [
   { number: "50th",  label: "Golden Jubilee Year" },
@@ -351,7 +350,7 @@ export default function Highlights() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg" />
+        <div className="pc-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">

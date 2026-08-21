@@ -22,22 +22,11 @@
   .pc-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('PN Sir.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #0d1f35;
     transform: scale(1.02);
-  }
-
-  /* Dedicated, smaller, portrait-cropped image for mobile — loads
-     faster on mobile data and frames the subject better on a narrow
-     screen. Swap the filename below once you've exported the crop. */
-  @media (max-width: 640px) {
-    .pc-hero-bg {
-      background-image: url('PN-Sir-Mobile.webp');
-      background-position: center top;
-    }
   }
 
   .pc-hero-overlay {
