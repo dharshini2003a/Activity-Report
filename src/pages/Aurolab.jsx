@@ -494,6 +494,105 @@ function PhotoCarousel({ items }) {
   );
 }
 
+/* ProductCarousel — 3-up carousel for product cards with expandable read-more.
+   Combines carousel left/right navigation with card content (image + title + read more). */
+function ProductCarousel({ items, expandedId, onToggle, onImageClick }) {
+  const trackRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightbox, setLightbox] = useState(null);
+  const total = items.length;
+
+  const scrollToIndex = (index) => {
+    const track = trackRef.current;
+    const card = track?.children[index];
+    if (track && card) {
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+    }
+  };
+
+  const goTo = (index) => {
+    const clamped = Math.max(0, Math.min(total - 1, index));
+    setActiveIndex(clamped);
+    scrollToIndex(clamped);
+  };
+
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const trackLeft = track.getBoundingClientRect().left;
+    let closest = 0, closestDist = Infinity;
+    Array.from(track.children).forEach((card, i) => {
+      const dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
+      if (dist < closestDist) { closestDist = dist; closest = i; }
+    });
+    setActiveIndex(closest);
+  };
+
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") setLightbox(null); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
+  return (
+    <>
+      <div className="carousel-wrap">
+        <div className="carousel-track-wrap">
+          <button className="carousel-arrow carousel-arrow-left" onClick={() => goTo(activeIndex - 1)} aria-label="Previous">&#8592;</button>
+
+          <div className="carousel-track" ref={trackRef} onScroll={handleScroll}>
+            {items.map((card, i) => {
+              const isOpen = expandedId === card.id;
+              return (
+                <div
+                  key={card.id}
+                  className={`pc-card${isOpen ? " pc-card-open" : ""}${activeIndex === i ? " photo-card-active" : ""}`}
+                  style={{ flex: "0 0 calc(33.333% - 16px)", minWidth: 260, scrollSnapAlign: "start" }}
+                >
+                  <div className="aurolab-product-img-wrap" style={{ background: card.fallbackBg, cursor: "pointer" }} onClick={() => { setLightbox(i); if (onImageClick) onImageClick(i); }}>
+                    <img src={card.image} alt={card.title} className="aurolab-product-img" loading="lazy" decoding="async" onError={(e) => { e.target.style.opacity = "0"; }} />
+                    <div className="photo-card-overlay"><span className="photo-card-zoom">&#9654; View</span></div>
+                  </div>
+                  <div className="pc-card-body" style={{ display: "flex", flexDirection: "column" }}>
+                    <h3 style={{ fontFamily: "'PT Sans', sans-serif", fontSize: 15, fontWeight: 700, color: "#0d1f35", margin: "0 0 8px" }}>{card.title}</h3>
+                    <p className="pc-card-short">{card.short}</p>
+                    {isOpen && <p className="pc-card-full-text">{card.full}</p>}
+                    <button className="pc-card-readmore" style={{ marginTop: 12, alignSelf: "flex-start" }} onClick={() => onToggle(card.id)}>
+                      {isOpen ? <>Read less <span style={{ display: "inline-block", transform: "rotate(180deg)", fontSize: 10 }}>&#9660;</span></> : <>Read more <span style={{ fontSize: 10 }}>&#9660;</span></>}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <button className="carousel-arrow carousel-arrow-right" onClick={() => goTo(activeIndex + 1)} aria-label="Next">&#8594;</button>
+        </div>
+
+        <div className="carousel-dots">
+          {items.map((_, i) => (
+            <button key={i} className={`carousel-dot${activeIndex === i ? " carousel-dot-active" : ""}`} onClick={() => goTo(i)} aria-label={`Go to product ${i + 1}`} />
+          ))}
+        </div>
+      </div>
+
+      {lightbox !== null && (
+        <div className="photo-lightbox-overlay" onClick={() => setLightbox(null)}>
+          <div className="photo-lightbox-box" onClick={(e) => e.stopPropagation()}>
+            <button className="photo-lightbox-close" onClick={() => setLightbox(null)}>&#10005;</button>
+            <button className="photo-lightbox-arrow photo-lightbox-prev" onClick={() => setLightbox(((lightbox - 1) + total) % total)}>&#8592;</button>
+            <div className="photo-lightbox-img-wrap">
+              <img src={items[lightbox].image} alt={items[lightbox].title} className="photo-lightbox-img" loading="lazy" decoding="async" onError={(e) => { e.target.style.opacity = "0"; }} />
+            </div>
+            <p className="photo-lightbox-caption">{items[lightbox].full}</p>
+            <button className="photo-lightbox-arrow photo-lightbox-next" onClick={() => setLightbox((lightbox + 1) % total)}>&#8594;</button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 /* ══════════════════════════════════════
    MAIN COMPONENT
 ══════════════════════════════════════ */
@@ -502,14 +601,7 @@ export default function Aurolab() {
 
   const [expandedInfra, setExpandedInfra] = useState(null);
   const [expandedProduct, setExpandedProduct] = useState(null);
-  const [productLightbox, setProductLightbox] = useState(null);
   const [expandedCme, setExpandedCme] = useState(null);
-
-  useEffect(() => {
-    const handler = (e) => { if (e.key === "Escape") setProductLightbox(null); };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, []);
 
   return (
     <div className="pc-page">
@@ -544,45 +636,8 @@ export default function Aurolab() {
       <section className="pc-section" id="products">
         <div className="pc-section-inner">
           <h2 className="pc-section-title">New<span className="pc-gold"> Products</span></h2>
-          <div className="pc-cards-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)", alignItems: "start", marginTop: 32 }}>
-            {PRODUCT_CARDS.map((card, i) => (
-              <ProductCard
-                key={card.id}
-                card={card}
-                isOpen={expandedProduct === card.id}
-                onToggle={() => setExpandedProduct((prev) => (prev === card.id ? null : card.id))}
-                onImageClick={() => setProductLightbox(i)}
-              />
-            ))}
-          </div>
+          <ProductCarousel items={PRODUCT_CARDS} expandedId={expandedProduct} onToggle={(id) => setExpandedProduct((prev) => (prev === id ? null : id))} />
         </div>
-
-        {productLightbox !== null && (
-          <div className="photo-lightbox-overlay" onClick={() => setProductLightbox(null)}>
-            <div className="photo-lightbox-box" onClick={(e) => e.stopPropagation()}>
-              <button className="photo-lightbox-close" onClick={() => setProductLightbox(null)}>&#10005;</button>
-              <button
-                className="photo-lightbox-arrow photo-lightbox-prev"
-                onClick={() => setProductLightbox(((productLightbox - 1) + PRODUCT_CARDS.length) % PRODUCT_CARDS.length)}
-              >&#8592;</button>
-              <div className="photo-lightbox-img-wrap">
-                <img
-                  src={PRODUCT_CARDS[productLightbox].image}
-                  alt={PRODUCT_CARDS[productLightbox].title}
-                  className="photo-lightbox-img"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(e) => { e.target.style.opacity = "0"; }}
-                />
-              </div>
-              <p className="photo-lightbox-caption">{PRODUCT_CARDS[productLightbox].full}</p>
-              <button
-                className="photo-lightbox-arrow photo-lightbox-next"
-                onClick={() => setProductLightbox((productLightbox + 1) % PRODUCT_CARDS.length)}
-              >&#8594;</button>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* ══ SECTION 4: CMEs, TRAINING PROGRAMMES & CONFERENCES ══ */}

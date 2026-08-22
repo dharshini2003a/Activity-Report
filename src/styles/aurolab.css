@@ -485,7 +485,7 @@
 ══════════════════════════════════════ */
 .pc-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 36px;
   align-items: start;
@@ -608,12 +608,20 @@
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
+@media (max-width: 1400px) {
+  .pc-cards-grid     { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 1024px) {
   .pc-hero-content   { padding: 80px 36px 48px; max-width: 100%; }
   .pc-hero-stats     { gap: 28px; }
-  .pc-cards-grid     { grid-template-columns: 1fr 1fr; }
+  .pc-cards-grid     { grid-template-columns: repeat(2, 1fr); }
   .pc-section-inner  { padding: 0 32px; }
   .pc-search-section { padding: 16px 32px; }
+}
+
+@media (max-width: 768px) {
+  .pc-cards-grid     { grid-template-columns: repeat(2, 1fr); gap: 18px; }
 }
 
 @media (max-width: 640px) {
@@ -623,7 +631,7 @@
   .pc-hero-title     { font-size: 2.2rem; }
   .pc-hero-stats     { gap: 18px; }
   .pc-hero-stat-num  { font-size: 1.6rem; }
-  .pc-cards-grid     { grid-template-columns: 1fr; }
+  .pc-cards-grid     { grid-template-columns: 1fr; gap: 16px; }
   .pc-section-inner  { padding: 0 18px; }
   .pc-section        { padding: 40px 0; }
   .pc-subnav-tab     { font-size: 12.5px; padding: 12px 14px 9px; }
