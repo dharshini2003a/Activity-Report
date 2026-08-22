@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "../styles/highlights.css";
 
-const HERO_IMAGE    = "/PN Sir.webp";
-const HERO_FALLBACK = "Highlights_Hero.webp";
+const HERO_IMAGE        = "/PN Sir.webp";
+const HERO_IMAGE_MOBILE = "/PN Sir_mobile.webp"; /* portrait crop for phones — upload this file */
+const HERO_FALLBACK     = "Highlights_Hero.webp";
 
 const STATS = [
   { number: "50th",  label: "Golden Jubilee Year" },
@@ -350,7 +351,8 @@ export default function Highlights() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg highlights-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"PN Sir.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"PN-Sir-Mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">

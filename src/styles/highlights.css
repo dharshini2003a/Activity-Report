@@ -29,6 +29,14 @@
     transform: scale(1.02);
   }
 
+  /* Desktop image shown by default; mobile image hidden by default */
+  .pc-hero-bg-mobile { display: none; }
+
+  @media (max-width: 640px) {
+    .pc-hero-bg-desktop { display: none; }
+    .pc-hero-bg-mobile  { display: block; background-position: center top; }
+  }
+
   .pc-hero-overlay {
     position: absolute;
     inset: 0;
@@ -595,7 +603,6 @@
   @media (max-width: 640px) {
     .pc-hero           { min-height: 100svh; }
     .pc-hero-content   { padding: 80px 20px 36px; }
-    .pc-hero-overlay   { background: rgba(5, 15, 40, 0.82); }
     .pc-hero-title     { font-size: 2.2rem; }
     .pc-hero-stats     { gap: 18px; }
     .pc-hero-stat-num  { font-size: 1.6rem; }
@@ -1001,10 +1008,16 @@
     .carousel-arrow-right { right: -16px; }
   }
   @media (max-width: 640px) {
-    .carousel-card        { flex: 0 0 calc(85vw); min-width: unset; }
-    .carousel-arrow       { top: 120px; width: 36px; height: 36px; font-size: 15px; }
-    .carousel-arrow-left  { left: -8px; }
-    .carousel-arrow-right { right: -8px; }
+    .carousel-track-wrap  { position: relative; }
+    .carousel-arrow       {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px; height: 34px; font-size: 14px;
+    }
+    .carousel-arrow-left  { left: 6px; }
+    .carousel-arrow-right { right: 6px; }
+    .carousel-card        { flex: 0 0 82vw; min-width: unset; }
     .carousel-card-img-wrap { height: 160px; }
   }
 
@@ -1315,9 +1328,16 @@
   .photo-lightbox-next { right: -56px; }
 
   @media (max-width: 768px) {
-    .photo-card { flex: 0 0 82%; min-width: unset; }
-    .carousel-track { gap: 14px; }
-    .carousel-arrow { width: 34px; height: 34px; font-size: 14px; }
+    .carousel-track-wrap  { position: relative; }
+    .carousel-arrow       {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px; height: 34px; font-size: 14px;
+    }
+    .carousel-arrow-left  { left: 6px; }
+    .carousel-arrow-right { right: 6px; }
+    .photo-card { flex: 0 0 82vw; min-width: unset; }
     .photo-lightbox-prev { left: -8px; }
     .photo-lightbox-next { right: -8px; }
     .photo-lightbox-arrow { width: 36px; height: 36px; font-size: 14px; }
@@ -1752,45 +1772,6 @@
     background:
       linear-gradient(180deg, #0d1f35 0%, rgba(13,31,53,0.86) 12%, rgba(13,31,53,0.55) 38%, rgba(13,31,53,0.22) 100%),
       linear-gradient(105deg, rgba(13,31,53,0.55) 0%, rgba(13,31,53,0.25) 55%, rgba(13,31,53,0.05) 100%);
-  }
-
-  /* ══════════════════════════════════════
-     MOBILE HERO PHOTO FIX
-     Desktop keeps the diagonal gradient above (works fine
-     because the man's face sits in the lighter, low-opacity
-     side of the diagonal). On phones the crop is a narrow
-     vertical slice through the CENTER of the same image, so
-     that diagonal doesn't line up the same way — the photo
-     was basically invisible. This is our separate "mobile
-     header" treatment: lighter, flat overlay + repositioned
-     crop so the photo stays visible.
-  ══════════════════════════════════════ */
-  @media (max-width: 640px) {
-    .pc-hero-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(13,31,53,0.55) 0%,
-        rgba(13,31,53,0.35) 45%,
-        rgba(13,31,53,0.68) 100%
-      ) !important;
-    }
-    .pc-hero-bg {
-      background-position: center 15% !important;
-    }
-
-    /* ══════════════════════════════════════
-       HIGHLIGHTS-ONLY mobile hero image swap.
-       ".highlights-hero-bg" exists ONLY on the
-       Highlights page's hero div — so this rule
-       can NEVER leak into PatientCare, Education,
-       or any other page, even though CSS is
-       bundled globally. Use a DIFFERENT unique
-       class per page (e.g. "patientcare-hero-bg")
-       if you want to do the same swap elsewhere.
-    ══════════════════════════════════════ */
-    .highlights-hero-bg {
-      background-image: url('PN-Sir-Mobile.webp'), url('PN Sir.webp') !important;
-    }
   }
 
   @media (max-width: 640px) {
@@ -2542,7 +2523,15 @@
   .pc-page-nav-link-next { align-items: flex-end; }
   .pc-page-nav-title  { font-size: 13px; }
 }
-
+/* ============================================================
+   MOBILE TOUCH FIX (added)
+   1) :hover-only overlays never show on touchscreens and cause
+      a "tap twice to open" bug on iOS Safari. This makes the
+      zoom hint appear immediately on tap on touch devices.
+   2) Fixed-height image boxes crop too aggressively on narrow
+      screens. Switched to a responsive aspect-ratio on mobile
+      so images are not cut off.
+============================================================ */
 @media (hover: none) and (pointer: coarse) {
   .photo-card-overlay,
   .aw-card-overlay {
