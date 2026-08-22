@@ -1315,9 +1315,7 @@
   .photo-lightbox-next { right: -56px; }
 
   @media (max-width: 768px) {
-    .photo-card { flex: 0 0 82%; min-width: unset; }
-    .carousel-track { gap: 14px; }
-    .carousel-arrow { width: 34px; height: 34px; font-size: 14px; }
+    .photo-card { flex: 0 0 calc(80vw); min-width: unset; }
     .photo-lightbox-prev { left: -8px; }
     .photo-lightbox-next { right: -8px; }
     .photo-lightbox-arrow { width: 36px; height: 36px; font-size: 14px; }
@@ -2527,5 +2525,11 @@
   .carousel-card-img-wrap {
     height: auto !important;
     aspect-ratio: 4 / 3 !important;
+  }
+}
+/* Mobile: shift image focus to the right so the photo (Dr./person) stays visible */
+@media (max-width: 640px) {
+  .pc-hero-bg {
+    background-position: right center;
   }
 }

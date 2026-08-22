@@ -14,11 +14,6 @@ const PC_STATS_ROW1 = [
   { number: "8",    label: "Secondary Eye Care Centres" },
   { number: "8",    label: "Community Eye Clinics" },
   { number: "120",  label: "Vision Centres" },
-  { number: "xxx",  label: "Outpatient visits" },
-  { number: "xxx",  label: "Total Surgeries, Laser procedures and Injections" },
-
-
-  
 
 ];
 
