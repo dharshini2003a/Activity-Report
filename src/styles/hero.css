@@ -30,6 +30,7 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
+  background-image: url('Covr_Page - 5.webp'), url('hero-mobile.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -51,24 +52,6 @@ body {
     rgba(5, 15, 40, 0.30) 45%,
     rgba(5, 15, 40, 0.05) 100%
   );
-}
-
-/* Targeted patch — blurs out whatever text/graphic is printed directly
-   on the photo (e.g. "ARAVIND EYE CARE SYSTEM" / "Vision: ...") without
-   touching the rest of the background's colour or tone. Position/size
-   are approximate — nudge the left/top/width/height % below to match
-   exactly where that text sits on the real image. */
-.hero-photo-text-mask {
-  position: absolute;
-  z-index: 1;
-  left: 34%;
-  top: 4%;
-  width: 45%;
-  height: 16%;
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  background: rgba(13, 31, 53, 0.12);
-  pointer-events: none;
 }
 
 /* Content Container - Simple left-aligned */
@@ -295,6 +278,11 @@ body {
      width) so the text column stays clean and readable. */
   .hero-overlay {
     background: rgba(5, 15, 40, 0.82);
+  }
+
+  .hero-bg {
+    background-image: url('./hero-mobile.webp'), url('./hero-fallback.webp');
+    background-position: top center;
   }
 
   .hero-content {

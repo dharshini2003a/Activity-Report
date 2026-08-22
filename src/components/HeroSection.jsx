@@ -6,9 +6,6 @@
 
   import "../styles/hero.css";
 
-  const HERO_IMAGE = "Covr_Page - 5.webp";
-  const HERO_FALLBACK = "hero-fallback.webp";
-
   const SYSTEM_ITEMS = [
     { label: "Patient Care" },
     { label: "Education and Training" },
@@ -24,21 +21,13 @@
   export default function HeroSection() {
     return (
       <section className="hero-section">
-        {/* Background Image — plain, no gradient/color overlay on top */}
-        <div 
-          className="hero-bg" 
-          style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} 
-        />
+        {/* Background Image — desktop/mobile versions swapped via CSS media query
+            (see .hero-bg in hero.css). Plain, no gradient/color overlay baked in. */}
+        <div className="hero-bg" />
 
         {/* Dark gradient overlay — kept light so it doesn't change the
             photo's overall tone/colour */}
         <div className="hero-overlay" />
-
-        {/* Blurs out the "ARAVIND EYE CARE SYSTEM / Vision:..." text
-            that is printed directly on the photo — adjust the % values
-            in hero.css (.hero-photo-text-mask) if it drifts off-target
-            on a different image crop */}
-    
 
         {/* Content */}
         <div className="hero-content">
