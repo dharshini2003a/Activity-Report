@@ -256,7 +256,7 @@ export default function AwardRecognition() {
 
       {/* MORE DETAILS PROMPT */}
       <p className="aw-more-details">
-        Kindly <a href="11_AR_Lr_Awards_2025-26_8.8.2026.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+        Kindly <a href="11_AR_Lr_Awards_2025.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
       </p>
 
       {/* PAGE NAVIGATION */}

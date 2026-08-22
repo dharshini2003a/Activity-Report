@@ -1,4 +1,4 @@
-  // ============================================================
+// ============================================================
   //  HeroSection.jsx  —  Home Page Hero (Dark Theme)
   //  Matches Highlights format: Left text + Right image
   //  No overlay/shade — background image shows exactly as-is
@@ -30,6 +30,16 @@
           style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} 
         />
 
+        {/* Dark gradient overlay — kept light so it doesn't change the
+            photo's overall tone/colour */}
+        <div className="hero-overlay" />
+
+        {/* Blurs out the "ARAVIND EYE CARE SYSTEM / Vision:..." text
+            that is printed directly on the photo — adjust the % values
+            in hero.css (.hero-photo-text-mask) if it drifts off-target
+            on a different image crop */}
+    
+
         {/* Content */}
         <div className="hero-content">
           
@@ -38,13 +48,12 @@
 
           {/* Main Title */}
           <h1 className="hero-title">
-            A Glimpse <br />
-            <span className="hero-gold">Activity Report</span>
+            A Glimpse Activity Report <br />
           </h1>
 
           {/* System Name + List */}
           <div className="hero-list-block">
-            <h2 className="hero-system-name">ARAVIND EYE CARE SYSTEM</h2>
+            <h2 className="hero-system-name">April 2025 – March 2026</h2>
             <ul className="hero-list">
               {SYSTEM_ITEMS.map((item, i) => (
                 <li key={i}>

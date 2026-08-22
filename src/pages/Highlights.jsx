@@ -437,7 +437,7 @@ export default function Highlights() {
 
       {/* MORE DETAILS PROMPT */}
       <p className="pc-more-details">
-        Kindly <a href="AR_Lr_Content_new_2025-26.pdf">click here</a> for more details — download the Highlights (PDF).
+        Kindly <a href="02_AR_Lr_Highlights_2025-26.pdf">click here</a> for more details — download the Highlights (PDF).
       </p>
 
     {/* PAGE NAVIGATION */}

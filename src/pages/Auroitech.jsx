@@ -173,7 +173,8 @@ export default function Auroitech() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"AUroitech 1080x1920.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"auroitech-mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">
@@ -237,7 +238,7 @@ export default function Auroitech() {
 
       {/* MORE DETAILS PROMPT */}
       <p className="pc-more-details">
-        Kindly <a href="8_New AR_Lr_Auro Itech_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+        Kindly <a href="New AR_Lr_Auro Itech_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
       </p>
 
       {/* PAGE NAVIGATION */}

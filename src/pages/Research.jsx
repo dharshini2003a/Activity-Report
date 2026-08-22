@@ -30,13 +30,13 @@ const INFRA_CARDS = [
   {
     id: 2, image: "DSC_7042.webp", fallbackBg: "#1a2d0d",
     title: "ADDITON OF A FLOW CYTOFLEX",
-    short: "A new flow cytometer was added to the lab for the measurement and characterisation of extracellular vesicles",
+    short: "A new flow cytometer was added to the lab for the measurement and characterisation of extracellular vesicles.",
     full: "The Beckman CytoFLEX flow cytometer, equipped with the Violet Side Scatter (VSSC) option, can be used for the measurement of extracellular vesicles. This instrument allows the characterisation of sub-micron particles and is extremely useful for the functional characterisation of extracellular vesicles.",
   },
   {
     id: 3, image: "2025_8_CBE_Dr.PN Regional Reseach Centre_Inau (21).webp", fallbackBg: "#2d1a0d",
     title: "INAUGURATION OF DR. P. NAMPERUMALSAMY REGIONAL RESEARCH CENTRE",
-    short: "AMRF opened its third Regional Research Centre (RRC) at Aravind-Coimbatore on 27th August 2025",
+    short: "AMRF opened its third Regional Research Centre (RRC) at Aravind-Coimbatore on 27th August 2025.",
     full: "The concept of RRC was initiated under the visionary leadership of Dr. P. Namperumalsamy, Chairman Emeritus, AECS, to encourage greater involvement of clinician-scientists in research. Although he passed away a month before the inauguration, the event was held on the very date he had chosen, making it a fitting tribute to his legacy. In honour of his lifelong commitment to advancing eye care through research, the new centre has been named the 'Dr. P. Namperumalsamy Regional Research Centre'. Last year, new projects were initiated across all RRC's, supported by Indian and international funding agencies",
   },
 ];
@@ -217,7 +217,8 @@ export default function Research() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"research  1080x1920.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"research-mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">

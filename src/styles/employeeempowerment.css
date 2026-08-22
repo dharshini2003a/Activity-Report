@@ -1011,11 +1011,11 @@
   .carousel-arrow-left  { left: -16px; }
   .carousel-arrow-right { right: -16px; }
 }
+@media (max-width: 768px) {
+  .carousel-arrow        { display: none !important; }
+}
 @media (max-width: 640px) {
   .carousel-card        { flex: 0 0 calc(85vw); min-width: unset; }
-  .carousel-arrow       { top: 120px; width: 36px; height: 36px; font-size: 15px; }
-  .carousel-arrow-left  { left: -8px; }
-  .carousel-arrow-right { right: -8px; }
   .carousel-card-img-wrap { height: 160px; }
 }
 
@@ -1326,6 +1326,7 @@
 .photo-lightbox-next { right: -56px; }
 
 @media (max-width: 768px) {
+  .carousel-arrow        { display: none !important; }
   .photo-card { flex: 0 0 calc(80vw); min-width: unset; }
   .photo-lightbox-prev { left: -8px; }
   .photo-lightbox-next { right: -8px; }

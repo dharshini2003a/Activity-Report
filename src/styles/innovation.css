@@ -601,6 +601,9 @@
   .pc-section-inner { padding: 0 32px; }
 }
 
+@media (max-width: 768px) {
+  .carousel-arrow        { display: none !important; }
+}
 @media (max-width: 640px) {
   .inno-hero          { min-height: 100svh; }
   .inno-hero-content  { padding: 80px 20px 36px; }

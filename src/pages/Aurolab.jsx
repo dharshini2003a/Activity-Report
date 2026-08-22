@@ -608,8 +608,9 @@ export default function Aurolab() {
 
       {/* ══ HERO ══ */}
       <section className="pc-hero" ref={heroRef}>
-        <div className="pc-hero-bg" style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
+        <div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"auro lab 1080x1920.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"aurolab-mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-content">
           <div className="pc-hero-tag">
           </div>
@@ -662,7 +663,7 @@ export default function Aurolab() {
 
       {/* MORE DETAILS PROMPT */}
       <p className="pc-more-details">
-        Kindly <a href="7_AR_Lr_ Aurolab_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+        Kindly <a href="07_AR_Lr_ Aurolab_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
       </p>
 
       {/* PAGE NAVIGATION */}

@@ -555,8 +555,10 @@ function CoursesTable() {
 
         {/* ══ HERO ══════════════════════════════════════════════ */}
         <section className="pc-hero">
-          <div className="pc-hero-bg"
-            style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+          <div className="pc-hero-bg"></div>
+          <div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"education trainning 1080x1920.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"education-mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+
           <div className="pc-hero-overlay" />
           <div className="pc-hero-content">
             <div className="pc-hero-tag">
@@ -633,7 +635,7 @@ function CoursesTable() {
 
         {/* MORE DETAILS PROMPT */}
         <p className="pc-more-details">
-          Kindly <a href="4_AR_Lr_Edu& Tra_7.8.2006.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+          Kindly <a href="4_AR_Lr_Edu& Tra_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
         </p>
 {/* PAGE NAVIGATION */}
 <nav className="pc-page-nav" aria-label="Page navigation">

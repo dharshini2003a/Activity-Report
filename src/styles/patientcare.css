@@ -995,8 +995,10 @@
   .carousel-arrow-left  { left: -16px; }
   .carousel-arrow-right { right: -16px; }
 }
+@media (max-width: 768px) {
+  .carousel-arrow        { display: none !important; }
+}
 @media (max-width: 640px) {
-  .carousel-arrow        { display: none; }
   .carousel-card         { flex: 0 0 82vw; min-width: unset; }
   .carousel-track        { padding: 8px 16px 16px; }
   .carousel-card-img-wrap { height: 160px; }
@@ -1294,7 +1296,7 @@
 .photo-lightbox-next { right: -56px; }
 
 @media (max-width: 768px) {
-  .carousel-arrow        { display: none; }
+  .carousel-arrow        { display: none !important; }
   .photo-card            { flex: 0 0 82vw; min-width: unset; }
   .photo-lightbox-prev { left: -8px; }
   .photo-lightbox-next { right: -8px; }
