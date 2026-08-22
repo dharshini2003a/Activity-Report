@@ -26,11 +26,14 @@ body {
   width: 100%;
 }
 
-/* Background Image — shown exactly as-is, no colour overlay on top */
+/* Background Image — desktop version by default.
+   Path is root-relative because the files live in /public/images/ —
+   Vercel/Netlify serve that folder from the site root, so it must be
+   '/images/...' and NOT './images/...' or '../images/...' */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('Covr_Page - 5.webp'), url('hero-mobile.webp');
+  background-image: url('Covr_Page - 5.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -39,9 +42,9 @@ body {
   z-index: 0;
 }
 
-/* Very light overlay — kept minimal so the photo's own colour/tone
-   isn't changed. Text readability is handled by text-shadow on the
-   headings/list instead (see .hero-title, .hero-gold, .hero-list). */
+/* Dark gradient overlay — kept light so it doesn't change the
+   photo's overall tone/colour. Text readability is handled by
+   text-shadow on the headings/list instead. */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -63,28 +66,6 @@ body {
   width: 100%;
 }
 
-/* Year Tag */
-.hero-tag {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'PT Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #c8921a;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.hero-line {
-  display: inline-block;
-  width: 28px;
-  height: 2px;
-  background: #c8921a;
-  flex-shrink: 0;
-}
-
 /* Main Title — sized up so it reads clearly on its own */
 .hero-title {
   font-family: 'Playfair Display', Georgia, serif;
@@ -93,63 +74,7 @@ body {
   color: #fff;
   line-height: 1.1;
   margin: 12px 0 22px;
-}
-
-.hero-gold {
-  color: #c8921a;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-/* Date range line under the title — plain white, not gold */
-.hero-date {
-  color: #ffffff;
-  font-size: 0.55em;
-  font-weight: 700;
-}
-
-/* Description */
-.hero-desc {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 16.5px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.8;
-  margin: 0 0 36px;
-  max-width: 100%;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Statistics Grid */
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-bottom: 32px;
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hero-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1;
-}
-
-.hero-stat-label {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
 }
 
 /* System Name + List Block */
@@ -165,6 +90,7 @@ body {
   letter-spacing: 0.5px;
   margin-bottom: 14px;
   text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Bullet List — sized up for visibility */
@@ -182,6 +108,7 @@ body {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .hero-bullet {
@@ -254,16 +181,14 @@ body {
     font-size: clamp(2.3rem, 5vw, 3.2rem);
   }
 
-  .hero-desc {
-    font-size: 16px;
-  }
-
   .hero-list li {
     font-size: 1.05rem;
   }
 }
 
-/* Mobile */
+/* Mobile — swap to the dedicated mobile crop (750x1000) and use a
+   soft top-to-bottom warm tint instead of a flat navy wash, so the
+   photo's own gold tone still shows through. */
 @media (max-width: 768px) {
   body {
     padding-top: 54px;
@@ -273,16 +198,18 @@ body {
     min-height: 100svh;
   }
 
-  /* Same treatment as PatientCare/Highlights on mobile — a flat,
-     slightly stronger tint (no gradient falloff needed at this
-     width) so the text column stays clean and readable. */
-  .hero-overlay {
-    background: rgba(5, 15, 40, 0.82);
+  .hero-bg {
+    background-image: url('hero-mobile.webp');
+    background-position: top center;
   }
 
-  .hero-bg {
-    background-image: url('./hero-mobile.webp'), url('./hero-fallback.webp');
-    background-position: top center;
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 8, 2, 0.35) 0%,
+      rgba(10, 8, 2, 0.55) 30%,
+      rgba(8, 6, 2, 0.78) 100%
+    );
   }
 
   .hero-content {
@@ -290,19 +217,9 @@ body {
     max-width: 100%;
   }
 
-  .hero-tag {
-    font-size: 11px;
-    margin-bottom: 14px;
-  }
-
   .hero-title {
     font-size: clamp(1.9rem, 4vw, 2.5rem);
     margin: 8px 0 16px;
-  }
-
-  .hero-desc {
-    font-size: 15px;
-    margin-bottom: 24px;
   }
 
   .hero-system-name {
@@ -329,12 +246,6 @@ body {
     font-size: 1.7rem;
     margin: 8px 0 14px;
     line-height: 1.2;
-  }
-
-  .hero-desc {
-    font-size: 14px;
-    margin-bottom: 20px;
-    line-height: 1.7;
   }
 
   .hero-system-name {
