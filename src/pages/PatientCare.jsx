@@ -14,36 +14,29 @@ const PC_STATS_ROW1 = [
   { number: "8",    label: "Secondary Eye Care Centres" },
   { number: "8",    label: "Community Eye Clinics" },
   { number: "120",  label: "Vision Centres" },
-  { number: "120",  label: "Vision Centres" },
+  { number: "xxx",  label: "Outpatient visits" },
+  { number: "xxx",  label: "Total Surgeries, Laser procedures and Injections" },
+
+
   
 
 ];
 
-/* ══════════════════════════════════════════════════════════════
-   PERFORMANCE STATISTICS — Aravind Eye Hospitals
-   Icon-card design (no table/columns) — each stat is its own card
-   with an icon, big number, and label; the "Total" card in each
-   group stands out with a filled navy background.
-   ⚠️ PLACEHOLDER VALUES: replace every "—" below with this year's
-   actual figures (April 2025 – March 2026) once available — the
-   layout and card styling are ready to go.
-══════════════════════════════════════════════════════════════ */
-const STATS_PERIOD = "April 2025 – March 2026";
 
 const OUTPATIENT_STATS = [
-  { value: "—", label: "Paying Sections" },
-  { value: "—", label: "Free Sections" },
-  { value: "—", label: "Screening camps" },
-  { value: "—", label: "Vision Centres" },
-  { value: "—", label: "Community Eye Clinics & City Centres" },
-  { value: "—", label: "Total Outpatient Visits", highlight: true },
+  { value: "xxx", label: "Paying Sections" },
+  { value: "xxx", label: "Free Sections" },
+  { value: "xxx", label: "Screening camps" },
+  { value: "xxx", label: "Vision Centres" },
+  { value: "xxx", label: "Community Eye Clinics & City Centres" },
+  { value: "xxx", label: "Total Outpatient Visits", highlight: true },
 ];
 
 const SURGERY_STATS = [
-  { value: "—", label: "Paying sections" },
-  { value: "—", label: "Subsidised (Walk-Ins to the free hospital)" },
-  { value: "—", label: "Free (Through screening camps)" },
-  { value: "—", label: "Total Surgeries, Laser procedures and Injections", highlight: true },
+  { value: "xxx", label: "Paying sections" },
+  { value: "xxx", label: "Subsidised (Walk-Ins to the free hospital)" },
+  { value: "xxx", label: "Free (Through screening camps)" },
+  { value: "xxx", label: "Total Surgeries, Laser procedures and Injections", highlight: true },
 ];
 
 const OUTREACH_PERFORMANCE_STATS = [
@@ -1399,7 +1392,7 @@ export default function PatientCare() {
 
       {/* HERO */}
       <section className="pc-hero">
-        <div className="pc-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg patientcare-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag"></div>
@@ -1461,8 +1454,8 @@ Responding to the growing eye care needs of patients across all its centres has 
       {/* PERFORMANCE STATISTICS */}
       <section className="pc-section pc-stats-section" id="statistics">
         <div className="pc-section-inner">
-          <h2 className="pc-section-title">Performance: <span className="pc-gold">Aravind Eye Hospitals</span></h2>
-          <p className="pc-stats-period">({STATS_PERIOD})</p>
+
+          <h2 className="pc-section-title">Performance<span className="pc-gold"> April 2025 - March 2026</span></h2>
           <PerformanceStatistics />
         </div>
       </section>
@@ -1493,7 +1486,7 @@ Responding to the growing eye care needs of patients across all its centres has 
         <div className="pc-section-inner">
           <h2 className="pc-section-title">Community Eye Clinics <span className="pc-gold">and City Centres</span></h2>
           <p className="pc-section-body">
-            During April 2025 to March 2026, four community eye clinics and four city centres together handled xxx patient visits.
+            During April 2025 to March 2026, four community eye clinics and four city centres together handled 245,965 patient visits.
           </p>
         </div>
       </section>

@@ -1296,7 +1296,9 @@
 .photo-lightbox-next { right: -56px; }
 
 @media (max-width: 768px) {
-  .photo-card { flex: 0 0 calc(80vw); min-width: unset; }
+  .photo-card { flex: 0 0 82%; min-width: unset; }
+    .carousel-track { gap: 14px; }
+    .carousel-arrow { width: 34px; height: 34px; font-size: 14px; }
   .photo-lightbox-prev { left: -8px; }
   .photo-lightbox-next { right: -8px; }
   .photo-lightbox-arrow { width: 36px; height: 36px; font-size: 14px; }
@@ -2005,4 +2007,17 @@
   .pc-page-nav-link   { flex-direction: column; align-items: flex-start; padding: 10px 16px; }
   .pc-page-nav-link-next { align-items: flex-end; }
   .pc-page-nav-title  { font-size: 13px; }
+}
+/* ══════════════════════════════════════
+   patientcare-ONLY mobile hero image swap.
+   ".patientcare-hero-bg" exists ONLY on this page's hero div,
+   so it can NEVER leak into any other page even though all
+   CSS files are bundled together globally.
+   Uncomment + set your mobile image filename when ready —
+   until then this block does nothing (safe no-op).
+══════════════════════════════════════ */
+@media (max-width: 640px) {
+  .patientcare-hero-bg {
+     background-image: url('patientcare-mobile.webp'), url('patient care 1080x1920.webp') !important; 
+  }
 }

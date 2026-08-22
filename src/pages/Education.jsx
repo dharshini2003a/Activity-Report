@@ -555,7 +555,7 @@ function CoursesTable() {
 
         {/* ══ HERO ══════════════════════════════════════════════ */}
         <section className="pc-hero">
-          <div className="pc-hero-bg"
+          <div className="pc-hero-bg education-hero-bg"
             style={{ backgroundImage: `url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
           <div className="pc-hero-overlay" />
           <div className="pc-hero-content">
