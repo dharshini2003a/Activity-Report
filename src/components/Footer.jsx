@@ -55,7 +55,7 @@ export default function Footer() {
       {/* ── PDF Download Bar ── */}
       <div className="sfd-bottom">
         <a
-          href="Annual_Activity_Report_2025-26.pdf"
+          href="Activity Report 2025-2026.pdf"
           className="sfd-pdf-btn"
           target="_blank"
           rel="noopener noreferrer"

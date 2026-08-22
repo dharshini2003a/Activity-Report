@@ -391,7 +391,7 @@ export default function Innovation() {
 
       {/* MORE DETAILS PROMPT */}
       <p className="pc-more-details">
-        Kindly <a href="Aravind Centre for Eye Care Innovation (ACEi)-1.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+        Kindly <a href="10_Aravind Centre for Eye Care Innovation (ACEi)-1.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
       </p>
 
       {/* PAGE NAVIGATION */}

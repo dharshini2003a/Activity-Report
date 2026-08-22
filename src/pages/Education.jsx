@@ -635,7 +635,7 @@ function CoursesTable() {
 
         {/* MORE DETAILS PROMPT */}
         <p className="pc-more-details">
-          Kindly <a href="4_AR_Lr_Edu& Tra_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
+          Kindly <a href="04_AR_Lr_Edu& Tra_2025-26.pdf" target="_blank" rel="noopener noreferrer">click here</a> for more details — download the (PDF).
         </p>
 {/* PAGE NAVIGATION */}
 <nav className="pc-page-nav" aria-label="Page navigation">
