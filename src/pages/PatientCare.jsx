@@ -19,28 +19,28 @@ const PC_STATS_ROW1 = [
 
 
 const OUTPATIENT_STATS = [
-  { value: "xxx", label: "Paying Sections" },
-  { value: "xxx", label: "Free Sections" },
-  { value: "xxx", label: "Screening camps" },
-  { value: "xxx", label: "Vision Centres" },
-  { value: "xxx", label: "Community Eye Clinics & City Centres" },
-  { value: "xxx", label: "Total Outpatient Visits", highlight: true },
+  { value: "34,47,561", label: "Paying Sections" },
+  { value: "12,88,695", label: "Free Sections" },
+  { value: "5,84,663", label: "Screening camps" },
+  { value: "11,45,621", label: "Vision Centres" },
+  { value: "2,45,965", label: "Community Eye Clinics & City Centres" },
+  { value: "67,12,505", label: "Total Outpatient Visits", highlight: true },
 ];
 
 const SURGERY_STATS = [
-  { value: "xxx", label: "Paying sections" },
-  { value: "xxx", label: "Subsidised (Walk-Ins to the free hospital)" },
-  { value: "xxx", label: "Free (Through screening camps)" },
-  { value: "xxx", label: "Total Surgeries, Laser procedures and Injections", highlight: true },
+  { value: "4,13,198", label: "Paying sections" },
+  { value: "2,84,216", label: "Subsidised (Walk-Ins to the free hospital)" },
+  { value: "1,04,589", label: "Free (Through screening camps)" },
+  { value: "8,02,003", label: "Total Surgeries, Laser procedures and Injections", highlight: true },
 ];
 
 const OUTREACH_PERFORMANCE_STATS = [
-  { value: "—", label: "No. of Comprehensive Eye Camps" },
-  { value: "—", label: "No. of Diabetic Retinopathy Screening Camps" },
-  { value: "—", label: "No. of Refraction Camps" },
-  { value: "—", label: "Eye Screening of School Children – Base Hospital (Schools served)" },
-  { value: "—", label: "No. of Paediatric Eye Screening Camps" },
-  { value: "—", label: "RoP Screening (Screening Visits)" },
+  { value: "2158", label: "No. of Comprehensive Eye Camps" },
+  { value: "224", label: "No. of Diabetic Retinopathy Screening Camps" },
+  { value: "462", label: "No. of Refraction Camps" },
+  { value: "385", label: "Eye Screening of School Children – Base Hospital (Schools served)" },
+  { value: "22", label: "No. of Paediatric Eye Screening Camps" },
+  { value: "2089", label: "RoP Screening (Screening Visits)" },
 ];
 
 function StatGroup({ title, stats }) {
@@ -1387,8 +1387,8 @@ export default function PatientCare() {
 
       {/* HERO */}
       <section className="pc-hero">
-        <div className="pc-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
-        <div className="pc-hero-overlay" />
+<div className="pc-hero-bg pc-hero-bg-desktop" style={{ backgroundImage: `url('${"patient care 1080x1920.webp"}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg pc-hero-bg-mobile" style={{ backgroundImage: `url('${"patientcare-mobile.webp"}'), url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />        <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag"></div>
           <h1 className="pc-hero-title">Patient<span className="pc-hero-gold"> Care</span></h1>
