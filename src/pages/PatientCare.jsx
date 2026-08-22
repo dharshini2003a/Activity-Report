@@ -1392,7 +1392,7 @@ export default function PatientCare() {
 
       {/* HERO */}
       <section className="pc-hero">
-        <div className="pc-hero-bg patientcare-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
+        <div className="pc-hero-bg" style={{ backgroundImage:`url('${HERO_IMAGE}'), url('${HERO_FALLBACK}')` }} />
         <div className="pc-hero-overlay" />
         <div className="pc-hero-content">
           <div className="pc-hero-tag"></div>

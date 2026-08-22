@@ -1754,45 +1754,6 @@
       linear-gradient(105deg, rgba(13,31,53,0.55) 0%, rgba(13,31,53,0.25) 55%, rgba(13,31,53,0.05) 100%);
   }
 
-  /* ══════════════════════════════════════
-     MOBILE HERO PHOTO FIX
-     Desktop keeps the diagonal gradient above (works fine
-     because the man's face sits in the lighter, low-opacity
-     side of the diagonal). On phones the crop is a narrow
-     vertical slice through the CENTER of the same image, so
-     that diagonal doesn't line up the same way — the photo
-     was basically invisible. This is our separate "mobile
-     header" treatment: lighter, flat overlay + repositioned
-     crop so the photo stays visible.
-  ══════════════════════════════════════ */
-  @media (max-width: 640px) {
-    .pc-hero-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(13,31,53,0.55) 0%,
-        rgba(13,31,53,0.35) 45%,
-        rgba(13,31,53,0.68) 100%
-      ) !important;
-    }
-    .pc-hero-bg {
-      background-position: center 15% !important;
-    }
-
-    /* ══════════════════════════════════════
-       HIGHLIGHTS-ONLY mobile hero image swap.
-       ".highlights-hero-bg" exists ONLY on the
-       Highlights page's hero div — so this rule
-       can NEVER leak into PatientCare, Education,
-       or any other page, even though CSS is
-       bundled globally. Use a DIFFERENT unique
-       class per page (e.g. "patientcare-hero-bg")
-       if you want to do the same swap elsewhere.
-    ══════════════════════════════════════ */
-    .highlights-hero-bg {
-      background-image: url('PN-Sir-Mobile.webp'), url('PN Sir.webp') !important;
-    }
-  }
-
   @media (max-width: 640px) {
     .pc-hero-title      { font-size: 2.1rem; line-height: 1.25; }
     .pc-section-title   { font-size: 1.7rem; }
